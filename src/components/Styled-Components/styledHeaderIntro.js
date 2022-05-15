@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  margin-bottom: 200px;    
+  position: absolute;
+  left: 16px;
+  bottom: 150px;
 `

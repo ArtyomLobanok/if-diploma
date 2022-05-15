@@ -19,6 +19,7 @@ export const HeaderSection = styled.section`
   background-position: center;
   min-height: 56.25rem;
   background-size: cover;
+  padding: 40px 0 200px;
 `
 
 const StyledFlex = styled.div`
@@ -36,15 +37,14 @@ export const Flex = (props) => {
 }
 
 export const Section = styled.section`
-  background: ${props => props.theme.BACKGROUND_COLOR_SECTION};
-  padding: 120px 0;
+  background: ${props => props.color || "#FFFFFF"};
+  padding: 180px 0;
   display: flex;
 `
 
-export const Title = styled.p`
-  color: ${props => props.theme.COLOR_TITLE};
-  font-size: ${props => props.little ? "18px" : "24px"};
-  font-weight: ${props => props.bold ? "500" : "400"};
-  margin: ${props => props.margin || '0'};
+export const SectionTitle = styled.h3`
+  color: ${props => props.color || "#000F08"};
+  font-weight: 700;
+  font-size: 51px;
   text-decoration: none;
 `

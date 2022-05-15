@@ -1,7 +1,9 @@
 import {
+    headerTextButton,
+    headerTextSubTitlePartOne, headerTextSubTitlePartSecond,
     headerTextTitle,
 } from "../configs/stringsData";
-import {HeaderTitle} from "./Styled-Components/styledNavigation";
+import {HeaderButton, HeaderSubTitle, HeaderTitle} from "./Styled-Components/styledNavigation";
 import {Container} from "./Styled-Components/General";
 import {HeaderWrapper} from "./Styled-Components/styledHeaderIntro";
 
@@ -10,6 +12,8 @@ const HeaderIntro = () => {
         <Container>
             <HeaderWrapper>
                  <HeaderTitle>{headerTextTitle}</HeaderTitle>
+                <HeaderSubTitle>{headerTextSubTitlePartOne}<br/>{headerTextSubTitlePartSecond}</HeaderSubTitle>
+                <HeaderButton>{headerTextButton}</HeaderButton>
             </HeaderWrapper>
         </Container>
     )
