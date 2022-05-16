@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import backgroundImage from "../../assets/img/image-placeholder.png"
 
 export const Container = styled.div`
@@ -19,7 +19,7 @@ export const HeaderSection = styled.section`
   background-position: center;
   min-height: 56.25rem;
   background-size: cover;
-  padding: 40px 0 200px;
+  padding: 25px 0 122px;
 `
 
 const StyledFlex = styled.div`
@@ -38,13 +38,20 @@ export const Flex = (props) => {
 
 export const Section = styled.section`
   background: ${props => props.color || "#FFFFFF"};
-  padding: 180px 0;
+  padding: 120px 0;
   display: flex;
 `
-
-export const SectionTitle = styled.h3`
+export const SectionTitleWrapper = styled.div`
   color: ${props => props.color || "#000F08"};
-  font-weight: 700;
-  font-size: 51px;
+  display: flex;
+  margin: 0 auto 110px;
+  font-size: 46px;
   text-decoration: none;
+`
+export const SectionTitle = styled.h3`
+  margin-right: ${props => props.marginRight || "0"};
+  font-weight: 400;
+`
+export const SectionTitleBold = styled.h3`
+  font-weight: 700;
 `

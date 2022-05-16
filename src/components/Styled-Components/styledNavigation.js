@@ -12,12 +12,12 @@ export const Navigation = styled.nav`
     align-items: center;
     margin: 0;
     padding: 4px;
-    font-size: 18px;
+    font-size: 16px;
 
     li {
       display: flex;
       align-items: center;
-      margin-right: 60px;
+      margin-right: 50px;
       cursor: pointer;
       position: relative;
       &:hover:after {
@@ -49,32 +49,33 @@ export const Navigation = styled.nav`
 export const LogotypeIcon = styled.svg`
   display: block;
   fill: ${props => props.fill || "#FFFFFF"};
-  width: ${props => props.width || '354px'};
-  height: ${props => props.height || '40.5px'};
+  width: ${props => props.width || '269px'};
+  height: ${props => props.height || '36px'};
 `
 export const SearchIcon = styled.svg`
   display: block;
   fill: ${props => props.fill || "#FFFFFF"};
-  width: ${props => props.width || '21px'};
-  height: ${props => props.height || '21px'};
+  width: ${props => props.width || '18px'};
+  height: ${props => props.height || '18px'};
+  margin-right: 4px;
 `
 export const LikeIcon = styled.svg`
   display: block;
   fill: ${props => props.fill || "#FFFFFF"};
-  width: ${props => props.width || '21px'};
-  height: ${props => props.height || '21px'};
+  width: ${props => props.width || '18px'};
+  height: ${props => props.height || '18px'};
 `
 
 export const HeaderTitle = styled.h1`
   color: ${props => props.color || "#FFFFFF"};
-  margin-bottom: 28.5px;
-  font-size: 57px;
+  margin-bottom: 20px;
+  font-size: 50px;
   font-weight: 700;
 `
 export const HeaderSubTitle = styled.h2`
   color: ${props => props.color || "#FFFFFF"};
-  margin-bottom: 45px;
-  font-size: 24px;
+  margin-bottom: 40px;
+  font-size: 20px;
   font-weight: 400;
 `
 export const HeaderButton = styled.button`
@@ -83,8 +84,8 @@ export const HeaderButton = styled.button`
   border-color: ${props => props.color || "#FFFFFF"};
   border-width: 1px;
   border-style: solid;
-  padding: 25.5px 61.5px;
-  font-size: 32px;
+  padding: 22px 55px;
+  font-size: 20px;
   cursor: pointer;
   &:hover {
     background-color: ${props => props.color || "#FFFFFF"};
