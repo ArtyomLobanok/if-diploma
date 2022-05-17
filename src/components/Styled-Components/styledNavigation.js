@@ -59,12 +59,6 @@ export const SearchIcon = styled.svg`
   height: ${props => props.height || '18px'};
   margin-right: 4px;
 `
-export const LikeIcon = styled.svg`
-  display: block;
-  fill: ${props => props.fill || "#FFFFFF"};
-  width: ${props => props.width || '18px'};
-  height: ${props => props.height || '18px'};
-`
 
 export const HeaderTitle = styled.h1`
   color: ${props => props.color || "#FFFFFF"};

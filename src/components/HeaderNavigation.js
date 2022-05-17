@@ -5,8 +5,8 @@ import {
     navLinkTextShop,
     navLinkTextSignIn
 } from "../configs/stringsData";
-import {LikeIcon, LogotypeIcon, Navigation, SearchIcon} from "./Styled-Components/styledNavigation";
-import {Container} from "./Styled-Components/General";
+import {LogotypeIcon, Navigation, SearchIcon} from "./Styled-Components/styledNavigation";
+import {Container, LikeIcon} from "./Styled-Components/General";
 
 const HeaderNavigation = () => {
     return (

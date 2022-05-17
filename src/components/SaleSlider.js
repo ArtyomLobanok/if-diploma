@@ -1,15 +1,86 @@
-import HotelCard from "../HotelCard/HotelCard";
-import useFetch from "../../hooks/useFetch"
+import useCatalogFetch from "../hooks/getDataCatalog";
+import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "./Styled-Components/styledSaleSection";
+import CardOfSale from "./CardOfSale";
+import Slider from "react-slick";
 
 
 const SaleSlider = () => {
-    const {array} = useFetch();
+    const {catalogArray} = useCatalogFetch();
+    console.log(catalogArray)
+    const SampleNextArrow = ({className, onClick}) => {
+        return (
+            <div
+                className={className}
+                onClick={onClick}
+            >
+                <div>
+                    <SliderButtonNext>
+                        <SliderArrow >
+                            <use href="#Arrow"></use>
+                        </SliderArrow>
+                    </SliderButtonNext>
+                </div>
+            </div>
+        );
+    }
 
+    const SamplePrevArrow = ({className, onClick}) => {
+        return (
+            <div
+                className={className}
+                onClick={onClick}
+            >
+                <div>
+                    <SliderButtonPrev>
+                        <SliderArrow>
+                            <use href="#Arrow"></use>
+                        </SliderArrow>
+                    </SliderButtonPrev>
+                </div>
+            </div>
+        );
+    }
+
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        nextArrow: <SampleNextArrow/>,
+        prevArrow: <SamplePrevArrow/>,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: false,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }
+        ]
+    }
     return (
-        <SliderWrapper>
+        <SliderWrapper >
             <Slider {...settings}>
-                {array.map(hotelCard => (
-                    <HotelCard key={hotelCard.id} card={hotelCard}/>
+                {catalogArray.map(saleCard => (
+                    <CardOfSale key={saleCard.id} card={saleCard}/>
                 ))}
             </Slider>
         </SliderWrapper>

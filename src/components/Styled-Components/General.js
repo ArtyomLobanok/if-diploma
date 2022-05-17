@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 165rem;
+  max-width: 1642px;
   padding: 0 1rem;
   margin: 0 auto;
   overflow: hidden;
@@ -54,4 +54,12 @@ export const SectionTitle = styled.h3`
 `
 export const SectionTitleBold = styled.h3`
   font-weight: 700;
+`
+
+export const LikeIcon = styled.svg`
+  display: block;
+  fill: ${props => props.fill || "#FFFFFF"};
+  width: ${props => props.width || '18px'};
+  height: ${props => props.height || '18px'};
+  z-index: 1000;
 `

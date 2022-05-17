@@ -9,15 +9,17 @@ import {
     SectionTitleWrapper,
     SectionTitleBold
 } from "../components/Styled-Components/General";
+import SaleSlider from "../components/SaleSlider";
 
 const Sale = () => {
     return (
         <Section>
             <Container>
-                    <SectionTitleWrapper>
-                        <SectionTitle>{sectionSaleTitleTextPartOne}</SectionTitle>
-                        <SectionTitleBold>{sectionSaleTitleTextPartSecond}</SectionTitleBold>
-                    </SectionTitleWrapper>
+                <SectionTitleWrapper>
+                    <SectionTitle>{sectionSaleTitleTextPartOne}</SectionTitle>
+                    <SectionTitleBold>{sectionSaleTitleTextPartSecond}</SectionTitleBold>
+                </SectionTitleWrapper>
+                <SaleSlider/>
             </Container>
         </Section>
     )
