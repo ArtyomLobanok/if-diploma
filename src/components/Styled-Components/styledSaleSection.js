@@ -67,10 +67,10 @@ export const SliderButton = styled.button`
   }
 `
 export const SliderButtonNext = styled(SliderButton)`
-  transform: translate3d(-75%, -50%, 0);
+  transform: translate3d(-75%, -70%, 0);
 `
 export const SliderButtonPrev = styled(SliderButton)`
-  transform: translate3d(-25%, -50%, 0);
+  transform: translate3d(-25%, -70%, 0);
 
   svg {
     transform: rotate(180deg)

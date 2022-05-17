@@ -28,5 +28,5 @@ export const StyledSvgCategory = styled.svg`
   fill: ${props => props.fill || "#000F08"};
   width: ${props => props.width || '64px'};
   height: ${props => props.height || '64px'};
-  margin: 28px 12px 28px 16px;
+  margin: 28px 12px;
 `

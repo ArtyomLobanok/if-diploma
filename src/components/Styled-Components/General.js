@@ -25,11 +25,13 @@ export const HeaderSection = styled.section`
 const StyledFlex = styled.div`
   position: ${props => props.position || 'initial'};
   display: flex;
+  flex-wrap: ${props => props.wrap || 'initial'};
   flex-direction: ${props => props.direction || 'row'};
   align-items: ${props => props.align || 'stretch'};
   justify-content: ${props => props.justify || 'stretch'};
   margin: ${props => props.margin || '0'};
   width: ${props => props.width || '100%'};
+  overflow: hidden;
 `
 
 export const Flex = (props) => {

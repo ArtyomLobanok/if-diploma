@@ -6,7 +6,6 @@ import Slider from "react-slick";
 
 const SaleSlider = () => {
     const {catalogArray} = useCatalogFetch();
-    console.log(catalogArray)
     const SampleNextArrow = ({className, onClick}) => {
         return (
             <div
