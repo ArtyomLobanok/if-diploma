@@ -79,12 +79,12 @@ const Svg = () => {
                     <path d="M8 4.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM8 11a2.503 2.503 0 0 1-2.5-2.5C5.5 7.121 6.622 6 8 6s2.5 1.121 2.5 2.5C10.5 9.878 9.378 11 8 11ZM12.3 4.734a.533.533 0 1 0 0-1.066.533.533 0 0 0 0 1.066Z"/>
                 </g>
             </symbol>
-            <symbol id="collapse" viewBox="0 0 1 9">
+            <symbol id="collapse" viewBox="0 0 9 9">
                 <g>
                     <path d="M0 0h9v1H0z"/>
                 </g>
             </symbol>
-            <symbol id="Union" viewBox="0 0 9 9">
+            <symbol id="cross" viewBox="0 0 9 9">
                 <g>
                     <path d="M4 5v4h1V5h4V4H5V0H4v4H0v1h4Z"/>
                 </g>
