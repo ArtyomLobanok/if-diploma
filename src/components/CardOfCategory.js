@@ -12,7 +12,7 @@ import {
     CardIconWrapper,
     CardButton,
 } from "./Styled-Components/styledSaleCard";
-import {saleBtnCardTextAdd, salePercent} from "../configs/stringsData";
+import {saleBtnCardTextAdd} from "../configs/stringsData";
 
 
 const categoryCard = props => {

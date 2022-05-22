@@ -1,16 +1,12 @@
-import Header from "../views/Header"
-import ShopCategory from "./CategoryListSection";
-import Sale from "./Sale";
-import CategorySection from "./CategorySection";
+import {Route, Routes} from "react-router-dom";
+import MainPage from "./MainPage";
+
 
 const App = () => {
     return (
-        <>
-            <Header/>
-            <ShopCategory/>
-            <CategorySection/>
-            <Sale/>
-        </>
+        <Routes>
+            <Route path="/" element={<MainPage/>}/>
+        </Routes>
     );
 }
 

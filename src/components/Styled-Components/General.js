@@ -63,5 +63,6 @@ export const LikeIcon = styled.svg`
   fill: ${props => props.fill || "#FFFFFF"};
   width: ${props => props.width || '18px'};
   height: ${props => props.height || '18px'};
+  margin: ${props => props.margin || '0'};
   z-index: 1000;
 `
