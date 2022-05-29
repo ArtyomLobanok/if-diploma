@@ -1,9 +1,9 @@
 import {BtnCategory, StyledSvgCategory} from "./Styled-Components/styledCategorySection";
 
-const btnCard = props => {
-    const {url, title} = props.card;
+const btnCard = ({card, handleChange}) => {
+    const {url, title} = card;
     return (
-        <BtnCategory value={title}>
+        <BtnCategory onClick={(e) => handleChange({e,title})} >
             <StyledSvgCategory>
                 <use href={url}></use>
             </StyledSvgCategory>
@@ -11,4 +11,5 @@ const btnCard = props => {
         </BtnCategory>
     )
 }
+
 export default btnCard;

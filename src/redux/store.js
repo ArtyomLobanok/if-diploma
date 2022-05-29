@@ -3,10 +3,10 @@ import {combineReducers} from "redux";
 import thunk from "redux-thunk";
 import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import testReducer from '../redux/reducers/reducer'
+import catalogLoadReducer from './reducers/catalogLoadReducer'
 
 const rootReducer = combineReducers({
-    testReducer
+    catalogLoadReducer
 });
 
 const persistConfig = {

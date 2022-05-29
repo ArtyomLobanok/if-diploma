@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {
     Container, Flex,
     Section,
@@ -5,12 +6,20 @@ import {
     SectionTitleWrapper,
 } from "../components/Styled-Components/General";
 import CardOfCategory from "../components/CardOfCategory";
-import useCatalogFetch from "../hooks/getDataCatalog";
-
+import {useSelector} from "react-redux";
+import {StyledBtnShowMoreItemCategory} from "../components/Styled-Components/styledCategorySection";
+import {BtnShowMoreItemCategoryText, NotFoundText} from "../configs/stringsData";
 
 const CategorySection = () => {
-    const {catalogArray} = useCatalogFetch();
+    const [listMultiplier, setListMultiplier] = useState(1);
+    const filteredClothesList = useSelector(state => state.catalogLoadReducer)
+    console.log(filteredClothesList)
+    const paginatedList = filteredClothesList.slice(0, listMultiplier * 4)
+    const handleChange = () => {
+        setListMultiplier(listMultiplier + 1)
+    }
     return (
+        filteredClothesList.length !== 0 &&
         <Section>
             <Container>
                 <SectionTitleWrapper>
@@ -19,12 +28,15 @@ const CategorySection = () => {
                     </SectionTitleBold>
                 </SectionTitleWrapper>
                 <Flex width='100%' wrap='wrap'>
-                {
-                    catalogArray.map(categoryCard => (
-                    <CardOfCategory key={categoryCard.id} card={categoryCard}/>
-                ))
-                }
+                    {
+                        paginatedList.map(categoryCard => (
+                            <CardOfCategory key={categoryCard.id} card={categoryCard}/>
+                        ))
+                    }
                 </Flex>
+                <StyledBtnShowMoreItemCategory onClick={handleChange}>
+                    {BtnShowMoreItemCategoryText}
+                </StyledBtnShowMoreItemCategory>
             </Container>
         </Section>
     )

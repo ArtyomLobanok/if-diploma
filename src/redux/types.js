@@ -1,1 +1,1 @@
-export const TEST_DATA = 'TEST_DATA';
+export const CATALOG_DATA_LOAD = 'CATALOG_DATA_LOAD';
