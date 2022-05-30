@@ -45,7 +45,19 @@ export const ItemPageTextOrder = 'PRE-ORDER';
 export const ItemPageTextColor = 'COLOR';
 // export const ItemPageTextSize = 'SIZE';
 export const NotFoundText = 'No beauty products found...';
-export const BtnShowMoreItemCategoryText = 'Show more'
+export const BtnShowMoreItemCategoryText = 'Show more';
+export const CreateAccText = 'CREATE ACCOUNT';
+export const LoginAccText = 'LOGIN';
+export const AgreementTextPartFirst = 'Let\'s get personal! We\'ll send you only the good stuff:';
+export const AgreementTextPartSecond = 'Exclusive early access to Sale, new arrivals and promotions. No nasties.';
+export const SubTextAgreePartFirst = 'By signing up you agree to ';
+export const SubTextTerms = 'Terms of Service';
+export const SubTextAgreePartSecond = ' and ';
+export const SubTextPolicy = 'Privacy Policy ';
+export const SingUpBtnText = 'SIGN UP';
+export const LinkToLoginText = 'I HAVE AN ACCOUNT';
+export const LinkToRegistrationText = "I DON'T HAVE AN ACCOUNT";
+
 
 
 
