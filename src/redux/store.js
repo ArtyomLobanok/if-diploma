@@ -4,8 +4,10 @@ import thunk from "redux-thunk";
 import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import catalogLoadReducer from './reducers/catalogLoadReducer'
+import userReducer from './slices/userSlice';
 
 const rootReducer = combineReducers({
+    user: userReducer,
     catalogLoadReducer
 });
 

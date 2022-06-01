@@ -7,15 +7,14 @@ import {
     SectionTitleWrapper
 } from "../components/Styled-Components/General";
 import {
-    NotFoundText,
     sectionCategoryTitleTextPartOne,
     sectionCategoryTitleTextPartSecond,
-} from "../configs/stringsData";
+} from "../configs/stringsDataConfig";
 import CardOfButtonCategory from "../components/CardOfButtonCategory";
 import {categoryListData} from "../components/CategoryListData";
 import {catalogLoad} from "../redux/actions";
-import {useDispatch, useSelector} from "react-redux";
-import {ShopCategoryNotFound} from "../components/Styled-Components/styledCategorySection";
+import {useDispatch} from "react-redux";
+
 
 const ShopCategory = () => {
     const dispatch = useDispatch();
@@ -23,7 +22,7 @@ const ShopCategory = () => {
         e.preventDefault()
         dispatch(catalogLoad(title));
     }
-    const filteredClothesList = useSelector(state => state.catalogLoadReducer)
+    // const filteredClothesList = useSelector(state => state.catalogLoadReducer)
     return (
         <>
             <Section>

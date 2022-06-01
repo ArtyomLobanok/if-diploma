@@ -8,7 +8,7 @@ import {
 import CardOfCategory from "../components/CardOfCategory";
 import {useSelector} from "react-redux";
 import {StyledBtnShowMoreItemCategory} from "../components/Styled-Components/styledCategorySection";
-import {BtnShowMoreItemCategoryText, NotFoundText} from "../configs/stringsData";
+import {BtnShowMoreItemCategoryText} from "../configs/stringsDataConfig";
 
 const CategorySection = () => {
     const [listMultiplier, setListMultiplier] = useState(1);

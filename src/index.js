@@ -7,7 +7,7 @@ import {PersistGate} from "redux-persist/integration/react";
 import App from "./views/App";
 import reportWebVitals from "./reportWebVitals";
 import {GlobalStyle} from "./components/Styled-Components/Global";
-
+import './firebase';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

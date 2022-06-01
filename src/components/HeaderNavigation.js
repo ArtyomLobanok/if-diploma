@@ -4,7 +4,7 @@ import {
     navLinkTextSearch,
     navLinkTextShop,
     navLinkTextSignIn
-} from "../configs/stringsData";
+} from "../configs/stringsDataConfig";
 import {LogotypeIcon, Navigation, SearchIcon} from "./Styled-Components/styledNavigation";
 import {Container, LikeIcon} from "./Styled-Components/General";
 

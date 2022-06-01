@@ -1,7 +1,7 @@
 import {
     sectionSaleTitleTextPartOne,
     sectionSaleTitleTextPartSecond
-} from "../configs/stringsData";
+} from "../configs/stringsDataConfig";
 import {
     Container,
     Section,

@@ -1,5 +1,5 @@
 import {Container} from "../components/Styled-Components/General";
-import {goToShopInstagramText, sectionSaleTitleTextPartOne, shopInstagramText} from "../configs/stringsData";
+import {goToShopInstagramText, sectionSaleTitleTextPartOne, shopInstagramText} from "../configs/stringsDataConfig";
 import LeftScreenImg from "../../src/assets/img/LeftScreenImg.png"
 import RightScreenImgFirst from "../assets/img/RightScreenImgFirst.png"
 import RightScreenImgSecond from "../assets/img/RightScreenImgSecond.png"
@@ -22,21 +22,21 @@ const ShopInstagram = () => {
         <Container>
             <ShopInstagramWrapper>
                 <ShopInstagramHeader>
-                    <a href="#">{shopInstagramText}</a>
-                    <a href="#">{goToShopInstagramText}</a>
+                    <p>{shopInstagramText}</p>
+                    <p>{goToShopInstagramText}</p>
                     <ShopInstagramArrow>
                         <use href="#arrowInstagramShop"></use>
                     </ShopInstagramArrow>
                 </ShopInstagramHeader>
                 <ShopInstagramBody>
                     <ShopInstagramLeftScreen>
-                        <img src={LeftScreenImg} alt="Image"/>
+                        <img src={LeftScreenImg} alt="Img"/>
                     </ShopInstagramLeftScreen>
                     <ShopInstagramRightScreen>
-                        <img src={RightScreenImgFirst} alt="Image"/>
-                        <img src={RightScreenImgSecond} alt="Image"/>
-                        <img src={RightScreenImgThird} alt="Image"/>
-                        <img src={RightScreenImgFourth} alt="Image"/>
+                        <img src={RightScreenImgFirst} alt="Img"/>
+                        <img src={RightScreenImgSecond} alt="Img"/>
+                        <img src={RightScreenImgThird} alt="Img"/>
+                        <img src={RightScreenImgFourth} alt="Img"/>
                     </ShopInstagramRightScreen>
                 </ShopInstagramBody>
                 <ShopInstagramFooter>

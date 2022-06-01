@@ -12,7 +12,7 @@ import {
     CardIconWrapper,
     CardButton,
 } from "./Styled-Components/styledSaleCard";
-import {saleBtnCardTextAdd} from "../configs/stringsData";
+import {saleBtnCardTextAdd} from "../configs/stringsDataConfig";
 
 
 const categoryCard = props => {

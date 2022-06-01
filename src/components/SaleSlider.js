@@ -1,4 +1,4 @@
-import useCatalogFetch from "../hooks/getDataCatalog";
+import useCatalogFetch from "../hooks/useCatalogFetch";
 import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "./Styled-Components/styledSaleSection";
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";

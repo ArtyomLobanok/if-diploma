@@ -6,7 +6,7 @@ import {
     FooterListTextFAQ, FooterListTextFollow, FooterListTextGift, FooterListTextInfo, FooterListTextInstagram,
     FooterListTextOdnoklassniki, FooterListTextPayment, FooterListTextPolicies, FooterListTextReturn,
     FooterListTextSize, FooterListTextTel, FooterListTextTrack, FooterListTextVisit,
-} from "../configs/stringsData";
+} from "../configs/stringsDataConfig";
 
 export const FooterList = styled.ul`
   color: ${props => props.color || "#000F08"};

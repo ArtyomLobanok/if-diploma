@@ -12,12 +12,12 @@ export const ShopInstagramHeader = styled.div`
   align-items: center;
   padding: 56px 0 34px;
 
-  a {
+  p {
     color: ${props => props.color || "#000F08"};
     text-decoration: none;
   }
 
-  a:first-child {
+  p:first-child {
     margin-right: 98px;
   }
 `

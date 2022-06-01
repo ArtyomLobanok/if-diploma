@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import HeaderNavigation from "../components/HeaderNavigation";
 import Footer from "./Footer";
 import {Container, Flex, LikeIcon} from "../components/Styled-Components/General";
-import {ItemPageTextColor, ItemPageTextOrder, saleBtnCardTextAdd} from "../configs/stringsData";
+import {ItemPageTextColor, ItemPageTextOrder, saleBtnCardTextAdd} from "../configs/stringsDataConfig";
 import img1 from "../assets/img/temp/itemPageImg1.png"
 import img2 from "../assets/img/temp/itemPageImg2.png"
 import {

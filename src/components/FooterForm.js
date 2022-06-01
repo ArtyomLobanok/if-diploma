@@ -3,7 +3,7 @@ import {
     singUpFormFooterSubTitleText,
     singUpFormFooterTitleText,
     singUpPlaceholderText
-} from "../configs/stringsData";
+} from "../configs/stringsDataConfig";
 import styled from "styled-components";
 
 const FooterFormWrapper = styled.div`

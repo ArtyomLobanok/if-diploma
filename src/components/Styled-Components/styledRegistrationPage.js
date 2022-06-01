@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CheckboxCheck from "../../assets/img/Check-buttons/checkbox-check-not_focus.svg";
 import CheckboxDefault from "../../assets/img/Check-buttons/checkbox-default.svg";
+import {Link} from "react-router-dom";
 
 export const RegisterFormTitleWrapper = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const RegisterFormBody = styled.div`
   padding: 75px 66px 50px
 `
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.section`
   padding: 82px;
   background-color: #BDBDBD;
   max-width: 1920px;
@@ -105,7 +106,7 @@ export const StyledSingUpBtn = styled.button`
   }
 `
 
-export const StyledLinkToLogin = styled.a`
+export const StyledLinkToLogin = styled(Link)`
   text-decoration: underline;
   font-weight: 300;
   font-size: 16px;

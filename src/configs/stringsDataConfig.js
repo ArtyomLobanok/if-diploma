@@ -40,7 +40,8 @@ export const FooterListTextInstagram = 'INSTAGRAM';
 export const FooterListTextContactUs = 'CONTACT US';
 export const FooterListTextEmail = 'hello@modnikky.com';
 export const FooterListTextTel = '+7 910 832 26XX';
-export const FooterListTextVisit = 'Visit us at Shalalaeva 23,\n' + 'Bologoe, Russia';
+export const FooterListTextVisit = `Visit us at Shalalaeva 23,
+Bologoe, Russia`;
 export const ItemPageTextOrder = 'PRE-ORDER';
 export const ItemPageTextColor = 'COLOR';
 // export const ItemPageTextSize = 'SIZE';
