@@ -7,15 +7,12 @@ import {setUser} from '../../redux/slices/userSlice';
 const SingIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const handleLogin = (email, password) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then(({user}) => {
                 dispatch(setUser({
                     email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
                     id: user.uid,
                     token: user.accessToken,
                 }));

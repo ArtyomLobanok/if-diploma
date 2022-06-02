@@ -42,6 +42,10 @@ export const Navigation = styled.nav`
       &:last-child {
         margin-right: 0;
       }
+      a {
+        color: ${props => props.color || "#FFFFFF"};
+        text-decoration: none;
+      }
     }
   }
 `

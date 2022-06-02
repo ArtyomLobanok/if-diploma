@@ -7,6 +7,7 @@ import {
 } from "../configs/stringsDataConfig";
 import {LogotypeIcon, Navigation, SearchIcon} from "./Styled-Components/styledNavigation";
 import {Container, LikeIcon} from "./Styled-Components/General";
+import {Link} from "react-router-dom";
 
 const HeaderNavigation = () => {
     return (
@@ -27,7 +28,7 @@ const HeaderNavigation = () => {
                         </SearchIcon>
                         {navLinkTextSearch}
                     </li>
-                    <li>{navLinkTextSignIn}</li>
+                    <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
                     <li>{navLinkTextBag}</li>
                     <li>
                         <LikeIcon>

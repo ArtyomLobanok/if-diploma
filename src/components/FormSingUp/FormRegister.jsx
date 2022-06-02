@@ -17,10 +17,9 @@ import FormData from "./FormData";
 const FormRegister = ({handleClick}) => {
     const { handleChangeFirstName, handleChangeLastName,handleSubmit, handleChangeEmail, handleChangePassword,
         email, pass, firstName,lastName} = FormData();
-    const handleLogin = () => {
-        handleClick(email, pass)
+    const handleRegister = () => {
+        handleClick(email, pass, firstName, lastName)
     };
-    console.log(firstName)
     return (
         <Form onSubmit={handleSubmit}>
             <RegisterFormTitleWrapper>
@@ -72,11 +71,11 @@ const FormRegister = ({handleClick}) => {
                 </AgreementWrapper>
                 <SubscriptionWrapper>
                     {SubTextAgreePartFirst}
-                    <a href="#">{SubTextTerms}</a>
+                    <a href="/#">{SubTextTerms}</a>
                     {SubTextAgreePartSecond}
-                    <a href="#">{SubTextPolicy}</a>
+                    <a href="/#">{SubTextPolicy}</a>
                 </SubscriptionWrapper>
-                <StyledSingUpBtn onClick={handleLogin}>{SingUpBtnText}</StyledSingUpBtn>
+                <StyledSingUpBtn onClick={handleRegister}>{SingUpBtnText}</StyledSingUpBtn>
                 <StyledLinkToLogin to="/login">{LinkToLoginText}</StyledLinkToLogin>
             </RegisterFormBody>
         </Form>

@@ -5,8 +5,6 @@ import Sale from "./Sale";
 import ShopInstagram from "./ShopInstagram";
 import Footer from "./Footer";
 import ItemPage from "./ItemPage";
-import RegisterPage from "./RegisterPage";
-import LoginPage from "./LoginPage";
 
 const MainPage = () => {
     return (
@@ -18,8 +16,6 @@ const MainPage = () => {
             <ShopInstagram/>
             <Footer/>
             <ItemPage/>
-            <RegisterPage/>
-            <LoginPage/>
         </>
     );
 }

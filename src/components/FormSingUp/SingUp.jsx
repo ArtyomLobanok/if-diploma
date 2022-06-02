@@ -3,16 +3,12 @@ import {setUser} from '../../redux/slices/userSlice';
 import {useNavigate} from 'react-router-dom';
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import FormRegister from './FormRegister';
-import FormData from "./FormData";
 
 const SignUp = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {firstName,lastName} = FormData();
-    console.log(firstName)
-    const handleRegister = (email, password) => {
+    const handleRegister = (email, password, firstName, lastName) => {
         const auth = getAuth();
-        console.log(auth)
         createUserWithEmailAndPassword(auth, email, password)
             .then(({user}) => {
                 dispatch(setUser({

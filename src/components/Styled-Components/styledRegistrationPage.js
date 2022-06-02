@@ -65,6 +65,7 @@ export const AgreementWrapper = styled.div`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
     &:checked + span {
       transition: all 0.2s linear;
       background-image: url(${CheckboxCheck});
@@ -107,6 +108,7 @@ export const StyledSingUpBtn = styled.button`
 `
 
 export const StyledLinkToLogin = styled(Link)`
+  color: #000F08;
   text-decoration: underline;
   font-weight: 300;
   font-size: 16px;
