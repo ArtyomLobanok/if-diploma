@@ -66,20 +66,19 @@ export const ItemColor = styled.div`
     color: ${props => props.color || "#8C8C8C"};
     margin-bottom: 20px;
   }
+`
 
-  button {
-    background-color: ${props => props.color || "#DFDED9"};
-    width: 40px;
-    height: 40px;
-    padding: 3px;
-    border: solid 1px #000F08;
-    cursor: pointer;
+export const ButtonColor = styled.button`
+  background-color: ${props => props.color || "initial"};
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border: solid 1px #000F08;
+  cursor: pointer;
 
-    &:hover {
-      transition: 0.5s ease;
-      background: darkgrey;
-      box-shadow: rgba(0, 15, 8, 0.6);
-    }
+  &:hover {
+    transition: 0.5s ease;
+    box-shadow: rgba(0, 15, 8, 0.6);
   }
 `
 export const ItemSize = styled.div`

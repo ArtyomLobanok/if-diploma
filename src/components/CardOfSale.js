@@ -16,17 +16,15 @@ import {
 import {saleBtnCardTextAdd, salePercent} from "../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
 
-
-const saleCard = ({card, handleChange}) => {
+const saleCard = ({card, handleSetId}) => {
     const {id, images, price} = card;
-
     const salePrice = Math.round(price.value / 100 * salePercent);
     return (
         <Link to={`/product/${id}`}>
-            <CardWrapper value={id} onClick={handleChange}>
+            <CardWrapper onClick={handleSetId}>
                 <CardContentWrapper>
                     <CardImgWrapper>
-                        <img src={images[0]} alt="Pictures"/>
+                        <img id={id} src={images[0]} alt="Pictures"/>
                     </CardImgWrapper>
                     <CardIconWrapper>
                         <LikeIcon width='42px' height='38px'>
