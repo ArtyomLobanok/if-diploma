@@ -3,13 +3,21 @@ import {
     navLinkTextCollections,
     navLinkTextSearch,
     navLinkTextShop,
-    navLinkTextSignIn
+    navLinkTextSignIn, navLinkTextSignOut
 } from "../configs/stringsDataConfig";
 import {LogotypeIcon, Navigation, SearchIcon} from "./Styled-Components/styledNavigation";
 import {Container, LikeIcon} from "./Styled-Components/General";
 import {Link} from "react-router-dom";
+import useAuth from "../hooks/use-auth";
+import {useDispatch} from 'react-redux';
+import {removeUser} from '../redux/slices/userSlice'
 
 const HeaderNavigation = () => {
+    const {isAuth} = useAuth();
+    const dispatch = useDispatch();
+    const handleLogOut = () => {
+        dispatch(removeUser({}))
+    }
     return (
         <Container>
             <Navigation>
@@ -28,7 +36,10 @@ const HeaderNavigation = () => {
                         </SearchIcon>
                         {navLinkTextSearch}
                     </li>
-                    <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
+                    {isAuth ?
+                        <li onClick={handleLogOut}>{navLinkTextSignOut}</li> :
+                        <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
+                    }
                     <li>{navLinkTextBag}</li>
                     <li>
                         <LikeIcon>

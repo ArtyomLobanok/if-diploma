@@ -1,6 +1,6 @@
 import {
     AgreementWrapper,
-    CloseIcon, Form,
+    Form,
     RegisterFormBody,
     RegisterFormTitle,
     RegisterFormTitleWrapper, StyledInputRegisterForm, StyledLinkToLogin, StyledSingUpBtn, SubscriptionWrapper
@@ -13,10 +13,13 @@ import {
 } from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
 import FormData from "./FormData";
+import CloseIcon from "../../assets/img/closeIcon.svg";
 
 const FormRegister = ({handleClick}) => {
-    const { handleChangeFirstName, handleChangeLastName,handleSubmit, handleChangeEmail, handleChangePassword,
-        email, pass, firstName,lastName} = FormData();
+    const {
+        handleChangeFirstName, handleChangeLastName, handleSubmit, handleChangeEmail, handleChangePassword,
+        email, pass, firstName, lastName
+    } = FormData();
     const handleRegister = () => {
         handleClick(email, pass, firstName, lastName)
     };
@@ -25,9 +28,7 @@ const FormRegister = ({handleClick}) => {
             <RegisterFormTitleWrapper>
                 <RegisterFormTitle>{CreateAccText}</RegisterFormTitle>
                 <Link to="/">
-                    <CloseIcon>
-                        <use href="#closeForm"></use>
-                    </CloseIcon>
+                    <img src={CloseIcon} alt="Close"/>
                 </Link>
             </RegisterFormTitleWrapper>
             <RegisterFormBody>

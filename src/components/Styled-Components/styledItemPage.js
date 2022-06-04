@@ -171,5 +171,6 @@ export const ItemFooterContent = styled.div`
     color: ${props => props.color || "#8C8C8C"};
     font-weight: 400;
     margin: 22px 0 6px;
+    transition: 0.5s ease;
   }
 `

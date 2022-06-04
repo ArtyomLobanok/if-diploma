@@ -1,11 +1,21 @@
-import useCatalogFetch from "../hooks/useCatalogFetch";
+import useCatalogFetch from "../hooks/use-catalogFetch";
 import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "./Styled-Components/styledSaleSection";
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
+import {useDispatch} from "react-redux";
+import {productLoad} from "../redux/actions";
+import {useState} from "react";
 
 
 const SaleSlider = () => {
     const {catalogArray} = useCatalogFetch();
+    const [isId, setIsId] = useState('');
+    console.log(isId)
+    const dispatch = useDispatch();
+    const handleChange = (e) => {
+        setIsId(e.target.value);
+        dispatch(productLoad(isId))
+    }
     const SampleNextArrow = ({className, onClick}) => {
         return (
             <div
@@ -79,7 +89,7 @@ const SaleSlider = () => {
         <SliderWrapper >
             <Slider {...settings}>
                 {catalogArray.map(saleCard => (
-                    <CardOfSale key={saleCard.id} card={saleCard}/>
+                    <CardOfSale value={saleCard.id} handleChange={handleChange} key={saleCard.id} card={saleCard}/>
                 ))}
             </Slider>
         </SliderWrapper>

@@ -5,16 +5,18 @@ import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import catalogLoadReducer from './reducers/catalogLoadReducer'
 import userReducer from './slices/userSlice';
+import productLoadReducer from "./reducers/productLoadReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
-    catalogLoadReducer
+    catalogLoadReducer,
+    productLoadReducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['',]
+    whitelist: ['user',]
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

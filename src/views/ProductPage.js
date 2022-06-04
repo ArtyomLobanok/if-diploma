@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import HeaderNavigation from "../components/HeaderNavigation";
 import Footer from "./Footer";
 import {Container, Flex, LikeIcon} from "../components/Styled-Components/General";
-import {ItemPageTextColor, ItemPageTextOrder, saleBtnCardTextAdd} from "../configs/stringsDataConfig";
+import {ItemPageTextColor, ItemPageTextOrder, ItemPageTextSize, saleBtnCardTextAdd} from "../configs/stringsDataConfig";
 import img1 from "../assets/img/temp/itemPageImg1.png"
 import img2 from "../assets/img/temp/itemPageImg2.png"
 import {
@@ -13,38 +13,18 @@ import {
     ItemInfoWrapper, ItemPrice, ItemSize, ItemSizeTitle,
     ItemTitle
 } from "../components/Styled-Components/styledItemPage";
+import ProductPageData from "../components/ProductPageData";
+import {useSelector} from "react-redux";
 
-const ItemPage = () => {
-    const [isActiveFirst, setIsActiveFirst] = useState(false);
-    const [isActiveSecond, setIsActiveSecond] = useState(false);
-    const [isActiveThird, setIsActiveThird] = useState(false);
-    const handleClickFirst = () => {
-        console.log('here one')
-        if (isActiveSecond === true) {
-            setIsActiveSecond(false)
-        } else if (isActiveThird === true) {
-            setIsActiveThird(false)
-        }
-        setIsActiveFirst(!isActiveFirst)
-    }
-    const handleClickSecond = () => {
-        console.log('here two')
-        if (isActiveFirst === true) {
-            setIsActiveFirst(false)
-        } else if (isActiveThird === true) {
-            setIsActiveThird(false)
-        }
-        setIsActiveSecond(!isActiveSecond)
-    }
-    const handleClickThird = () => {
-        console.log('here three')
-        if (isActiveFirst === true) {
-            setIsActiveFirst(false)
-        } else if (isActiveSecond === true) {
-            setIsActiveSecond(false)
-        }
-        setIsActiveThird(!isActiveThird)
-    }
+
+const ProductPage = () => {
+    const filteredItem = useSelector(state => state.productLoadReducer)
+    console.log(filteredItem)
+
+    const {
+        isActiveFirstCollapse, isActiveSecondCollapse, isActiveThirdCollapse,
+        handleClickFirstCollapse, handleClickSecondCollapse, handleClickThirdCollapse
+    } = ProductPageData();
 
     return (
         <>
@@ -68,7 +48,7 @@ const ItemPage = () => {
                             <button onClick={e => e.preventDefault()}/>
                         </ItemColor>
                         <ItemSize>
-                            <p>SIZE</p>
+                            <p>{ItemPageTextSize}</p>
                             <ItemSizeTitle>
                                 <button>S</button>
                                 <button>M</button>
@@ -89,18 +69,18 @@ const ItemPage = () => {
                         <ItemFooterWrapper>
                             <Flex jystify='space-between' margin="0 0 22px 0">
                                 {
-                                    isActiveFirst ?
-                                        <ItemIconClose onClick={handleClickFirst}>
+                                    isActiveFirstCollapse ?
+                                        <ItemIconClose onClick={handleClickFirstCollapse}>
                                             <use href="#collapse"></use>
                                         </ItemIconClose>
                                         :
-                                        <ItemIconOpen onClick={handleClickFirst}>
+                                        <ItemIconOpen onClick={handleClickFirstCollapse}>
                                             <use href="#cross"></use>
                                         </ItemIconOpen>
                                 }
                                 <ItemFooterContent>
                                     <span>PRODUCT DESCRIPTION</span>
-                                    {isActiveFirst &&
+                                    {isActiveFirstCollapse &&
                                         <p>
                                             Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
                                             fit across
@@ -118,18 +98,18 @@ const ItemPage = () => {
                         <ItemFooterWrapper>
                             <Flex jystify='space-between' margin="0 0 22px 0">
                                 {
-                                    isActiveSecond ?
-                                        <ItemIconClose onClick={handleClickSecond}>
+                                    isActiveSecondCollapse ?
+                                        <ItemIconClose onClick={handleClickSecondCollapse}>
                                             <use href="#collapse"></use>
                                         </ItemIconClose>
                                         :
-                                        <ItemIconOpen onClick={handleClickSecond}>
+                                        <ItemIconOpen onClick={handleClickSecondCollapse}>
                                             <use href="#cross"></use>
                                         </ItemIconOpen>
                                 }
                                 <ItemFooterContent>
                                     <span>SHIPPING & RETURNS</span>
-                                    {isActiveSecond &&
+                                    {isActiveSecondCollapse &&
                                         <p>
                                             Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
                                             fit across
@@ -146,18 +126,18 @@ const ItemPage = () => {
                         <ItemFooterWrapper>
                             <Flex jystify='space-between' margin="0 0 22px 0">
                                 {
-                                    isActiveThird ?
-                                        <ItemIconClose onClick={handleClickThird}>
+                                    isActiveThirdCollapse ?
+                                        <ItemIconClose onClick={handleClickThirdCollapse}>
                                             <use href="#collapse"></use>
                                         </ItemIconClose>
                                         :
-                                        <ItemIconOpen onClick={handleClickThird}>
+                                        <ItemIconOpen onClick={handleClickThirdCollapse}>
                                             <use href="#cross"></use>
                                         </ItemIconOpen>
                                 }
                                 <ItemFooterContent>
                                     <span>FABRIC COMPOSITION</span>
-                                    {isActiveThird &&
+                                    {isActiveThirdCollapse &&
                                         <p>
                                             Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
                                             fit across
@@ -179,4 +159,4 @@ const ItemPage = () => {
     )
 }
 
-export default ItemPage;
+export default ProductPage;

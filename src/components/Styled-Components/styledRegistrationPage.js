@@ -16,12 +16,6 @@ export const RegisterFormTitle = styled.h2`
   font-weight: 400;
 `
 
-export const CloseIcon = styled.svg`
-  display: block;
-  fill: ${props => props.fill || "#1D1D1B"};
-  width: ${props => props.width || '22px'};
-  height: ${props => props.height || '22px'};
-`
 
 export const RegisterFormBody = styled.div`
   display: flex;

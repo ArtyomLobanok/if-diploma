@@ -3,6 +3,7 @@ export const navLinkTextShop = 'SHOP';
 export const navLinkTextCollections = 'COLLECTIONS';
 export const navLinkTextSearch = 'SEARCH';
 export const navLinkTextSignIn = 'SIGN IN';
+export const navLinkTextSignOut = 'SIGN OUT';
 export const navLinkTextBag = 'BAG';
 export const headerTextTitle = 'NEW COLLECTION';
 export const headerTextSubTitlePartOne = 'Our easiest chuck-on-and-go staples come with a serious style heritage ';
@@ -44,7 +45,7 @@ export const FooterListTextVisit = `Visit us at Shalalaeva 23,
 Bologoe, Russia`;
 export const ItemPageTextOrder = 'PRE-ORDER';
 export const ItemPageTextColor = 'COLOR';
-// export const ItemPageTextSize = 'SIZE';
+export const ItemPageTextSize = 'SIZE';
 export const NotFoundText = 'No beauty products found...';
 export const BtnShowMoreItemCategoryText = 'Show more';
 export const CreateAccText = 'CREATE ACCOUNT';

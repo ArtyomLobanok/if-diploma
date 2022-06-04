@@ -1,5 +1,4 @@
 import {
-    CloseIcon,
     Form, RegisterFormBody,
     RegisterFormTitle,
     RegisterFormTitleWrapper, StyledInputRegisterForm, StyledLinkToLogin, StyledSingUpBtn,
@@ -9,6 +8,7 @@ import {
 } from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
 import FormData from "./FormData"
+import CloseIcon from "../../assets/img/closeIcon.svg";
 
 const FormLogin = ({handleClick}) => {
     const { handleSubmit, handleChangeEmail,handleChangePassword, email, pass} = FormData();
@@ -20,9 +20,9 @@ const FormLogin = ({handleClick}) => {
             <RegisterFormTitleWrapper>
                 <RegisterFormTitle>{LoginAccText}</RegisterFormTitle>
                 <Link to="/">
-                    <CloseIcon>
-                        <use href="#closeForm"></use>
-                    </CloseIcon>
+                    <Link to="/">
+                        <img src={CloseIcon} alt="Close"/>
+                    </Link>
                 </Link>
             </RegisterFormTitleWrapper>
             <RegisterFormBody>
