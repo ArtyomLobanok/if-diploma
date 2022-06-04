@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import {ItemHeaderWrapper} from "../components/Styled-Components/styledItemPage";
 import {useSelector} from "react-redux";
 import ProductPageBody from "../components/ProductPageBody";
+import Svg from "../assets/svg";
 
 
 const ProductPage = () => {
@@ -11,6 +12,7 @@ const ProductPage = () => {
     console.log(filteredItemData)
     return (
         <>
+            <Svg/>
             <ItemHeaderWrapper>
                 <HeaderNavigation/>
             </ItemHeaderWrapper>

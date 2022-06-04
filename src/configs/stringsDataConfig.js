@@ -59,6 +59,10 @@ export const SubTextPolicy = 'Privacy Policy ';
 export const SingUpBtnText = 'SIGN UP';
 export const LinkToLoginText = 'I HAVE AN ACCOUNT';
 export const LinkToRegistrationText = "I DON'T HAVE AN ACCOUNT";
+export const DescriptionText = 'PRODUCT DESCRIPTION';
+export const ShippingReturnsText = 'SHIPPING & RETURNS';
+export const FabricCompositionText = 'FABRIC COMPOSITION';
+
 
 
 

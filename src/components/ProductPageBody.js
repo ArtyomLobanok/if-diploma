@@ -7,12 +7,51 @@ import {
     ItemPrice, ItemSize, ItemSizeTitle,
     ItemTitle
 } from "./Styled-Components/styledItemPage";
-import {ItemPageTextColor, ItemPageTextOrder, ItemPageTextSize, saleBtnCardTextAdd} from "../configs/stringsDataConfig";
+import {
+    DescriptionText, FabricCompositionText,
+    ItemPageTextColor,
+    ItemPageTextOrder,
+    ItemPageTextSize,
+    saleBtnCardTextAdd, ShippingReturnsText
+} from "../configs/stringsDataConfig";
 import React from "react";
 import ProductPageData from "./ProductPageData";
 
 const ProductPageBody = ({item}) => {
-    const {images, name, price, color, availableSizes} = item
+    const {images, name, price, color, availableSizes, description} = item
+
+    const sizeArray = availableSizes[0].split(',')
+    const descriptionRe = description.toLowerCase().split('.')
+    console.log(descriptionRe)
+
+    const capitalizeWords = (descriptionRe) => {
+        return descriptionRe.map(element => {
+            return ((element.replace(/^ +| +$|( ) +/g, "$1")).charAt(0).toUpperCase() + (element.replace(/^ +| +$|( ) +/g, "$1")).substring(1).toLowerCase());
+        });
+    }
+    console.log(capitalizeWords(descriptionRe))
+    const descriptionData = () => {
+        return capitalizeWords(descriptionRe).join('. ')
+    }
+    const descriptionString = descriptionData()
+    console.log(descriptionData())
+    const ListItemSize = (props) => {
+        return <button>{props.value}</button>;
+    }
+
+    const SizeList = ({sizeArray}) => {
+        return (
+            <>
+                {
+                    sizeArray.map((number) =>
+                        <ListItemSize key={number.toString()}
+                                      value={number}/>
+                    )
+                }
+            </>
+        );
+    }
+
     const {
         isActiveFirstCollapse, isActiveSecondCollapse, isActiveThirdCollapse,
         handleClickFirstCollapse, handleClickSecondCollapse, handleClickThirdCollapse
@@ -37,14 +76,7 @@ const ProductPageBody = ({item}) => {
                     <ItemSize>
                         <p>{ItemPageTextSize}</p>
                         <ItemSizeTitle>
-                            {availableSizes.map(item => (
-                                <button/>
-                            ))}
-                            <button>S</button>
-                            <button>M</button>
-                            <button>L</button>
-                            <button>XL</button>
-                            <button>XL</button>
+                            <SizeList sizeArray={sizeArray}/>
                         </ItemSizeTitle>
                     </ItemSize>
                     <Flex>
@@ -52,7 +84,7 @@ const ProductPageBody = ({item}) => {
                             {saleBtnCardTextAdd}
                         </ItemButton>
                         <ItemButtonLike>
-                            <LikeIcon width='24px' height='24px'>
+                            <LikeIcon color="red" width='24px' height='24px'>
                                 <use href="#likeIcon"></use>
                             </LikeIcon>
                         </ItemButtonLike>
@@ -70,16 +102,11 @@ const ProductPageBody = ({item}) => {
                                     </ItemIconOpen>
                             }
                             <ItemFooterContent>
-                                <span>PRODUCT DESCRIPTION</span>
-                                {isActiveFirstCollapse &&
+                                <span>{DescriptionText}</span>
+                                {
+                                    isActiveFirstCollapse &&
                                     <p>
-                                        Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
-                                        fit across
-                                        the
-                                        hips, bow shape legs, with knee darts and tapered leg. Back pockets
-                                        dropped
-                                        slightly for
-                                        slouch feel.
+                                        {descriptionString}
                                     </p>
                                 }
                             </ItemFooterContent>
@@ -99,16 +126,11 @@ const ProductPageBody = ({item}) => {
                                     </ItemIconOpen>
                             }
                             <ItemFooterContent>
-                                <span>SHIPPING & RETURNS</span>
-                                {isActiveSecondCollapse &&
+                                <span>{ShippingReturnsText}</span>
+                                {
+                                    isActiveSecondCollapse &&
                                     <p>
-                                        Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
-                                        fit across
-                                        the
-                                        hips, bow shape legs, with knee darts and tapered leg. Back pockets
-                                        dropped
-                                        slightly for
-                                        slouch feel.
+                                        {descriptionString}
                                     </p>
                                 }
                             </ItemFooterContent>
@@ -127,16 +149,11 @@ const ProductPageBody = ({item}) => {
                                     </ItemIconOpen>
                             }
                             <ItemFooterContent>
-                                <span>FABRIC COMPOSITION</span>
-                                {isActiveThirdCollapse &&
+                                <span>{FabricCompositionText}</span>
+                                {
+                                    isActiveThirdCollapse &&
                                     <p>
-                                        Saints are a low-waist, drop crotch relaxed boyfriend jean. Straight
-                                        fit across
-                                        the
-                                        hips, bow shape legs, with knee darts and tapered leg. Back pockets
-                                        dropped
-                                        slightly for
-                                        slouch feel.
+                                        {descriptionString}
                                     </p>
                                 }
                             </ItemFooterContent>
@@ -148,4 +165,4 @@ const ProductPageBody = ({item}) => {
     )
 }
 
-    export default ProductPageBody;
+export default ProductPageBody;

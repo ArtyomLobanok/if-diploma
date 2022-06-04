@@ -15,13 +15,16 @@ export const ItemHeaderWrapper = styled.div`
           background-color: ${props => props.color || "#000F08"};
           border-color: ${props => props.color || "#000F08"};
         }
-
         color: ${props => props.color || "#000F08"};
+        a {
+          color: ${props => props.color || "#000F08"};}
+      }
       }
     }
 `
 export const ItemImgWrapper = styled.div`
   display: flex;
+  width: 75%;
   margin-right: 80px;
 
   img {
@@ -29,12 +32,13 @@ export const ItemImgWrapper = styled.div`
     object-fit: contain;
     max-width: 690px;
     max-height: 1070px;
-    width: auto;
+    width: 50%;
     height: 100vh;
   }
 `
 export const ItemInfoWrapper = styled.div`
   display: flex;
+  width: 25%;
   flex-direction: column;
   font-size: 16px;
   font-weight: 300;
@@ -157,7 +161,7 @@ export const ItemIconOpen = styled.svg`
 `
 
 export const ItemIconClose = styled(ItemIconOpen)`
-  width: ${props => props.width || '40px'};
+  width: ${props => props.width || '16px'};
   position: relative;
   bottom: -2px;
 `
