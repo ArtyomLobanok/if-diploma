@@ -3,7 +3,7 @@ import HeaderNavigation from "../components/HeaderNavigation";
 import Footer from "./Footer";
 import {ItemHeaderWrapper} from "../components/Styled-Components/styledItemPage";
 import {useSelector} from "react-redux";
-import ProductPageBody from "../components/ProductPageBody";
+import ProductPageBody from "../components/ProductPage/ProductPageBody";
 import Svg from "../assets/svg";
 
 
@@ -16,9 +16,11 @@ const ProductPage = () => {
             <ItemHeaderWrapper>
                 <HeaderNavigation/>
             </ItemHeaderWrapper>
-            {filteredItemData.map(item => (
-                <ProductPageBody key={item.id} item={item}/>
-            ))}
+            {
+                filteredItemData.map(item => (
+                    <ProductPageBody key={item.id} item={item}/>
+                ))
+            }
             <Footer/>
         </>
     )

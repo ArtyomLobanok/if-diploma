@@ -1,61 +1,33 @@
-import {Container, Flex, LikeIcon} from "./Styled-Components/General";
+import {Container, Flex, LikeIcon} from "../Styled-Components/General";
 import {
-    ButtonColor, ItemButton, ItemButtonLike,
+    BtnListSize, BtnListSizeActive, ButtonColor, ItemButton, ItemButtonLike,
     ItemColor, ItemFooterContent, ItemFooterWrapper, ItemIconClose, ItemIconOpen,
-    ItemImgWrapper,
-    ItemInfoWrapper,
-    ItemPrice, ItemSize, ItemSizeTitle,
-    ItemTitle
-} from "./Styled-Components/styledItemPage";
+    ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle
+} from "../Styled-Components/styledItemPage";
 import {
-    DescriptionText, FabricCompositionText,
-    ItemPageTextColor,
-    ItemPageTextOrder,
-    ItemPageTextSize,
-    saleBtnCardTextAdd, ShippingReturnsText
-} from "../configs/stringsDataConfig";
+    DescriptionText, FabricCompositionText, ItemPageTextColor, ItemPageTextOrder, ItemPageTextSize, saleBtnCardTextAdd,
+    ShippingReturnsText
+} from "../../configs/stringsDataConfig";
 import React from "react";
 import ProductPageData from "./ProductPageData";
+import ProductPageSizeData from "./ProductPageSizeData";
+import ProductPageDescriptionData from "./ProductPageDescriptionData";
 
 const ProductPageBody = ({item}) => {
-    const {images, name, price, color, availableSizes, description} = item
+    const {images, name, price, color} = item;
 
-    const sizeArray = availableSizes[0].split(',')
-    const descriptionRe = description.toLowerCase().split('.')
-    console.log(descriptionRe)
-
-    const capitalizeWords = (descriptionRe) => {
-        return descriptionRe.map(element => {
-            return ((element.replace(/^ +| +$|( ) +/g, "$1")).charAt(0).toUpperCase() + (element.replace(/^ +| +$|( ) +/g, "$1")).substring(1).toLowerCase());
-        });
-    }
-    console.log(capitalizeWords(descriptionRe))
-    const descriptionData = () => {
-        return capitalizeWords(descriptionRe).join('. ')
-    }
+    const {descriptionData} = ProductPageDescriptionData()
     const descriptionString = descriptionData()
-    console.log(descriptionData())
-    const ListItemSize = (props) => {
-        return <button>{props.value}</button>;
-    }
-
-    const SizeList = ({sizeArray}) => {
-        return (
-            <>
-                {
-                    sizeArray.map((number) =>
-                        <ListItemSize key={number.toString()}
-                                      value={number}/>
-                    )
-                }
-            </>
-        );
-    }
 
     const {
         isActiveFirstCollapse, isActiveSecondCollapse, isActiveThirdCollapse,
         handleClickFirstCollapse, handleClickSecondCollapse, handleClickThirdCollapse
     } = ProductPageData();
+    const {
+        isValueBtn, handleSelectedSizeXS, handleSelectedSizeS, handleSelectedSizeM, handleSelectedSizeL,
+        handleSelectedSizeXL, handleSelectedSizeXXL, SizesArray
+    } = ProductPageSizeData()
+
     return (
         <Container>
             <Flex>
@@ -75,9 +47,38 @@ const ProductPageBody = ({item}) => {
                     </ItemColor>
                     <ItemSize>
                         <p>{ItemPageTextSize}</p>
-                        <ItemSizeTitle>
-                            <SizeList sizeArray={sizeArray}/>
-                        </ItemSizeTitle>
+
+                        {isValueBtn === SizesArray[0] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeXS}>{SizesArray[0]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeXS}>{SizesArray[0]}</BtnListSize>)
+                        }
+                        {isValueBtn === SizesArray[1] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeS}>{SizesArray[1]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeS}>{SizesArray[1]}</BtnListSize>)
+                        }
+                        {isValueBtn === SizesArray[2] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeM}>{SizesArray[2]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeM}>{SizesArray[2]}</BtnListSize>)
+                        }
+                        {isValueBtn === SizesArray[3] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeL}>{SizesArray[3]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeL}>{SizesArray[3]}</BtnListSize>)
+                        }
+                        {isValueBtn === SizesArray[4] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeXL}>{SizesArray[4]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeXL}>{SizesArray[4]}</BtnListSize>)
+                        }
+                        {isValueBtn === SizesArray[5] ?
+                            (<BtnListSizeActive
+                                onClick={handleSelectedSizeXXL}>{SizesArray[5]}</BtnListSizeActive>) :
+                            (<BtnListSize onClick={handleSelectedSizeXXL}>{SizesArray[5]}</BtnListSize>)
+                        }
+
                     </ItemSize>
                     <Flex>
                         <ItemButton>

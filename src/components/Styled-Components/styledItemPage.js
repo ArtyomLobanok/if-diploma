@@ -15,12 +15,15 @@ export const ItemHeaderWrapper = styled.div`
           background-color: ${props => props.color || "#000F08"};
           border-color: ${props => props.color || "#000F08"};
         }
+
         color: ${props => props.color || "#000F08"};
+
         a {
-          color: ${props => props.color || "#000F08"};}
-      }
+          color: ${props => props.color || "#000F08"};
+        }
       }
     }
+  }
 `
 export const ItemImgWrapper = styled.div`
   display: flex;
@@ -94,21 +97,24 @@ export const ItemSize = styled.div`
   }
 `
 
-export const ItemSizeTitle = styled.div`
-  button {
-    padding: 0 6px;
-    margin-right: 16px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: initial;
-    border-bottom: 1px solid #FFFFFF;
+export const BtnListSize = styled.button`
+  padding: 0 6px;
+  margin-right: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: initial;
+  border-bottom: 1px solid #FFFFFF;
 
-    &:hover {
-      border-bottom: 1px solid #000F08;
-      transition: 0.5s ease;
-    }
+  &:hover {
+    border-bottom: 1px solid #000F08;
+    transition: 0.5s ease;
   }
+`
+export const BtnListSizeActive = styled(BtnListSize)`
+  border: none;
+  color: ${props => props.color || "#FFFFFF"};
+  background-color: ${props => props.background || "#000F08"}
 `
 
 export const ItemButton = styled.button`
