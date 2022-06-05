@@ -2,10 +2,10 @@ import {
     headerTextButton,
     headerTextSubTitlePartOne, headerTextSubTitlePartSecond,
     headerTextTitle,
-} from "../configs/stringsDataConfig";
-import {HeaderButton, HeaderSubTitle, HeaderTitle} from "./Styled-Components/styledNavigation";
-import {Container} from "./Styled-Components/General";
-import {HeaderWrapper} from "./Styled-Components/styledHeaderIntro";
+} from "../../configs/stringsDataConfig";
+import {HeaderButton, HeaderSubTitle, HeaderTitle} from "../Styled-Components/styledNavigation";
+import {Container} from "../Styled-Components/General";
+import {HeaderWrapper} from "../Styled-Components/styledHeaderIntro";
 
 const HeaderIntro = () => {
     return (

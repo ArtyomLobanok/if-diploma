@@ -10,8 +10,8 @@ import {
     sectionCategoryTitleTextPartOne,
     sectionCategoryTitleTextPartSecond,
 } from "../configs/stringsDataConfig";
-import CardOfButtonCategory from "../components/CardOfButtonCategory";
-import {categoryListData} from "../components/CategoryListData";
+import CardOfButtonCategory from "../components/MainPage/CardOfButtonCategory";
+import {categoryListData} from "../components/MainPage/CategoryListData";
 import {catalogLoad} from "../redux/actions";
 import {useDispatch} from "react-redux";
 

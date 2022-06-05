@@ -1,4 +1,4 @@
-import {BtnCategory, StyledSvgCategory} from "./Styled-Components/styledCategorySection";
+import {BtnCategory, StyledSvgCategory} from "../Styled-Components/styledCategorySection";
 
 const btnCard = ({card, handleChange}) => {
     const {url, title} = card;

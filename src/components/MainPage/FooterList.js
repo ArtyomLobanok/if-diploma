@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import {Flex} from "./Styled-Components/General"
+import {Flex} from "../Styled-Components/General"
 import {
     FooterListTextAbout, FooterListTextCareers, FooterListTextContact, FooterListTextContactUs,
     FooterListTextCustomer, FooterListTextDelivery, FooterListTextEmail, FooterListTextFacebook,
     FooterListTextFAQ, FooterListTextFollow, FooterListTextGift, FooterListTextInfo, FooterListTextInstagram,
     FooterListTextOdnoklassniki, FooterListTextPayment, FooterListTextPolicies, FooterListTextReturn,
     FooterListTextSize, FooterListTextTel, FooterListTextTrack, FooterListTextVisit,
-} from "../configs/stringsDataConfig";
+} from "../../configs/stringsDataConfig";
 
 export const FooterList = styled.ul`
   color: ${props => props.color || "#000F08"};

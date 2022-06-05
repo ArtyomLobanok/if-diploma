@@ -9,7 +9,7 @@ import {
     SectionTitleWrapper,
     SectionTitleBold
 } from "../components/Styled-Components/General";
-import SaleSlider from "../components/SaleSlider";
+import SaleSlider from "../components/MainPage/SaleSlider";
 
 const Sale = () => {
     return (

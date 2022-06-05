@@ -2,7 +2,7 @@ import React from "react";
 import {
     Flex,
     LikeIcon,
-} from "./Styled-Components/General"
+} from "../Styled-Components/General"
 import {
     FullPriceText,
     CardWrapper,
@@ -11,18 +11,20 @@ import {
     CardBtnWrapper,
     CardIconWrapper,
     CardButton,
-} from "./Styled-Components/styledSaleCard";
-import {saleBtnCardTextAdd} from "../configs/stringsDataConfig";
+} from "../Styled-Components/styledSaleCard";
+import {saleBtnCardTextAdd} from "../../configs/stringsDataConfig";
+import {Link} from "react-router-dom";
 
-
-const categoryCard = props => {
-    const {images, price} = props.card;
+const categoryCard = ({card,handleSetId}) => {
+    const {id, images, price} = card;
     return (
-        <CardWrapper width='24%'>
+        <CardWrapper onClick={handleSetId} width='24%'>
             <CardContentWrapper>
-                <CardImgWrapper>
-                    <img src={images[0]} alt="Pictures"/>
-                </CardImgWrapper>
+                <Link to={`/product/${id}`}>
+                    <CardImgWrapper>
+                        <img id={id} src={images[0]} alt="Pictures"/>
+                    </CardImgWrapper>
+                </Link>
                 <CardIconWrapper>
                     <LikeIcon width='42px' height='38px'>
                         <use href="#likeIcon"></use>

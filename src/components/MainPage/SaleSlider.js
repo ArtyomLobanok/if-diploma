@@ -1,9 +1,9 @@
-import useCatalogFetch from "../hooks/use-catalogFetch";
-import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "./Styled-Components/styledSaleSection";
+import useCatalogFetch from "../../hooks/use-catalogFetch";
+import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "../Styled-Components/styledSaleSection";
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
 import {useDispatch} from "react-redux";
-import {productLoad} from "../redux/actions";
+import {productLoad} from "../../redux/actions";
 
 
 
@@ -11,8 +11,6 @@ const SaleSlider = () => {
     const {catalogArray} = useCatalogFetch();
     const dispatch = useDispatch();
     const handleSetId = (e) => {
-        window.scrollTo(0, 0)
-        console.log(e.target.id)
         dispatch(productLoad(e.target.id))
     }
     const SampleNextArrow = ({className, onClick}) => {

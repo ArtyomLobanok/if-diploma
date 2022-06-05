@@ -167,7 +167,7 @@ export const ItemIconOpen = styled.svg`
 `
 
 export const ItemIconClose = styled(ItemIconOpen)`
-  width: ${props => props.width || '16px'};
+  width: ${props => props.width || '9px'};
   position: relative;
   bottom: -2px;
 `

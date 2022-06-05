@@ -1,6 +1,6 @@
 import {Container, Section} from "../components/Styled-Components/General";
-import FooterForm from "../components/FooterForm";
-import FooterLists from "../components/FooterList";
+import FooterForm from "../components/MainPage/FooterForm";
+import FooterLists from "../components/MainPage/FooterList";
 
 const Footer = () => {
     return (

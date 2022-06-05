@@ -1,8 +1,8 @@
-import HeaderNavigation from "../components/HeaderNavigation";
+import HeaderNavigation from "../components/MainPage/HeaderNavigation";
 import {HeaderSection} from "../components/Styled-Components/General"
 import Svg from "../assets/svg";
 import React from "react";
-import HeaderIntro from "../components/HeaderIntro";
+import HeaderIntro from "../components/MainPage/HeaderIntro";
 const Header = () => {
     return (
         <HeaderSection>

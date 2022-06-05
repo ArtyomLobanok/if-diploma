@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderNavigation from "../components/HeaderNavigation";
+import HeaderNavigation from "../components/MainPage/HeaderNavigation";
 import Footer from "./Footer";
 import {ItemHeaderWrapper} from "../components/Styled-Components/styledItemPage";
 import {useSelector} from "react-redux";
