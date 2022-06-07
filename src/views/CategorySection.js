@@ -18,16 +18,23 @@ const CategorySection = () => {
         dispatch(productLoad(e.target.id))
     }
     const filteredClothesList = useSelector(state => state.catalogLoadReducer);
-    const [listMultiplier, setListMultiplier] = useState(1);
-    const paginatedList = filteredClothesList.slice(0, listMultiplier * 4)
+
+
+
+    const firstItemIndex = 0;
+    const lastItemIndex = filteredClothesList.length - 1;
+    const [currentPageToShow, setCurrentPageToShow] = useState(1);
+    const [itemsToShow] = useState(4);
+    const paginatedList = filteredClothesList.slice(firstItemIndex, currentPageToShow * itemsToShow);
+    const handleAddItemsToShow = () => {
+        setCurrentPageToShow(currentPageToShow + 1)
+    }
 
     const filteredDataTitle = () => {
         return (filteredClothesList[0].type)
     }
-
-    const handleChange = () => {
-        setListMultiplier(listMultiplier + 1)
-    }
+    console.log(filteredClothesList.length)
+    console.log(paginatedList.length)
 
     return (
         filteredClothesList.length !== 0 &&
@@ -45,11 +52,14 @@ const CategorySection = () => {
                         paginatedList.map(categoryCard => (
                             <CardOfCategory handleSetId={handleSetId} key={categoryCard.id} card={categoryCard}/>
                         ))
+
                     }
                 </Flex>
-                <StyledBtnShowMoreItemCategory onClick={handleChange}>
+                { paginatedList.length <= lastItemIndex  &&
+                <StyledBtnShowMoreItemCategory onClick={handleAddItemsToShow}>
                     {BtnShowMoreItemCategoryText}
                 </StyledBtnShowMoreItemCategory>
+                }
             </Container>
         </Section>
     )
