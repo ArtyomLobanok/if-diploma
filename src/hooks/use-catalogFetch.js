@@ -3,20 +3,19 @@ import {catalogUrl} from "../configs/urlConfig"
 
 const useCatalogFetch = () => {
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [catalogArray, setCatalogArray] = useState([]);
     useEffect(() => {
         const getData = async () => {
             try {
-                setLoading(true);
+                setIsLoaded(true);
                 const response = await fetch(catalogUrl);
                 const result = await response.json();
-
                 setCatalogArray(result);
-                setLoading(false);
+                setIsLoaded(true);
             } catch (error) {
                 setError(error.message);
-                setLoading(false);
+                setIsLoaded(false);
             }
         };
         getData();
@@ -24,7 +23,7 @@ const useCatalogFetch = () => {
 
     return {
         error,
-        loading,
+        isLoaded,
         catalogArray,
     };
 };

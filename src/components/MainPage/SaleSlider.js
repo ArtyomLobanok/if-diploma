@@ -1,14 +1,20 @@
 import useCatalogFetch from "../../hooks/use-catalogFetch";
-import {SliderArrow, SliderButtonNext, SliderButtonPrev, SliderWrapper} from "../Styled-Components/styledSaleSection";
+import {
+    SliderArrow,
+    SliderButtonNext,
+    SliderButtonPrev,
+    SliderSpinner,
+    SliderWrapper
+} from "../Styled-Components/styledSaleSection";
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
 import {useDispatch} from "react-redux";
 import {productLoad} from "../../redux/actions";
-
+import {ThreeCircles} from 'react-loader-spinner'
 
 
 const SaleSlider = () => {
-    const {catalogArray} = useCatalogFetch();
+    const {catalogArray, isLoaded} = useCatalogFetch();
     const dispatch = useDispatch();
     const handleSetId = (e) => {
         dispatch(productLoad(e.target.id))
@@ -29,7 +35,6 @@ const SaleSlider = () => {
             </div>
         );
     }
-
     const SamplePrevArrow = ({className, onClick}) => {
         return (
             <div
@@ -46,7 +51,6 @@ const SaleSlider = () => {
             </div>
         );
     }
-
     const settings = {
         dots: false,
         infinite: false,
@@ -84,11 +88,24 @@ const SaleSlider = () => {
     }
     return (
         <SliderWrapper>
-            <Slider {...settings}>
-                {catalogArray.map(saleCard => (
-                    <CardOfSale handleSetId={handleSetId} key={saleCard.id} card={saleCard}/>
-                ))}
-            </Slider>
+            {
+                isLoaded ?
+                    <Slider {...settings}>
+                        {
+                            catalogArray.map(saleCard => (
+                                <CardOfSale handleSetId={handleSetId} key={saleCard.id} card={saleCard}/>))
+                        }
+                    </Slider>
+                    :
+                    <SliderSpinner>
+                        <ThreeCircles
+                            height="100"
+                            width="100"
+                            color='#000F08'
+                            ariaLabel='loading'
+                        />
+                    </SliderSpinner>
+            }
         </SliderWrapper>
     );
 }

@@ -3,6 +3,7 @@ import MainPage from "./MainPage";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import ProductPage from "./ProductPage";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const App = () => {
     return (

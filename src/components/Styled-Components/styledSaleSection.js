@@ -32,6 +32,13 @@ export const SliderWrapper = styled.div`
   }
 `
 
+export const SliderSpinner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+`
+
 export const SliderArrow = styled.svg`
   fill: ${props => props.fill || '#000F08'};
   width: 40px;
