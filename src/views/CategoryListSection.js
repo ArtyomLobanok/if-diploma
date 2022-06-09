@@ -12,8 +12,8 @@ import {
 } from "../configs/stringsDataConfig";
 import CardOfButtonCategory from "../components/MainPage/CardOfButtonCategory";
 import {categoryListData} from "../components/MainPage/CategoryListData";
-import {catalogLoad, showSectionCategory} from "../redux/actions";
-import {useDispatch} from "react-redux";
+import {catalogLoad, currentPageToShow, showSectionCategory} from "../redux/actions";
+import {useDispatch, useSelector} from "react-redux";
 import CategoryFilteredData from "../components/MainPage/CategoryFilteredData";
 
 
@@ -22,8 +22,9 @@ const ShopCategory = () => {
     const dispatch = useDispatch();
     const handleChange = ({e, title}) => {
         dispatch(showSectionCategory(true))
+        dispatch(currentPageToShow(1))
         e.preventDefault()
-        dispatch(catalogLoad(title));
+        dispatch(catalogLoad(title))
     }
 
     return (

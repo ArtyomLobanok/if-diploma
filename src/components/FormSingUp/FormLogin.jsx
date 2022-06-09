@@ -11,7 +11,7 @@ import FormData from "./FormData"
 import CloseIcon from "../../assets/img/closeIcon.svg";
 
 const FormLogin = ({handleClick}) => {
-    const { handleSubmit, handleChangeEmail,handleChangePassword, email, pass} = FormData();
+    const {handleSubmit, handleChangeEmail, handleChangePassword, email, pass} = FormData();
     const handleLogin = () => {
         handleClick(email, pass)
     };
@@ -20,9 +20,7 @@ const FormLogin = ({handleClick}) => {
             <RegisterFormTitleWrapper>
                 <RegisterFormTitle>{LoginAccText}</RegisterFormTitle>
                 <Link to="/">
-                    <Link to="/">
-                        <img src={CloseIcon} alt="Close"/>
-                    </Link>
+                    <img src={CloseIcon} alt="Close"/>
                 </Link>
             </RegisterFormTitleWrapper>
             <RegisterFormBody>

@@ -7,12 +7,14 @@ import catalogLoadReducer from './reducers/catalogLoadReducer'
 import userReducer from './slices/userSlice';
 import productLoadReducer from "./reducers/productLoadReducer";
 import showSectionCategoryReducer from "./reducers/showSectionCategoryReducer";
+import currentPageToShowReducer from "./reducers/currentPageToShowReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
     catalogLoadReducer,
     productLoadReducer,
     showSectionCategoryReducer,
+    currentPageToShowReducer,
 });
 
 const persistConfig = {

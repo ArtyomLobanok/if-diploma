@@ -1,5 +1,5 @@
 import {
-    CATALOG_DATA_LOAD, PRODUCT_DATA_LOAD, SHOW_SECTION_CATEGORY,
+    CATALOG_DATA_LOAD, CURRENT_PAGE_TO_SHOW, PRODUCT_DATA_LOAD, SHOW_SECTION_CATEGORY,
 } from "./types";
 import {catalogUrl} from "../configs/urlConfig";
 
@@ -28,9 +28,27 @@ export const productLoad = (params) => {
     };
 };
 
+export const searchShow = (params) => {
+    return async dispatch => {
+        const response = await fetch(`${catalogUrl}`);
+        const jsonData = await response.json();
+        const filteredDate = jsonData.filter((el) =>  el.name === params || el.type === params)
+        dispatch({
+            type: PRODUCT_DATA_LOAD,
+            data: searchedData
+        });
+    };
+};
+
 export const showSectionCategory = (show) => {
     return {
         type: SHOW_SECTION_CATEGORY,
         show
+    };
+};
+export const currentPageToShow = (number) => {
+    return {
+        type: CURRENT_PAGE_TO_SHOW,
+        number: number
     };
 };
