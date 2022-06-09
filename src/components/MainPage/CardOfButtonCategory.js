@@ -3,12 +3,14 @@ import {BtnCategory, StyledSvgCategory} from "../Styled-Components/styledCategor
 const btnCard = ({card, handleChange}) => {
     const {url, title} = card;
     return (
-        <BtnCategory onClick={(e) => handleChange({e,title})} >
+        <>
+        <BtnCategory onClick={(e) => handleChange({e,title})}>
             <StyledSvgCategory>
                 <use href={url}></use>
             </StyledSvgCategory>
             {title}
         </BtnCategory>
+        </>
     )
 }
 

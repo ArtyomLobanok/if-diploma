@@ -6,11 +6,13 @@ import storage from 'redux-persist/lib/storage'
 import catalogLoadReducer from './reducers/catalogLoadReducer'
 import userReducer from './slices/userSlice';
 import productLoadReducer from "./reducers/productLoadReducer";
+import showSectionCategoryReducer from "./reducers/showSectionCategoryReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
     catalogLoadReducer,
     productLoadReducer,
+    showSectionCategoryReducer,
 });
 
 const persistConfig = {

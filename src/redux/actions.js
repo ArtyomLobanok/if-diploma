@@ -1,5 +1,5 @@
 import {
-    CATALOG_DATA_LOAD, PRODUCT_DATA_LOAD,
+    CATALOG_DATA_LOAD, PRODUCT_DATA_LOAD, SHOW_SECTION_CATEGORY,
 } from "./types";
 import {catalogUrl} from "../configs/urlConfig";
 
@@ -25,5 +25,12 @@ export const productLoad = (params) => {
             type: PRODUCT_DATA_LOAD,
             data: filteredDate
         });
+    };
+};
+
+export const showSectionCategory = (show) => {
+    return {
+        type: SHOW_SECTION_CATEGORY,
+        show
     };
 };

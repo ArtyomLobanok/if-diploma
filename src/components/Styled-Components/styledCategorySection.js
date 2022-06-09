@@ -52,3 +52,4 @@ export const ShopCategoryNotFound = styled.h1`
     margin: 0 auto;
     font-weight: 700;
 `
+

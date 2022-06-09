@@ -12,34 +12,37 @@ import {
 } from "../configs/stringsDataConfig";
 import CardOfButtonCategory from "../components/MainPage/CardOfButtonCategory";
 import {categoryListData} from "../components/MainPage/CategoryListData";
-import {catalogLoad} from "../redux/actions";
+import {catalogLoad, showSectionCategory} from "../redux/actions";
 import {useDispatch} from "react-redux";
+import CategoryFilteredData from "../components/MainPage/CategoryFilteredData";
 
 
 const ShopCategory = () => {
+    const {handleShowResults} = CategoryFilteredData();
     const dispatch = useDispatch();
     const handleChange = ({e, title}) => {
+        dispatch(showSectionCategory(true))
         e.preventDefault()
         dispatch(catalogLoad(title));
     }
-    // const filteredClothesList = useSelector(state => state.catalogLoadReducer)
+
     return (
         <>
             <Section>
                 <Container>
-                    {/*<ShopCategoryNotFound>{NotFoundText}</ShopCategoryNotFound>*/}
-                            <SectionTitleWrapper>
-                                <SectionTitle marginRight='14px'>{sectionCategoryTitleTextPartOne}</SectionTitle>
-                                <SectionTitleBold>{sectionCategoryTitleTextPartSecond}</SectionTitleBold>
-                            </SectionTitleWrapper>
-                            <Flex>
-                                {
-                                    categoryListData.map(btnCard => (
-                                        <CardOfButtonCategory handleChange={handleChange} key={btnCard.id}
-                                                              card={btnCard}/>
-                                    ))
-                                }
-                            </Flex>
+                    <SectionTitleWrapper>
+                        <SectionTitle marginRight='14px'>{sectionCategoryTitleTextPartOne}</SectionTitle>
+                        <SectionTitleBold>{sectionCategoryTitleTextPartSecond}</SectionTitleBold>
+                    </SectionTitleWrapper>
+                    <Flex>
+                        {
+                            categoryListData.map(btnCard => (
+                                <CardOfButtonCategory handleChange={handleChange} handleShowResults={handleShowResults}
+                                                      key={btnCard.id}
+                                                      card={btnCard}/>
+                            ))
+                        }
+                    </Flex>
                 </Container>
             </Section>
         </>
