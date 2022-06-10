@@ -8,6 +8,8 @@ import userReducer from './slices/userSlice';
 import productLoadReducer from "./reducers/productLoadReducer";
 import showSectionCategoryReducer from "./reducers/showSectionCategoryReducer";
 import currentPageToShowReducer from "./reducers/currentPageToShowReducer";
+import searchDataReducer from "./reducers/searchDataReducer";
+import SearchShowReducer from "./reducers/showSearchReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
     productLoadReducer,
     showSectionCategoryReducer,
     currentPageToShowReducer,
+    searchDataReducer,
+    SearchShowReducer,
 });
 
 const persistConfig = {

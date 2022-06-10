@@ -62,6 +62,8 @@ export const LinkToRegistrationText = "I DON'T HAVE AN ACCOUNT";
 export const DescriptionText = 'PRODUCT DESCRIPTION';
 export const ShippingReturnsText = 'SHIPPING & RETURNS';
 export const FabricCompositionText = 'FABRIC COMPOSITION';
+export const SearchTitleText = 'Search results';
+export const SearchPlaceholderText = 'ENTER SEARCH TERMS';
 
 
 

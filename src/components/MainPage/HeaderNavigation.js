@@ -11,10 +11,15 @@ import {Link} from "react-router-dom";
 import useAuth from "../../hooks/use-auth";
 import {useDispatch} from 'react-redux';
 import {removeUser} from '../../redux/slices/userSlice'
+import {showSearch} from "../../redux/actions";
 
 const HeaderNavigation = () => {
     const {isAuth} = useAuth();
     const dispatch = useDispatch();
+
+    const handleClickToOpenSearch = () => {
+        dispatch(showSearch(true))
+    }
     const handleLogOut = () => {
         dispatch(removeUser({}))
     }
@@ -32,7 +37,7 @@ const HeaderNavigation = () => {
                     </LogotypeIcon>
                 </Link>
                 <ul>
-                    <li>
+                    <li onClick={handleClickToOpenSearch}>
                         <SearchIcon>
                             <use href="#searchIcon"></use>
                         </SearchIcon>
@@ -50,6 +55,7 @@ const HeaderNavigation = () => {
                     </li>
                 </ul>
             </Navigation>
+
         </Container>
     )
 }
