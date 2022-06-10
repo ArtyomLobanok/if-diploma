@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchContainer = styled.div`
   z-index: 1000;
   position: absolute;
-  background: rgba(184, 260, 260, 0.8);
+  background: rgba(270, 260, 260, 0.8);
   box-shadow: inset 0 0.25rem 4.375rem rgba(56, 56, 56, 0.5);
   width: 100%;
   height: 100vh;
@@ -15,7 +15,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: absolute;
   bottom: 50%;
-  transform: translate3d(5%, -50%, 0);
+  transform: translate3d(2%, -50%, 0);
 
   svg {
     width: 58px;
