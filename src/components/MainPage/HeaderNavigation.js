@@ -20,6 +20,7 @@ const HeaderNavigation = () => {
     const handleClickToOpenSearch = () => {
         dispatch(showSearch(true))
     }
+
     const handleLogOut = () => {
         dispatch(removeUser({}))
     }

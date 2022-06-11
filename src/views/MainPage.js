@@ -4,11 +4,13 @@ import CategorySection from "./CategorySection";
 import Sale from "./Sale";
 import ShopInstagram from "./ShopInstagram";
 import Footer from "./Footer";
+import SearchSection from "./SearchResults";
 
 const MainPage = () => {
     return (
         <>
             <Header/>
+            <SearchSection/>
             <ShopCategory/>
             <CategorySection/>
             <Sale/>

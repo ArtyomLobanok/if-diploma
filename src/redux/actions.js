@@ -2,7 +2,7 @@ import {
     CATALOG_DATA_LOAD,
     CURRENT_PAGE_TO_SHOW,
     PRODUCT_DATA_LOAD,
-    SEARCH_DATA, SHOW_SEARCH,
+    SEARCH_DATA, SEARCH_INPUT_TEXT, SHOW_SEARCH, SHOW_SEARCH_RESULT,
     SHOW_SECTION_CATEGORY,
 } from "./types";
 import {catalogUrl} from "../configs/urlConfig";
@@ -12,7 +12,7 @@ export const catalogLoad = (params) => {
     return async dispatch => {
         const response = await fetch(`${catalogUrl}`);
         const jsonData = await response.json();
-        const filteredDate = jsonData.filter((el) =>  el.type === params)
+        const filteredDate = jsonData.filter((el) => el.type === params)
         dispatch({
             type: CATALOG_DATA_LOAD,
             data: filteredDate
@@ -24,7 +24,7 @@ export const productLoad = (params) => {
     return async dispatch => {
         const response = await fetch(`${catalogUrl}`);
         const jsonData = await response.json();
-        const filteredDate = jsonData.filter((el) =>  el.id === params)
+        const filteredDate = jsonData.filter((el) => el.id === params)
         dispatch({
             type: PRODUCT_DATA_LOAD,
             data: filteredDate
@@ -32,14 +32,17 @@ export const productLoad = (params) => {
     };
 };
 
-export const inputSearchText = (params) => {
+export const inputSearchDataLoad = (textInput) => {
     return async dispatch => {
         const response = await fetch(`${catalogUrl}`);
         const jsonData = await response.json();
-        const searchData = jsonData.filter((el) =>  el.name === params || el.type === params)
+        console.log(jsonData)
+        const filteredDate = jsonData.filter((el) => (el.name).toLowerCase().includes(textInput.toLowerCase()) ||
+            (el.type).toLowerCase().includes(textInput.toLowerCase()))
+        console.log(filteredDate)
         dispatch({
             type: SEARCH_DATA,
-            data: searchData
+            data: filteredDate
         });
     };
 };
@@ -55,6 +58,19 @@ export const showSectionCategory = (show) => {
     return {
         type: SHOW_SECTION_CATEGORY,
         show
+    };
+};
+export const showSearchResults = (show) => {
+    return {
+        type: SHOW_SEARCH_RESULT,
+        show
+    };
+};
+
+export const inputText = (search) => {
+    return {
+        type: SEARCH_INPUT_TEXT,
+        search
     };
 };
 

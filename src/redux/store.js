@@ -10,6 +10,8 @@ import showSectionCategoryReducer from "./reducers/showSectionCategoryReducer";
 import currentPageToShowReducer from "./reducers/currentPageToShowReducer";
 import searchDataReducer from "./reducers/searchDataReducer";
 import SearchShowReducer from "./reducers/showSearchReducer";
+import InputTextSearchReducer from "./reducers/inputTextSearchReducer";
+import showSearchResultsReducer from "./reducers/showSerchResultReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -19,6 +21,8 @@ const rootReducer = combineReducers({
     currentPageToShowReducer,
     searchDataReducer,
     SearchShowReducer,
+    InputTextSearchReducer,
+    showSearchResultsReducer,
 });
 
 const persistConfig = {
