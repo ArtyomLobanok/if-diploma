@@ -5,30 +5,24 @@ import {
     SectionTitleWrapper,
 } from "../components/Styled-Components/General";
 import CardOfCategory from "../components/MainPage/CardOfCategory";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/Styled-Components/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText} from "../configs/stringsDataConfig";
-import {productLoad} from "../redux/actions";
-import CategoryFilteredData from "../components/MainPage/CategoryFilteredData";
+import FilteredData from "../components/MainPage/FilteredData";
 
 const CategorySection = () => {
-    const dispatch = useDispatch();
+    const filteredClothesList = useSelector(state => state.catalogLoadReducer);
     const isShow = useSelector(state => state.showSectionCategoryReducer);
 
-    const handleSetId = (e) => {
-        window.scrollTo(0, 0)
-        dispatch(productLoad(e.target.id))
-    }
     const {
-        filteredDataTitle,
         paginatedList,
         lastItemIndex,
         handleAddItemsToShow,
-        filteredClothesList,
-    } = CategoryFilteredData()
+        handleSetId,
+    } = FilteredData()
 
     return (
         (isShow.show === true) &&
@@ -44,7 +38,7 @@ const CategorySection = () => {
                             <SectionTitleWrapper>
                                 <SectionTitleBold>
                                     {
-                                        filteredDataTitle()
+                                        (filteredClothesList[0].type)
                                     }
                                 </SectionTitleBold>
                             </SectionTitleWrapper>

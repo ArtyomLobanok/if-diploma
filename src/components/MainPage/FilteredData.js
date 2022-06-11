@@ -1,12 +1,10 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import {currentPageToShow} from "../../redux/actions";
+import {currentPageToShow, productLoad} from "../../redux/actions";
 
-
-const CategoryFilteredData = () => {
+const FilteredData = (params) => {
     const dispatch = useDispatch();
     const filteredClothesList = useSelector(state => state.catalogLoadReducer);
-    console.log(filteredClothesList)
     const page = useSelector(state => state.currentPageToShowReducer);
     const firstItemIndex = 0;
     const lastItemIndex = filteredClothesList.length - 1;
@@ -15,18 +13,16 @@ const CategoryFilteredData = () => {
     const handleAddItemsToShow = () => {
         dispatch(currentPageToShow(page+1))
     }
-
-    const filteredDataTitle = () => {
-        return (filteredClothesList[0].type)
+    const handleSetId = (e) => {
+        window.scrollTo(0, 0)
+        dispatch(productLoad(e.target.id))
     }
     return {
-        filteredDataTitle,
         paginatedList,
         lastItemIndex,
         handleAddItemsToShow,
-        filteredClothesList,
+        handleSetId,
     }
-
 }
 
-export default CategoryFilteredData;
+export default FilteredData;

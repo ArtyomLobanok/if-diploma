@@ -12,7 +12,7 @@ export const catalogLoad = (params) => {
     return async dispatch => {
         const response = await fetch(`${catalogUrl}`);
         const jsonData = await response.json();
-        const filteredDate = jsonData.filter((el) => el.type === params)
+        const filteredDate = jsonData.filter((el) => (el.type).toLowerCase().includes(params.toLowerCase()))
         dispatch({
             type: CATALOG_DATA_LOAD,
             data: filteredDate
@@ -36,10 +36,8 @@ export const inputSearchDataLoad = (textInput) => {
     return async dispatch => {
         const response = await fetch(`${catalogUrl}`);
         const jsonData = await response.json();
-        console.log(jsonData)
         const filteredDate = jsonData.filter((el) => (el.name).toLowerCase().includes(textInput.toLowerCase()) ||
             (el.type).toLowerCase().includes(textInput.toLowerCase()))
-        console.log(filteredDate)
         dispatch({
             type: SEARCH_DATA,
             data: filteredDate

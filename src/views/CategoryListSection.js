@@ -13,8 +13,8 @@ import {
 import CardOfButtonCategory from "../components/MainPage/CardOfButtonCategory";
 import {categoryListData} from "../components/MainPage/CategoryListData";
 import {catalogLoad, currentPageToShow, showSectionCategory} from "../redux/actions";
-import {useDispatch, useSelector} from "react-redux";
-import CategoryFilteredData from "../components/MainPage/CategoryFilteredData";
+import {useDispatch} from "react-redux";
+import CategoryFilteredData from "../components/MainPage/FilteredData";
 
 
 const ShopCategory = () => {

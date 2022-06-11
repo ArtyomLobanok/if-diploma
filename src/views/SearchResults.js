@@ -5,30 +5,23 @@ import {
     SectionTitleWrapper,
 } from "../components/Styled-Components/General";
 import CardOfCategory from "../components/MainPage/CardOfCategory";
-import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 import {
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/Styled-Components/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText, SearchTitleText} from "../configs/stringsDataConfig";
-import {productLoad} from "../redux/actions";
 import SearchResultsData from "../components/MainPage/SearchFilteredData";
 
 const SearchSection = () => {
-    const dispatch = useDispatch();
-
-    const handleSetId = (e) => {
-        window.scrollTo(0, 0)
-        dispatch(productLoad(e.target.id))
-    }
-
+    const isShow = useSelector(state => state.showSearchResultsReducer);
+    const SearchResults = useSelector(state => state.searchDataReducer);
     const {
-        SearchResults,
         paginatedList,
         lastItemIndex,
         handleAddItemsToShow,
-        isShow,
-    } = SearchResultsData()
+        handleSetId,
+    } = SearchResultsData(SearchResults)
 
     return (
         (isShow.show === true) &&
