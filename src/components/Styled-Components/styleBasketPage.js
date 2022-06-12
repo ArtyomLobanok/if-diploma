@@ -90,11 +90,15 @@ export const BasketStoreBodyPayCard = styled.div`
 `
 
 export const BasketItem = styled.div`
-  display: flex;
   margin-top: 40px;
   padding-bottom: 36px;
   border-bottom: 1px solid #D8D8D8;
 `
+export const BasketItemWrapper = styled.div`
+  display: flex;
+  margin-bottom: 60px;
+`
+
 export const BasketItemImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -138,4 +142,31 @@ export const BasketItemTheRestInformationDropdown = styled.svg`
 export const BasketItemTheRestInformationLiftUp = styled(BasketItemTheRestInformationDropdown)`
   transform: rotate(180deg)
 `
+export const BasketItemRemoveBtnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
 
+export const BasketItemRemoveBtn = styled.button`
+  color: ${props => props.color || "#000F08"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #FFFFFF;
+  outline: none;
+  background-color: initial;
+  cursor: pointer;
+
+  svg {
+    fill: ${props => props.color || "#1D1D1B"};
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background-color: ${props => props.background || "#D8D8D8"};
+    border: 1px solid #FFFFFF;
+    transition: 0.4s ease;
+  }
+`

@@ -72,6 +72,7 @@ export const BasketButtonTotalPriceText = 'PROCEED TO CHECKOUT';
 export const ItemBasketTextColor = 'COLOR:';
 export const ItemBasketTextSize = 'SIZE:';
 export const ItemBasketTextQuantity = 'QUANTITY:';
+export const ItemBasketRemoveBtnText = 'REMOVE';
 
 
 
