@@ -48,7 +48,11 @@ const HeaderNavigation = () => {
                         <li onClick={handleLogOut}>{navLinkTextSignOut}</li> :
                         <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
                     }
-                    <li>{navLinkTextBag}</li>
+                    <li>
+                        <Link to="/basket">
+                            {navLinkTextBag}
+                        </Link>
+                    </li>
                     <li>
                         <LikeIcon>
                             <use href="#likeIcon"></use>

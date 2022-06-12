@@ -1,10 +1,9 @@
 import {useSelector} from "react-redux";
 
-
 const ProductPageDescriptionData = () => {
     const filteredItemData = useSelector(state => {
-        const {productLoadReducer} = state;
-        return productLoadReducer[0];
+        const {unloadDataReducer} = state;
+        return unloadDataReducer[0];
     });
     const description = filteredItemData.description;
     const descriptionData = () => {

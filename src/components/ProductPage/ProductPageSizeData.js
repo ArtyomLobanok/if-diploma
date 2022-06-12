@@ -1,10 +1,11 @@
 import {useSelector} from "react-redux";
 import {useState} from "react";
 
+
 const ProductPageSizeData = () => {
     const filteredItemData = useSelector(state => {
-        const {productLoadReducer} = state;
-        return productLoadReducer[0];
+        const {unloadDataReducer} = state;
+        return unloadDataReducer[0];
     });
 
     const SizesArray = filteredItemData.availableSizes[0].split(',');

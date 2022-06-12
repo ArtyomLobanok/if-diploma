@@ -2,14 +2,13 @@ import React from "react";
 import HeaderNavigation from "../components/MainPage/HeaderNavigation";
 import Footer from "./Footer";
 import {ItemHeaderWrapper} from "../components/Styled-Components/styledItemPage";
-import {useSelector} from "react-redux";
 import ProductPageBody from "../components/ProductPage/ProductPageBody";
 import Svg from "../assets/svg";
+import {useSelector} from "react-redux";
 
 
 const ProductPage = () => {
-    const filteredItemData = useSelector(state => state.productLoadReducer)
-    console.log(filteredItemData)
+    const itemData = useSelector(state => state.unloadDataReducer);
     return (
         <>
             <Svg/>
@@ -17,7 +16,7 @@ const ProductPage = () => {
                 <HeaderNavigation/>
             </ItemHeaderWrapper>
             {
-                filteredItemData.map(item => (
+                itemData.map(item => (
                     <ProductPageBody key={item.id} item={item}/>
                 ))
             }

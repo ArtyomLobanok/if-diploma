@@ -5,30 +5,34 @@ import {
     SectionTitleWrapper,
 } from "../components/Styled-Components/General";
 import CardOfCategory from "../components/MainPage/CardOfCategory";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/Styled-Components/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText, SearchTitleText} from "../configs/stringsDataConfig";
-import SearchResultsData from "../components/MainPage/SearchFilteredData";
+import FilteredData from "../components/MainPage/FilteredData";
+import {unloadData} from "../redux/actions";
 
 const SearchSection = () => {
     const isShow = useSelector(state => state.showSearchResultsReducer);
-    const SearchResults = useSelector(state => state.searchDataReducer);
+    const searchResults = useSelector(state => state.searchDataReducer);
+    const dispatch = useDispatch();
+    const handleGetId = (e) =>{
+        dispatch(unloadData(e.target.id))
+    }
     const {
         paginatedList,
         lastItemIndex,
         handleAddItemsToShow,
-        handleSetId,
-    } = SearchResultsData(SearchResults)
+    } = FilteredData(searchResults)
 
     return (
         (isShow.show === true) &&
         <Section>
             <Container>
                 {
-                    SearchResults.length === 0 ? (
+                    searchResults.length === 0 ? (
                         <>
                             <SectionTitleWrapper>
                                 <SectionTitleBold>
@@ -47,7 +51,7 @@ const SearchSection = () => {
                             <Flex width='100%' wrap='wrap'>
                                 {
                                     paginatedList.map(categoryCard => (
-                                        <CardOfCategory handleSetId={handleSetId} key={categoryCard.id}
+                                        <CardOfCategory handleGetId={handleGetId} key={categoryCard.id}
                                                         card={categoryCard}/>
                                     ))
                                 }

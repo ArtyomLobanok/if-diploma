@@ -15,29 +15,36 @@ import {
 import {saleBtnCardTextAdd} from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
 
-const categoryCard = ({card,handleSetId}) => {
+const categoryCard = ({card, handleGetId}) => {
     const {id, images, price} = card;
+    const handleSetId = (e) => {
+        e.preventDefault();
+        console.log(id)
+    }
     return (
-        <CardWrapper onClick={handleSetId} width='24%'>
-            <CardContentWrapper>
-                <Link to={`/product/${id}`}>
-                    <CardImgWrapper>
-                        <img id={id} src={images[0]} alt="Pictures"/>
-                    </CardImgWrapper>
-                </Link>
-                <CardIconWrapper>
-                    <LikeIcon width='42px' height='38px'>
-                        <use href="#likeIcon"></use>
-                    </LikeIcon>
-                </CardIconWrapper>
-                <CardBtnWrapper>
-                    <CardButton padding='13px 24px'>{saleBtnCardTextAdd}</CardButton>
-                </CardBtnWrapper>
-            </CardContentWrapper>
-            <Flex align='center'>
-                <FullPriceText decoration='initial'>${price.value}</FullPriceText>
-            </Flex>
-        </CardWrapper>
+        <>
+            <Link to={`/product/${id}`} onClick={handleGetId}>
+                <CardWrapper>
+                    <CardContentWrapper>
+                        <CardImgWrapper>
+                            <img id={id} src={images[0]} alt="Pictures"/>
+                        </CardImgWrapper>
+
+                        <CardIconWrapper>
+                            <LikeIcon width='42px' height='38px'>
+                                <use href="#likeIcon"></use>
+                            </LikeIcon>
+                        </CardIconWrapper>
+                        <CardBtnWrapper>
+                            <CardButton onClick={handleSetId} padding='13px 24px'>{saleBtnCardTextAdd}</CardButton>
+                        </CardBtnWrapper>
+                    </CardContentWrapper>
+                    <Flex align='center'>
+                        <FullPriceText decoration='initial'>${price.value}</FullPriceText>
+                    </Flex>
+                </CardWrapper>
+            </Link>
+        </>
     )
 }
 export default categoryCard;

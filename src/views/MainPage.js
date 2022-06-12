@@ -5,7 +5,6 @@ import Sale from "./Sale";
 import ShopInstagram from "./ShopInstagram";
 import Footer from "./Footer";
 import SearchSection from "./SearchResults";
-import BasketStore from "./BasketPage";
 
 const MainPage = () => {
     return (
@@ -17,7 +16,6 @@ const MainPage = () => {
             <Sale/>
             <ShopInstagram/>
             <Footer/>
-            <BasketStore/>
         </>
     );
 }

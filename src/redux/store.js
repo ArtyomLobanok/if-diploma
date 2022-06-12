@@ -5,30 +5,30 @@ import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import catalogLoadReducer from './reducers/catalogLoadReducer'
 import userReducer from './slices/userSlice';
-import productLoadReducer from "./reducers/productLoadReducer";
 import showSectionCategoryReducer from "./reducers/showSectionCategoryReducer";
 import currentPageToShowReducer from "./reducers/currentPageToShowReducer";
 import searchDataReducer from "./reducers/searchDataReducer";
 import SearchShowReducer from "./reducers/showSearchReducer";
 import InputTextSearchReducer from "./reducers/inputTextSearchReducer";
 import showSearchResultsReducer from "./reducers/showSerchResultReducer";
+import unloadDataReducer from "./reducers/unloadDataReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
     catalogLoadReducer,
-    productLoadReducer,
     showSectionCategoryReducer,
     currentPageToShowReducer,
     searchDataReducer,
     SearchShowReducer,
     InputTextSearchReducer,
     showSearchResultsReducer,
+    unloadDataReducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['user', 'productLoadReducer',]
+    whitelist: ['user', 'unloadDataReducer']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -5,7 +5,7 @@ import React from "react";
 import Footer from "./Footer";
 import BasketStoreBody from "../components/BasketPage/BasketStoreBody";
 
-const BasketStore = () => {
+const BasketPage = () => {
     return (
         <>
             <Svg/>
@@ -17,4 +17,4 @@ const BasketStore = () => {
         </>
     )
 }
-export default BasketStore;
+export default BasketPage;

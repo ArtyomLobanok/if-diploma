@@ -13,12 +13,13 @@ import {
 import CardOfButtonCategory from "../components/MainPage/CardOfButtonCategory";
 import {categoryListData} from "../components/MainPage/CategoryListData";
 import {catalogLoad, currentPageToShow, showSectionCategory} from "../redux/actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import CategoryFilteredData from "../components/MainPage/FilteredData";
 
 
 const ShopCategory = () => {
-    const {handleShowResults} = CategoryFilteredData();
+    const filteredClothesList = useSelector(state => state.catalogLoadReducer);
+    const {handleShowResults} = CategoryFilteredData(filteredClothesList);
     const dispatch = useDispatch();
     const handleChange = ({e, title}) => {
         dispatch(showSectionCategory(true))

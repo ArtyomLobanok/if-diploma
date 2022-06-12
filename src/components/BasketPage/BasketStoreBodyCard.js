@@ -70,7 +70,6 @@ const BasketStoreBodyCard = () => {
                     </BasketItemRemoveBtn>
                 </BasketItemRemoveBtnWrapper>
             </BasketItem>
-
         </>
     )
 }

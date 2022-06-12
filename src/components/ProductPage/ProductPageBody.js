@@ -14,8 +14,11 @@ import ProductPageSizeData from "./ProductPageSizeData";
 import ProductPageDescriptionData from "./ProductPageDescriptionData";
 
 const ProductPageBody = ({item}) => {
-    const {images, name, price, color} = item;
-
+    const {id, images, name, price, color} = item;
+    const handleSetId = (e) => {
+        e.preventDefault();
+        console.log(id)
+    }
     const {descriptionData} = ProductPageDescriptionData()
     const descriptionString = descriptionData()
 
@@ -81,7 +84,7 @@ const ProductPageBody = ({item}) => {
 
                     </ItemSize>
                     <Flex>
-                        <ItemButton>
+                        <ItemButton onClick={handleSetId}>
                             {saleBtnCardTextAdd}
                         </ItemButton>
                         <ItemButtonLike>

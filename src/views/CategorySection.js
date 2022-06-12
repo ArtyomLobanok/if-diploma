@@ -5,24 +5,31 @@ import {
     SectionTitleWrapper,
 } from "../components/Styled-Components/General";
 import CardOfCategory from "../components/MainPage/CardOfCategory";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/Styled-Components/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText} from "../configs/stringsDataConfig";
 import FilteredData from "../components/MainPage/FilteredData";
+import {unloadData} from "../redux/actions";
 
 const CategorySection = () => {
     const filteredClothesList = useSelector(state => state.catalogLoadReducer);
     const isShow = useSelector(state => state.showSectionCategoryReducer);
-
+    const dispatch = useDispatch();
+    const handleGetId = (e) => {
+        dispatch(unloadData(e.target.id))
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
     const {
         paginatedList,
         lastItemIndex,
         handleAddItemsToShow,
-        handleSetId,
-    } = FilteredData()
+    } = FilteredData(filteredClothesList)
 
     return (
         (isShow.show === true) &&
@@ -45,7 +52,8 @@ const CategorySection = () => {
                             <Flex width='100%' wrap='wrap'>
                                 {
                                     paginatedList.map(categoryCard => (
-                                        <CardOfCategory handleSetId={handleSetId} key={categoryCard.id}
+                                        <CardOfCategory handleGetId={handleGetId}
+                                                        key={categoryCard.id}
                                                         card={categoryCard}/>
                                     ))
                                 }

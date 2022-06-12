@@ -5,6 +5,7 @@ const useCatalogFetch = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [catalogArray, setCatalogArray] = useState([]);
+    console.log(catalogArray)
     useEffect(() => {
         const getData = async () => {
             try {
