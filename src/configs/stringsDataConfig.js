@@ -64,6 +64,14 @@ export const ShippingReturnsText = 'SHIPPING & RETURNS';
 export const FabricCompositionText = 'FABRIC COMPOSITION';
 export const SearchTitleText = 'Search results';
 export const SearchPlaceholderText = 'ENTER SEARCH TERMS';
+export const BasketStoreBodySubTitle = 'BAG';
+export const BasketStoreBodyOneUnitText = 'item';
+export const BasketStoreBodyUnitText = 'items';
+export const BasketTotalPriceText = 'Total USD $';
+export const BasketButtonTotalPriceText = 'PROCEED TO CHECKOUT';
+export const ItemBasketTextColor = 'COLOR:';
+export const ItemBasketTextSize = 'SIZE:';
+export const ItemBasketTextQuantity = 'QUANTITY:';
 
 
 
