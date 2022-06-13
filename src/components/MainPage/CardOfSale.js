@@ -1,7 +1,6 @@
 import React from "react";
-import {
-    Flex, LikeIcon,
-} from "../Styled-Components/General"
+import {Flex, LikeIcon,} from "../Styled-Components/General";
+
 import {
     FullPriceText,
     SalePercentTextWrapper,
@@ -13,15 +12,32 @@ import {
     CardIconWrapper, CardButton,
 
 } from "../Styled-Components/styledSaleCard";
-import {saleBtnCardTextAdd, salePercent} from "../../configs/stringsDataConfig";
+import {saleBtnCardTextAdd, saleBtnCardTextRemove, salePercent} from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
 
-const saleCard = ({card,handleGetId}) => {
+const saleCard = ({card, handleGetId, handleAddToBasket, items, handleRemoveFromBasket}) => {
     const {id, images, price} = card;
-    const handleSetId = (e) => {
+    const isItemInCart = items.some(item => item.id === id)
+    console.log(isItemInCart)
+    const handleAddCard = (e) => {
+        e.stopPropagation();
         e.preventDefault();
+        handleAddToBasket(card)
         console.log(id)
     }
+    const handleRemCard = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        if (isItemInCart) {
+            handleRemoveFromBasket(id)
+        } else {
+            handleAddToBasket(card)
+        }
+    }
+    const handleClickRemoveThisCard = () => {
+        handleRemoveFromBasket(id)
+    }
+
     const salePrice = Math.round(price.value / 100 * salePercent);
     return (
         <>
@@ -29,7 +45,7 @@ const saleCard = ({card,handleGetId}) => {
                 <CardWrapper>
                     <CardContentWrapper>
 
-                        <CardImgWrapper >
+                        <CardImgWrapper>
                             <img id={id} src={images[0]} alt="Pictures"/>
                         </CardImgWrapper>
 
@@ -39,8 +55,15 @@ const saleCard = ({card,handleGetId}) => {
                             </LikeIcon>
                         </CardIconWrapper>
                         <CardBtnWrapper>
-                            <CardButton onClick={handleSetId}
-                                        padding='13px 24px'>{saleBtnCardTextAdd}</CardButton>
+                            {isItemInCart ?
+                                <CardButton onClick={handleRemCard} padding='13px 24px'>
+                                    {saleBtnCardTextRemove}
+                                </CardButton>
+                                :
+                                <CardButton onClick={handleAddCard} padding='13px 24px'>
+                                    {saleBtnCardTextAdd}
+                                </CardButton>
+                            }
                         </CardBtnWrapper>
                         <SalePercentTextWrapper>
                             <span>-{salePercent}%</span>

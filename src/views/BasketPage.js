@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import BasketStoreBody from "../components/BasketPage/BasketStoreBody";
 
 const BasketPage = () => {
+
     return (
         <>
             <Svg/>

@@ -20,6 +20,11 @@ export const Navigation = styled.nav`
       margin-right: 50px;
       cursor: pointer;
       position: relative;
+      
+      span {
+        margin-left: 6px;
+      }
+      
       &:hover:after {
         opacity: 1;
         transition: 0.5s ease;

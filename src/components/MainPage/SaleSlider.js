@@ -10,17 +10,25 @@ import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
 import {ThreeCircles} from 'react-loader-spinner'
 import {unloadData} from "../../redux/actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import scrollToTop from "../ScrollToTop";
+import {setItemInBasket,deleteItemFromBasket} from "../../redux/cart/basketReducer"
 
 const SaleSlider = () => {
     const {catalogArray, isLoaded} = useCatalogFetch();
     const dispatch = useDispatch();
+    const handleAddToBasket = (card) => {
+        dispatch(setItemInBasket(card))
+    }
+    const handleRemoveFromBasket = (id) => {
+        dispatch(deleteItemFromBasket(id))
+    }
+
+    const items = useSelector(state => state.basket.itemsInBasket);
+
     const handleGetId = (e) =>{
         dispatch(unloadData(e.target.id))
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        scrollToTop()
     }
     const SampleNextArrow = ({className, onClick}) => {
         return (
@@ -96,7 +104,13 @@ const SaleSlider = () => {
                     <Slider {...settings}>
                         {
                             catalogArray.map(saleCard => (
-                                <CardOfSale handleGetId={handleGetId} key={saleCard.id} card={saleCard}/>))
+                                <CardOfSale
+                                    items={items}
+                                    handleRemoveFromBasket={handleRemoveFromBasket}
+                                    handleAddToBasket={handleAddToBasket}
+                                    handleGetId={handleGetId}
+                                    key={saleCard.id}
+                                    card={saleCard}/>))
                         }
                     </Slider>
                     :

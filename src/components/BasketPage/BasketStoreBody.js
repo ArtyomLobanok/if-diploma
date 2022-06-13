@@ -12,50 +12,81 @@ import {
     BasketTotalPriceValue,
 } from "../Styled-Components/styleBasketPage";
 import {
-    BasketButtonTotalPriceText,
+    BasketButtonProceedToCheckoutText,
+    BasketStoreBodyOneUnitText,
     BasketStoreBodySubTitle,
     BasketStoreBodyUnitText,
     BasketTotalPriceText,
 } from "../../configs/stringsDataConfig";
 import {Container} from "../Styled-Components/General";
 import BasketStoreBodyCard from "./BasketStoreBodyCard";
+import {useDispatch, useSelector} from "react-redux";
+import {calcTotalPrice} from "../utils";
+import {deleteItemFromBasket} from "../../redux/cart/basketReducer";
+
 
 const BasketStoreBody = () => {
+    const items = useSelector(state => state.basket.itemsInBasket);
+    console.log(items)
+    const dispatch = useDispatch();
+    const handleRemoveFromBasket = (id) => {
+        dispatch(deleteItemFromBasket(id))
+    }
     return (
         <>
             <Container>
                 <BasketStoreBodyContainer>
                     <BasketStoreBodyHeader>
                         <p>{BasketStoreBodySubTitle}</p>
-                        <p>
-                            <BasketStoreBodyHeaderValueItems>
-                                2
-                            </BasketStoreBodyHeaderValueItems>
-                            {BasketStoreBodyUnitText}
-                        </p>
+                        {
+                            items.length <= 1 ?
+                                <p>
+                                    <BasketStoreBodyHeaderValueItems>
+                                        {items.length}
+                                    </BasketStoreBodyHeaderValueItems>
+                                    {BasketStoreBodyOneUnitText}
+                                </p> :
+                                <p>
+                                    <BasketStoreBodyHeaderValueItems>
+                                        {items.length}
+                                    </BasketStoreBodyHeaderValueItems>
+                                    {BasketStoreBodyUnitText}
+                                </p>
+                        }
                     </BasketStoreBodyHeader>
                     <BasketStoreBodyMain>
-
-                        <BasketStoreBodyCard/>
-
+                        {items.length > 0 ?
+                            items.map(item => (
+                                <BasketStoreBodyCard
+                                    handleRemoveFromBasket={handleRemoveFromBasket}
+                                    key={item.id}
+                                    card={item}/>))
+                            : <h4 Style={{margin: '20px auto'}}>Ваша корзина пуста!
+                                Пожалуйста вернитесь на главную страницу и добавте товары в корзину что-бы оформить
+                                заказ</h4>
+                        }
                     </BasketStoreBodyMain>
-                    <BasketStoreBodyFooter>
-                        <p>
-                            {BasketTotalPriceText}
-                            <BasketTotalPriceValue>
-                                340
-                            </BasketTotalPriceValue>
-                        </p>
-                        <BasketStoreBodyBtn>{BasketButtonTotalPriceText}</BasketStoreBodyBtn>
-                        <BasketStoreBodyPayCardWrapper>
-                            <BasketStoreBodyPayCard>
-                                <img src={maestroImg} alt='maestro'/>
-                            </BasketStoreBodyPayCard>
-                            <BasketStoreBodyPayCard>
-                                <img src={visaImg} alt='visa'/>
-                            </BasketStoreBodyPayCard>
-                        </BasketStoreBodyPayCardWrapper>
-                    </BasketStoreBodyFooter>
+                    {items.length > 0 ?
+                        <BasketStoreBodyFooter>
+                            <p>
+                                {BasketTotalPriceText}
+                                <BasketTotalPriceValue>
+                                    {calcTotalPrice(items)}
+                                </BasketTotalPriceValue>
+                            </p>
+                            <BasketStoreBodyBtn
+                                onClick={e => e.preventDefault()}>{BasketButtonProceedToCheckoutText}</BasketStoreBodyBtn>
+                            <BasketStoreBodyPayCardWrapper>
+                                <BasketStoreBodyPayCard>
+                                    <img src={maestroImg} alt='maestro'/>
+                                </BasketStoreBodyPayCard>
+                                <BasketStoreBodyPayCard>
+                                    <img src={visaImg} alt='visa'/>
+                                </BasketStoreBodyPayCard>
+                            </BasketStoreBodyPayCardWrapper>
+                        </BasketStoreBodyFooter>
+                        : null
+                    }
                 </BasketStoreBodyContainer>
             </Container>
         </>

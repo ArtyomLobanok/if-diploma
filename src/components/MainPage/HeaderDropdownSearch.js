@@ -3,6 +3,7 @@ import {SearchContainer, SearchForm} from "../Styled-Components/styledHeaderModa
 import {currentPageToShow, inputSearchDataLoad, inputText, showSearch, showSearchResults} from "../../redux/actions";
 import {SearchPlaceholderText} from "../../configs/stringsDataConfig";
 import {Container} from "../Styled-Components/General";
+import scrollToTop from "../ScrollToTop";
 
 const HeaderDropdownSearch = () => {
     const dispatch = useDispatch();
@@ -17,11 +18,7 @@ const HeaderDropdownSearch = () => {
     };
 
     const handleSubmit = (e) => {
-        window.scrollTo({
-            top: 1000,
-            behavior: "smooth"
-        });
-
+        scrollToTop()
         dispatch(inputSearchDataLoad(textInput))
         dispatch(showSearchResults(true))
         dispatch(currentPageToShow(1))

@@ -9,11 +9,12 @@ import {LogotypeIcon, Navigation, SearchIcon} from "../Styled-Components/styledN
 import {Container, LikeIcon} from "../Styled-Components/General";
 import {Link} from "react-router-dom";
 import useAuth from "../../hooks/use-auth";
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {removeUser} from '../../redux/slices/userSlice'
 import {showSearch} from "../../redux/actions";
 
 const HeaderNavigation = () => {
+    const items = useSelector(state => state.basket.itemsInBasket);
     const {isAuth} = useAuth();
     const dispatch = useDispatch();
 
@@ -52,6 +53,7 @@ const HeaderNavigation = () => {
                         <Link to="/basket">
                             {navLinkTextBag}
                         </Link>
+                        <span>({items.length})</span>
                     </li>
                     <li>
                         <LikeIcon>

@@ -13,6 +13,7 @@ import {
 import {BtnShowMoreItemCategoryText, NotFoundText} from "../configs/stringsDataConfig";
 import FilteredData from "../components/MainPage/FilteredData";
 import {unloadData} from "../redux/actions";
+import scrollToTop from "../components/ScrollToTop";
 
 const CategorySection = () => {
     const filteredClothesList = useSelector(state => state.catalogLoadReducer);
@@ -20,10 +21,7 @@ const CategorySection = () => {
     const dispatch = useDispatch();
     const handleGetId = (e) => {
         dispatch(unloadData(e.target.id))
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        scrollToTop()
     }
     const {
         paginatedList,

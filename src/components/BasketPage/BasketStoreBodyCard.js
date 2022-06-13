@@ -16,7 +16,11 @@ import {
     ItemBasketTextSize
 } from "../../configs/stringsDataConfig";
 
-const BasketStoreBodyCard = () => {
+const BasketStoreBodyCard = ({card,handleRemoveFromBasket}) => {
+    const {id, images, price} = card;
+    const handleClickRemoveThisCard = () => {
+        handleRemoveFromBasket(id)
+    }
     return (
         <>
             <BasketItem>
@@ -62,7 +66,7 @@ const BasketStoreBodyCard = () => {
                     </BasketItemInformation>
                 </BasketItemWrapper>
                 <BasketItemRemoveBtnWrapper>
-                    <BasketItemRemoveBtn>
+                    <BasketItemRemoveBtn onClick={handleClickRemoveThisCard}>
                         <svg>
                             <use href="#closeSearchForm"/>
                         </svg>
