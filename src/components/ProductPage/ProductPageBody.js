@@ -5,20 +5,26 @@ import {
     ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle
 } from "../Styled-Components/styledItemPage";
 import {
-    DescriptionText, FabricCompositionText, ItemPageTextColor, ItemPageTextOrder, ItemPageTextSize, saleBtnCardTextAdd,
+    DescriptionText,
+    FabricCompositionText,
+    ItemPageTextColor,
+    ItemPageTextOrder,
+    ItemPageTextSize,
+    saleBtnCardTextAdd,
+    saleBtnCardTextRemove,
     ShippingReturnsText
 } from "../../configs/stringsDataConfig";
 import React from "react";
 import ProductPageData from "./ProductPageData";
 import ProductPageSizeData from "./ProductPageSizeData";
 import ProductPageDescriptionData from "./ProductPageDescriptionData";
+import useToggleBasket from "../../hooks/use-toggleBasket";
 
-const ProductPageBody = ({item}) => {
-    const {id, images, name, price, color} = item;
-    const handleSetId = (e) => {
-        e.preventDefault();
-        console.log(id)
-    }
+
+const ProductPageBody = ({card}) => {
+    const {id, images, name, price, color} = card;
+    const {handleRemCard, handleAddCard, isItemInCart} = useToggleBasket({card, id});
+
     const {descriptionData} = ProductPageDescriptionData()
     const descriptionString = descriptionData()
 
@@ -84,9 +90,15 @@ const ProductPageBody = ({item}) => {
 
                     </ItemSize>
                     <Flex>
-                        <ItemButton onClick={handleSetId}>
-                            {saleBtnCardTextAdd}
-                        </ItemButton>
+                        {isItemInCart ?
+                            <ItemButton onClick={handleRemCard} padding='13px 24px'>
+                                {saleBtnCardTextRemove}
+                            </ItemButton>
+                            :
+                            <ItemButton onClick={handleAddCard} padding='13px 24px'>
+                                {saleBtnCardTextAdd}
+                            </ItemButton>
+                        }
                         <ItemButtonLike>
                             <LikeIcon color="red" width='24px' height='24px'>
                                 <use href="#likeIcon"></use>

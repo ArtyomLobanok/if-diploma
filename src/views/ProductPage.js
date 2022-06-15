@@ -16,8 +16,8 @@ const ProductPage = () => {
                 <HeaderNavigation/>
             </ItemHeaderWrapper>
             {
-                itemData.map(item => (
-                    <ProductPageBody key={item.id} item={item}/>
+                itemData.map(card => (
+                    <ProductPageBody key={card.id} card={card}/>
                 ))
             }
             <Footer/>
