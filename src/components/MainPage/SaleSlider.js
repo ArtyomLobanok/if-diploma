@@ -9,27 +9,9 @@ import {
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
 import {ThreeCircles} from 'react-loader-spinner'
-import {unloadData} from "../../redux/actions";
-import {useDispatch, useSelector} from "react-redux";
-import scrollToTop from "../ScrollToTop";
-import {setItemInBasket,deleteItemFromBasket} from "../../redux/cart/basketReducer"
 
 const SaleSlider = () => {
     const {catalogArray, isLoaded} = useCatalogFetch();
-    const dispatch = useDispatch();
-    const handleAddToBasket = (card) => {
-        dispatch(setItemInBasket(card))
-    }
-    const handleRemoveFromBasket = (id) => {
-        dispatch(deleteItemFromBasket(id))
-    }
-
-    const items = useSelector(state => state.basket.itemsInBasket);
-
-    const handleGetId = (e) =>{
-        dispatch(unloadData(e.target.id))
-        scrollToTop()
-    }
     const SampleNextArrow = ({className, onClick}) => {
         return (
             <div
@@ -105,10 +87,6 @@ const SaleSlider = () => {
                         {
                             catalogArray.map(saleCard => (
                                 <CardOfSale
-                                    items={items}
-                                    handleRemoveFromBasket={handleRemoveFromBasket}
-                                    handleAddToBasket={handleAddToBasket}
-                                    handleGetId={handleGetId}
                                     key={saleCard.id}
                                     card={saleCard}/>))
                         }

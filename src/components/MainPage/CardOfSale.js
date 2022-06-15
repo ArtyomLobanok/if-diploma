@@ -1,6 +1,5 @@
 import React from "react";
 import {Flex, LikeIcon,} from "../Styled-Components/General";
-
 import {
     FullPriceText,
     SalePercentTextWrapper,
@@ -9,36 +8,19 @@ import {
     CardContentWrapper,
     CardImgWrapper,
     CardBtnWrapper,
-    CardIconWrapper, CardButton,
-
+    CardIconWrapper,
+    CardButton,
 } from "../Styled-Components/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove, salePercent} from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
+import useToggleBasket from "../../hooks/use-toggleBasket";
+import useGetId from "../../hooks/use-tekeId";
 
-const saleCard = ({card, handleGetId, handleAddToBasket, items, handleRemoveFromBasket}) => {
+const SaleCard = ({card}) => {
     const {id, images, price} = card;
-    const isItemInCart = items.some(item => item.id === id)
-    console.log(isItemInCart)
-    const handleAddCard = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        handleAddToBasket(card)
-        console.log(id)
-    }
-    const handleRemCard = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        if (isItemInCart) {
-            handleRemoveFromBasket(id)
-        } else {
-            handleAddToBasket(card)
-        }
-    }
-    const handleClickRemoveThisCard = () => {
-        handleRemoveFromBasket(id)
-    }
-
     const salePrice = Math.round(price.value / 100 * salePercent);
+    const {handleRemCard, handleAddCard, isItemInCart,} = useToggleBasket({card, id});
+    const {handleGetId} = useGetId(id);
     return (
         <>
             <Link to={`/product/${id}`} onClick={handleGetId}>
@@ -75,8 +57,7 @@ const saleCard = ({card, handleGetId, handleAddToBasket, items, handleRemoveFrom
                     </Flex>
                 </CardWrapper>
             </Link>
-
         </>
     )
 }
-export default saleCard;
+export default SaleCard;

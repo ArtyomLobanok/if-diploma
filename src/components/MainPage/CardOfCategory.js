@@ -12,22 +12,22 @@ import {
     CardIconWrapper,
     CardButton,
 } from "../Styled-Components/styledSaleCard";
-import {saleBtnCardTextAdd} from "../../configs/stringsDataConfig";
+import {saleBtnCardTextAdd, saleBtnCardTextRemove} from "../../configs/stringsDataConfig";
 import {Link} from "react-router-dom";
+import useToggleBasket from "../../hooks/use-toggleBasket";
+import useGetId from "../../hooks/use-tekeId";
 
-const categoryCard = ({card, handleGetId}) => {
+const CategoryCard = ({card}) => {
     const {id, images, price} = card;
-    const handleSetId = (e) => {
-        e.preventDefault();
-        console.log(id)
-    }
+    const {handleGetId} = useGetId(id);
+    const {handleRemCard, handleAddCard, isItemInCart,} = useToggleBasket({card, id});
     return (
         <>
             <Link to={`/product/${id}`} onClick={handleGetId}>
                 <CardWrapper>
                     <CardContentWrapper>
                         <CardImgWrapper>
-                            <img id={id} src={images[0]} alt="Pictures"/>
+                            <img src={images[0]} alt="Pictures"/>
                         </CardImgWrapper>
 
                         <CardIconWrapper>
@@ -36,7 +36,15 @@ const categoryCard = ({card, handleGetId}) => {
                             </LikeIcon>
                         </CardIconWrapper>
                         <CardBtnWrapper>
-                            <CardButton onClick={handleSetId} padding='13px 24px'>{saleBtnCardTextAdd}</CardButton>
+                            {isItemInCart ?
+                                <CardButton onClick={handleRemCard} padding='13px 24px'>
+                                    {saleBtnCardTextRemove}
+                                </CardButton>
+                                :
+                                <CardButton onClick={handleAddCard} padding='13px 24px'>
+                                    {saleBtnCardTextAdd}
+                                </CardButton>
+                            }
                         </CardBtnWrapper>
                     </CardContentWrapper>
                     <Flex align='center'>
@@ -47,4 +55,4 @@ const categoryCard = ({card, handleGetId}) => {
         </>
     )
 }
-export default categoryCard;
+export default CategoryCard;

@@ -61,7 +61,7 @@ const BasketStoreBody = () => {
                                     handleRemoveFromBasket={handleRemoveFromBasket}
                                     key={item.id}
                                     card={item}/>))
-                            : <h4 Style={{margin: '20px auto'}}>Ваша корзина пуста!
+                            : <h4 style={{margin: '20px auto'}}>Ваша корзина пуста!
                                 Пожалуйста вернитесь на главную страницу и добавте товары в корзину что-бы оформить
                                 заказ</h4>
                         }
