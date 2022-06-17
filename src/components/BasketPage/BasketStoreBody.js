@@ -22,25 +22,15 @@ import {
 } from "../../configs/stringsDataConfig";
 import {Container} from "../Styled-Components/General";
 import BasketStoreBodyCard from "./BasketStoreBodyCard";
-import {useDispatch, useSelector} from "react-redux";
 import {calcTotalPrice} from "../utils";
-import {basket} from "../../redux/actions";
+import BasketData from "./BasketData";
 
 
 const BasketStoreBody = () => {
-    const dispatch = useDispatch();
-    const items = useSelector(state => state.basket.itemsInBasket);
-    const responseData = useSelector(state => state.idLoadReducer);
-    const idArray = items.map(item => item.id);
-    const handleProceedToCheckout = (e) => {
-        e.preventDefault()
-        dispatch(basket(idArray))
-    }
+    const {handleProceedToCheckout, responseData, items} = BasketData()
     return (
         <>
             <Container>
-
-
                 <BasketStoreBodyContainer>
                     {
                         responseData.length !== 0 ?
