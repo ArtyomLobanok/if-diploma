@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import {ItemButton} from "./styledItemPage";
 
+export const BasketSendSuccess = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 20px;
+  font-size: 26px;
+`
+
 export const BasketStoreBodyContainer = styled.div`
   margin: 0 auto;
   max-width: 704px;
@@ -32,6 +40,9 @@ export const BasketStoreBodyHeaderValueItems = styled.span`
 
 export const BasketStoreBodyMain = styled.div`
   display: block;
+  h4{
+    margin: 20px auto;
+  }
 `
 export const BasketStoreBodyFooter = styled.div`
   display: flex;
@@ -103,6 +114,13 @@ export const BasketItemImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 28px;
+  max-width: 212px;
+  max-height: 306px;
+  img {
+    with: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `
 export const BasketItemInformation = styled.div`
   display: flex;

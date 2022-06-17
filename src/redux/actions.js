@@ -1,10 +1,10 @@
 import {
     CATALOG_DATA_LOAD,
     CURRENT_PAGE_TO_SHOW,
-    SEARCH_DATA, SEARCH_INPUT_TEXT, SHOW_SEARCH, SHOW_SEARCH_RESULT,
-    SHOW_SECTION_CATEGORY,UNLOADING_DATA,
+    SEARCH_DATA, SEARCH_INPUT_TEXT, SEND_ARRAY_BASKET, SHOW_SEARCH, SHOW_SEARCH_RESULT,
+    SHOW_SECTION_CATEGORY, UNLOADING_DATA,
 } from "./types";
-import {catalogUrl} from "../configs/urlConfig";
+import {cartUrl, catalogUrl} from "../configs/urlConfig";
 
 
 export const catalogLoad = (params) => {
@@ -44,22 +44,24 @@ export const unloadData = (params) => {
     };
 };
 
-// export const basket = (arrayIzKorzyny) => {
-//     return async dispatch => {
-//         const response = await fetch("https://modnikky-api.herokuapp.com/api/cart", {
-//             method: "POST",
-//             body: {
-//                 products: arrayIzKorzyny
-//             }
-//         });
-//         const jsonData = await response.json();
-//         dispatch({
-//             type: SEARCH_DATA,
-//             data: data
-//         });
-//     };
-//ОЧИСТКА КОРЗИНЫ ПОСЛЕ УСПЕШНОГО ОТПРАВЛЕНИЯ POST запроса clearBasketreducer if sucsessful"200" post return [] сделать
-// };
+export const basket = (idArray) => {
+    return async dispatch => {
+        const response = await fetch(`${cartUrl}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "products": idArray
+            })
+        });
+        const responseData = await response.json();
+        dispatch({
+            type: SEND_ARRAY_BASKET,
+            data: responseData
+        });
+    };
+};
 
 export const showSearch = (show) => {
     return {

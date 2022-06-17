@@ -15,9 +15,17 @@ import {
     ItemBasketTextQuantity,
     ItemBasketTextSize
 } from "../../configs/stringsDataConfig";
+import {randomQuantity} from "../utils";
+import {useDispatch} from "react-redux";
+import {deleteItemFromBasket} from "../../redux/cart/basketReducer";
 
-const BasketStoreBodyCard = ({card,handleRemoveFromBasket}) => {
-    const {id, images, price} = card;
+const BasketStoreBodyCard = ({card}) => {
+    const {id, images, price,name,color,availableSizes} = card;
+    const arrayOfArrays = availableSizes.toString().split(',');
+    const dispatch = useDispatch();
+    const handleRemoveFromBasket = (id) => {
+        dispatch(deleteItemFromBasket(id))
+    }
     const handleClickRemoveThisCard = () => {
         handleRemoveFromBasket(id)
     }
@@ -26,20 +34,19 @@ const BasketStoreBodyCard = ({card,handleRemoveFromBasket}) => {
             <BasketItem>
                 <BasketItemWrapper>
                     <BasketItemImgWrapper>
-                        <img src={plugImg1} alt="img"/>
+                        {<img src={images[0]} alt="img"/>}
                     </BasketItemImgWrapper>
                     <BasketItemInformation>
                         <BasketItemNameInformation>
-                            WHITE BEAUTY MRS BLONDES MID
-                            <br/> LENGTH DENIM SHORT
+                            {name}
                         </BasketItemNameInformation>
                         <BasketItemPriceInformation>
-                            USD $340.00
+                            {`${price.currency} $${price.value}`}
                         </BasketItemPriceInformation>
                         <BasketItemTheRestInformation>
                             {ItemBasketTextColor}
                             <BasketItemTheRestInformationValue>
-                                WHITE
+                                {(color.name).toUpperCase()}
                             </BasketItemTheRestInformationValue>
                             <BasketItemTheRestInformationDropdown>
                                 <use href="#dropDown"/>
@@ -48,7 +55,7 @@ const BasketStoreBodyCard = ({card,handleRemoveFromBasket}) => {
                         <BasketItemTheRestInformation>
                             {ItemBasketTextSize}
                             <BasketItemTheRestInformationValue>
-                                2
+                                {arrayOfArrays.length}
                             </BasketItemTheRestInformationValue>
                             <BasketItemTheRestInformationDropdown>
                                 <use href="#dropDown"/>
@@ -57,7 +64,7 @@ const BasketStoreBodyCard = ({card,handleRemoveFromBasket}) => {
                         <BasketItemTheRestInformation>
                             {ItemBasketTextQuantity}
                             <BasketItemTheRestInformationValue>
-                                1
+                                {randomQuantity}
                             </BasketItemTheRestInformationValue>
                             <BasketItemTheRestInformationDropdown>
                                 <use href="#dropDown"/>

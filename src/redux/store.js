@@ -12,8 +12,8 @@ import SearchShowReducer from "./reducers/showSearchReducer";
 import InputTextSearchReducer from "./reducers/inputTextSearchReducer";
 import showSearchResultsReducer from "./reducers/showSerchResultReducer";
 import unloadDataReducer from "./reducers/unloadDataReducer";
-import cartReducer from "./cart/basketReducer";
 import basketReducer from "./cart/basketReducer";
+import idLoadReducer from "./reducers/idLoadReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -26,6 +26,7 @@ const rootReducer = combineReducers({
     showSearchResultsReducer,
     unloadDataReducer,
     basket: basketReducer,
+    idLoadReducer,
 });
 
 const persistConfig = {

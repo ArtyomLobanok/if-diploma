@@ -1,6 +1,7 @@
 import visaImg from "../../assets/img/ic_visa.png"
 import maestroImg from "../../assets/img/ic_maestro.png"
 import {
+    BasketSendSuccess,
     BasketStoreBodyBtn,
     BasketStoreBodyContainer,
     BasketStoreBodyFooter,
@@ -12,6 +13,7 @@ import {
     BasketTotalPriceValue,
 } from "../Styled-Components/styleBasketPage";
 import {
+    BagIsEmptyText,
     BasketButtonProceedToCheckoutText,
     BasketStoreBodyOneUnitText,
     BasketStoreBodySubTitle,
@@ -22,70 +24,79 @@ import {Container} from "../Styled-Components/General";
 import BasketStoreBodyCard from "./BasketStoreBodyCard";
 import {useDispatch, useSelector} from "react-redux";
 import {calcTotalPrice} from "../utils";
-import {deleteItemFromBasket} from "../../redux/cart/basketReducer";
+import {basket} from "../../redux/actions";
 
 
 const BasketStoreBody = () => {
-    const items = useSelector(state => state.basket.itemsInBasket);
-    console.log(items)
     const dispatch = useDispatch();
-    const handleRemoveFromBasket = (id) => {
-        dispatch(deleteItemFromBasket(id))
+    const items = useSelector(state => state.basket.itemsInBasket);
+    const responseData = useSelector(state => state.idLoadReducer);
+    const idArray = items.map(item => item.id);
+    const handleProceedToCheckout = (e) => {
+        e.preventDefault()
+        dispatch(basket(idArray))
     }
     return (
         <>
             <Container>
+
+
                 <BasketStoreBodyContainer>
-                    <BasketStoreBodyHeader>
-                        <p>{BasketStoreBodySubTitle}</p>
-                        {
-                            items.length <= 1 ?
-                                <p>
-                                    <BasketStoreBodyHeaderValueItems>
-                                        {items.length}
-                                    </BasketStoreBodyHeaderValueItems>
-                                    {BasketStoreBodyOneUnitText}
-                                </p> :
-                                <p>
-                                    <BasketStoreBodyHeaderValueItems>
-                                        {items.length}
-                                    </BasketStoreBodyHeaderValueItems>
-                                    {BasketStoreBodyUnitText}
-                                </p>
-                        }
-                    </BasketStoreBodyHeader>
-                    <BasketStoreBodyMain>
-                        {items.length > 0 ?
-                            items.map(item => (
-                                <BasketStoreBodyCard
-                                    handleRemoveFromBasket={handleRemoveFromBasket}
-                                    key={item.id}
-                                    card={item}/>))
-                            : <h4 style={{margin: '20px auto'}}>Ваша корзина пуста!
-                                Пожалуйста вернитесь на главную страницу и добавте товары в корзину что-бы оформить
-                                заказ</h4>
-                        }
-                    </BasketStoreBodyMain>
-                    {items.length > 0 ?
-                        <BasketStoreBodyFooter>
-                            <p>
-                                {BasketTotalPriceText}
-                                <BasketTotalPriceValue>
-                                    {calcTotalPrice(items)}
-                                </BasketTotalPriceValue>
-                            </p>
-                            <BasketStoreBodyBtn
-                                onClick={e => e.preventDefault()}>{BasketButtonProceedToCheckoutText}</BasketStoreBodyBtn>
-                            <BasketStoreBodyPayCardWrapper>
-                                <BasketStoreBodyPayCard>
-                                    <img src={maestroImg} alt='maestro'/>
-                                </BasketStoreBodyPayCard>
-                                <BasketStoreBodyPayCard>
-                                    <img src={visaImg} alt='visa'/>
-                                </BasketStoreBodyPayCard>
-                            </BasketStoreBodyPayCardWrapper>
-                        </BasketStoreBodyFooter>
-                        : null
+                    {
+                        responseData.length !== 0 ?
+                            <BasketSendSuccess>{responseData.message}...</BasketSendSuccess> :
+                            <>
+                                <BasketStoreBodyHeader>
+                                    <p>{BasketStoreBodySubTitle}</p>
+                                    {
+                                        items.length <= 1 ?
+                                            <p>
+                                                <BasketStoreBodyHeaderValueItems>
+                                                    {items.length}
+                                                </BasketStoreBodyHeaderValueItems>
+                                                {BasketStoreBodyOneUnitText}
+                                            </p> :
+                                            <p>
+                                                <BasketStoreBodyHeaderValueItems>
+                                                    {items.length}
+                                                </BasketStoreBodyHeaderValueItems>
+                                                {BasketStoreBodyUnitText}
+                                            </p>
+                                    }
+                                </BasketStoreBodyHeader>
+                                <BasketStoreBodyMain>
+                                    {items.length > 0 ?
+                                        items.map(item => (
+                                            <BasketStoreBodyCard
+                                                key={item.id}
+                                                card={item}/>))
+                                        : <h4>
+                                            {BagIsEmptyText}
+                                        </h4>
+                                    }
+                                </BasketStoreBodyMain>
+                                {items.length > 0 ?
+                                    <BasketStoreBodyFooter>
+                                        <p>
+                                            {BasketTotalPriceText}
+                                            <BasketTotalPriceValue>
+                                                {calcTotalPrice(items)}
+                                            </BasketTotalPriceValue>
+                                        </p>
+                                        <BasketStoreBodyBtn
+                                            onClick={handleProceedToCheckout}>{BasketButtonProceedToCheckoutText}</BasketStoreBodyBtn>
+                                        <BasketStoreBodyPayCardWrapper>
+                                            <BasketStoreBodyPayCard>
+                                                <img src={maestroImg} alt='maestro'/>
+                                            </BasketStoreBodyPayCard>
+                                            <BasketStoreBodyPayCard>
+                                                <img src={visaImg} alt='visa'/>
+                                            </BasketStoreBodyPayCard>
+                                        </BasketStoreBodyPayCardWrapper>
+                                    </BasketStoreBodyFooter>
+                                    : null
+                                }
+                            </>
                     }
                 </BasketStoreBodyContainer>
             </Container>

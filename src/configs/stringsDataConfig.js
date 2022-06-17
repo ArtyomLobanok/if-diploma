@@ -74,7 +74,8 @@ export const ItemBasketTextColor = 'COLOR:';
 export const ItemBasketTextSize = 'SIZE:';
 export const ItemBasketTextQuantity = 'QUANTITY:';
 export const ItemBasketRemoveBtnText = 'REMOVE';
-
+export const BagIsEmptyText = 'Ваша корзина пуста! Пожалуйста вернитесь на главную страницу и добавте товары в корзину что-бы оформить\n' +
+    '                                заказ';
 
 
 
