@@ -1,10 +1,10 @@
 import {
     CATALOG_DATA_LOAD,
     CURRENT_PAGE_TO_SHOW,
-    SEARCH_DATA, SEARCH_INPUT_TEXT, SEND_ARRAY_BASKET, SHOW_SEARCH, SHOW_SEARCH_RESULT,
+    SEARCH_DATA, SEARCH_INPUT_TEXT, SEND_ARRAY_BASKET, SEND_EMAIL, SHOW_SEARCH, SHOW_SEARCH_RESULT,
     SHOW_SECTION_CATEGORY, UNLOADING_DATA,
 } from "./types";
-import {cartUrl, catalogUrl} from "../configs/urlConfig";
+import {cartUrl, catalogUrl, subscriptionUrl} from "../configs/urlConfig";
 
 
 export const catalogLoad = (params) => {
@@ -58,6 +58,25 @@ export const basket = (idArray) => {
         const responseData = await response.json();
         dispatch({
             type: SEND_ARRAY_BASKET,
+            data: responseData
+        });
+    };
+};
+
+export const sendEmail = (params) => {
+    return async dispatch => {
+        const response = await fetch(`${subscriptionUrl}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "email": params
+            })
+        });
+        const responseData = await response.json();
+        dispatch({
+            type: SEND_EMAIL,
             data: responseData
         });
     };

@@ -15,6 +15,7 @@ import unloadDataReducer from "./reducers/unloadDataReducer";
 import basketReducer from "./cart/basketReducer";
 import idLoadReducer from "./reducers/idLoadReducer";
 import favoritesReducer from "./favorites/favoritesReducer";
+import emailSendReducer from "./reducers/emailLoadReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
     basket: basketReducer,
     favorites: favoritesReducer,
     idLoadReducer,
+    emailSendReducer,
 });
 
 const persistConfig = {

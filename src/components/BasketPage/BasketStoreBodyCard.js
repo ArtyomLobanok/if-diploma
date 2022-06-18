@@ -8,7 +8,6 @@ import {
     BasketItemTheRestInformationDropdown,
     BasketItemTheRestInformationValue, BasketItemWrapper
 } from "../Styled-Components/styleBasketPage";
-import plugImg1 from "../../assets/img/basketImg1.png";
 import {
     ItemBasketRemoveBtnText,
     ItemBasketTextColor,
