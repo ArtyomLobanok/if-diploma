@@ -1,5 +1,3 @@
-import {useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux'
 import {
     singUpBtnText,
     singUpFormFooterSubTitleText,
@@ -11,30 +9,12 @@ import {
     FooterFormHeader,
     FooterFormWrapper
 } from "../Styled-Components/styledFooterForm";
-import {sendEmail} from "../../redux/actions";
-import {BasketSendSuccess} from "../Styled-Components/styleBasketPage";
-
+import FooterFormData from "./FooterFormData";
 
 const FooterForm = () => {
-    const dispatch = useDispatch();
-    const [inputValue, setInputValue] = useState('');
-    console.log(inputValue)
-    console.log(typeof inputValue)
-    const responseData = useSelector(state => state.emailSendReducer);
-    console.log(responseData)
-    console.log(typeof responseData)
-    const handleChangeInput = (e) => {
-        setInputValue(e.target.value);
-    }
-
-    const handleSendEmail = (e) => {
-        e.preventDefault();
-        dispatch(sendEmail(inputValue));
-    }
-
+    const {responseData, handleChangeInput, handleSendEmail} = FooterFormData()
     return (
         <FooterFormWrapper>
-
             <FooterFormHeader>
                 <h4>{singUpFormFooterTitleText}</h4>
                 <p>{singUpFormFooterSubTitleText}</p>
