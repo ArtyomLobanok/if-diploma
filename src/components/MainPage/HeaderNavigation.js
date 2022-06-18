@@ -14,7 +14,9 @@ import {removeUser} from '../../redux/slices/userSlice'
 import {showSearch} from "../../redux/actions";
 
 const HeaderNavigation = () => {
-    const items = useSelector(state => state.basket.itemsInBasket);
+    const itemsBasket = useSelector(state => state.basket.itemsInBasket);
+    const itemsFavorites = useSelector(state => state.favorites.itemsInFavorites);
+
     const {isAuth} = useAuth();
     const dispatch = useDispatch();
 
@@ -54,14 +56,20 @@ const HeaderNavigation = () => {
                             {navLinkTextBag}
                         </Link>
                         {
-                            items.length !== 0 &&
-                            <span>({items.length})</span>
+                            itemsBasket.length !== 0 &&
+                            <span>({itemsBasket.length})</span>
                         }
                     </li>
                     <li>
-                        <LikeIcon>
-                            <use href="#likeIcon"></use>
-                        </LikeIcon>
+                        <Link to="/favorites">
+                            <LikeIcon>
+                                <use href="#likeIcon"></use>
+                            </LikeIcon>
+                        </Link>
+                        {
+                            itemsFavorites.length !== 0 &&
+                            <span>({itemsFavorites.length})</span>
+                        }
                     </li>
                 </ul>
             </Navigation>

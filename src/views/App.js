@@ -4,8 +4,8 @@ import MainPage from "./MainPage";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import ProductPage from "./ProductPage";
-
 import BasketPage from "./BasketPage";
+import FavoritesPage from "./FavoritesPage";
 
 const App = () => {
     return (
@@ -15,6 +15,7 @@ const App = () => {
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/product/:id" element={<ProductPage/>}/>
             <Route path="/basket" element={<BasketPage/>}/>
+            <Route path="/favorites" element={<FavoritesPage/>}/>
         </Routes>
     );
 }

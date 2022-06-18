@@ -2,8 +2,8 @@ import {deleteItemFromBasket, setItemInBasket} from "../redux/cart/basketReducer
 import {useDispatch, useSelector} from "react-redux";
 
 const useToggleBasket = ({ card, id}) => {
-    const items = useSelector(state => state.basket.itemsInBasket);
-    const isItemInCart = items.some(item => item.id === id);
+    const itemsBasket = useSelector(state => state.basket.itemsInBasket);
+    const isItemInCart = itemsBasket.some(item => item.id === id);
     const dispatch = useDispatch();
     const handleAddCard = (e) => {
         e.stopPropagation();
@@ -24,7 +24,6 @@ const useToggleBasket = ({ card, id}) => {
         handleRemCard,
         handleAddCard,
         isItemInCart,
-        items,
     }
 }
 

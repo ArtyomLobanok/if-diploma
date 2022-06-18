@@ -64,12 +64,19 @@ export const CardIconWrapper = styled.div`
   margin: 16px;
   cursor: pointer;
   z-index: 1;
+  button{
+    cursor: pointer;
+    position: relative;
+    border: none;
+    outline: none;
+    background: initial;
+  }
   &:hover {
     img {
       opacity: 0;
     }
     background: url(${Like}) no-repeat center;
-    transition: ease 0.3s;
+    transition: ease 0.5s;
   }
 `
 export const CardBtnWrapper = styled.div`

@@ -19,11 +19,13 @@ import ProductPageData from "./ProductPageData";
 import ProductPageSizeData from "./ProductPageSizeData";
 import ProductPageDescriptionData from "./ProductPageDescriptionData";
 import useToggleBasket from "../../hooks/use-toggleBasket";
+import useToggleFavorites from "../../hooks/use-toggleFavorites";
 
 
 const ProductPageBody = ({card}) => {
     const {id, images, name, price, color} = card;
     const {handleRemCard, handleAddCard, isItemInCart} = useToggleBasket({card, id});
+    const {handleAddToFavorites, handleRemFromFavorites, isItemInFavorites,} = useToggleFavorites({card, id});
 
     const {descriptionData} = ProductPageDescriptionData()
     const descriptionString = descriptionData()
@@ -100,9 +102,16 @@ const ProductPageBody = ({card}) => {
                             </ItemButton>
                         }
                         <ItemButtonLike>
-                            <LikeIcon color="red" width='24px' height='24px'>
-                                <use href="#likeIcon"></use>
-                            </LikeIcon>
+                            {isItemInFavorites ?
+                                <LikeIcon onClick={handleRemFromFavorites} fill="#FFFFFF" width='24px' height='24px'>
+                                    <use href="#likeIcon"></use>
+                                </LikeIcon>
+                                :
+                                <LikeIcon onClick={handleAddToFavorites} fill="red" width='24px' height='24px'>
+                                    <use href="#likeIcon"></use>
+                                </LikeIcon>
+                            }
+
                         </ItemButtonLike>
                     </Flex>
                     <ItemFooterWrapper>

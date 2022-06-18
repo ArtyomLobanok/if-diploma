@@ -4,9 +4,9 @@ import scrollToTop from "../ScrollToTop";
 
 const BasketData = () => {
     const dispatch = useDispatch();
-    const items = useSelector(state => state.basket.itemsInBasket);
+    const basketItems = useSelector(state => state.basket.itemsInBasket);
     const responseData = useSelector(state => state.idLoadReducer);
-    const idArray = items.map(item => item.id);
+    const idArray = basketItems.map(item => item.id);
     const handleProceedToCheckout = (e) => {
         e.preventDefault()
         dispatch(basket(idArray))
@@ -15,7 +15,7 @@ const BasketData = () => {
     return {
         responseData,
         handleProceedToCheckout,
-        items,
+        basketItems,
     };
 };
 export default BasketData;

@@ -1,33 +1,23 @@
-import visaImg from "../../assets/img/ic_visa.png"
-import maestroImg from "../../assets/img/ic_maestro.png"
+import BasketData from "../BasketPage/BasketData";
+import {Container} from "../Styled-Components/General";
 import {
     BasketSendSuccess,
-    BasketStoreBodyBtn,
     BasketStoreBodyContainer,
-    BasketStoreBodyFooter,
     BasketStoreBodyHeader,
     BasketStoreBodyHeaderValueItems,
     BasketStoreBodyMain,
-    BasketStoreBodyPayCard,
-    BasketStoreBodyPayCardWrapper,
-    BasketTotalPriceValue,
 } from "../Styled-Components/styleBasketPage";
 import {
     BagIsEmptyText,
-    BasketButtonProceedToCheckoutText,
     BasketStoreBodyOneUnitText,
     BasketStoreBodySubTitle,
     BasketStoreBodyUnitText,
-    BasketTotalPriceText,
 } from "../../configs/stringsDataConfig";
-import {Container} from "../Styled-Components/General";
-import BasketStoreBodyCard from "./BasketStoreBodyCard";
-import {calcTotalPrice} from "../utils";
-import BasketData from "./BasketData";
+import BasketStoreBodyCard from "../BasketPage/BasketStoreBodyCard";
 
 
-const BasketStoreBody = () => {
-    const {handleProceedToCheckout, responseData, basketItems} = BasketData()
+const FavoritesStoreBody = () => {
+    const {responseData, basketItems} = BasketData()
     return (
         <>
             <Container>
@@ -65,27 +55,6 @@ const BasketStoreBody = () => {
                                         </h4>
                                     }
                                 </BasketStoreBodyMain>
-                                {basketItems.length > 0 ?
-                                    <BasketStoreBodyFooter>
-                                        <p>
-                                            {BasketTotalPriceText}
-                                            <BasketTotalPriceValue>
-                                                {calcTotalPrice(basketItems)}
-                                            </BasketTotalPriceValue>
-                                        </p>
-                                        <BasketStoreBodyBtn
-                                            onClick={handleProceedToCheckout}>{BasketButtonProceedToCheckoutText}</BasketStoreBodyBtn>
-                                        <BasketStoreBodyPayCardWrapper>
-                                            <BasketStoreBodyPayCard>
-                                                <img src={maestroImg} alt='maestro'/>
-                                            </BasketStoreBodyPayCard>
-                                            <BasketStoreBodyPayCard>
-                                                <img src={visaImg} alt='visa'/>
-                                            </BasketStoreBodyPayCard>
-                                        </BasketStoreBodyPayCardWrapper>
-                                    </BasketStoreBodyFooter>
-                                    : null
-                                }
                             </>
                     }
                 </BasketStoreBodyContainer>
@@ -93,4 +62,5 @@ const BasketStoreBody = () => {
         </>
     )
 }
-export default BasketStoreBody;
+
+export default FavoritesStoreBody;

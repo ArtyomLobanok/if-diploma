@@ -14,6 +14,7 @@ import showSearchResultsReducer from "./reducers/showSerchResultReducer";
 import unloadDataReducer from "./reducers/unloadDataReducer";
 import basketReducer from "./cart/basketReducer";
 import idLoadReducer from "./reducers/idLoadReducer";
+import favoritesReducer from "./favorites/favoritesReducer";
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     showSearchResultsReducer,
     unloadDataReducer,
     basket: basketReducer,
+    favorites: favoritesReducer,
     idLoadReducer,
 });
 

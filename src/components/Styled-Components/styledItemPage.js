@@ -152,6 +152,7 @@ export const ItemButtonLike = styled.button`
     transition: 0.5s ease;
 
     svg {
+      transition: 0.5s ease;
       fill: red;
     }
   }

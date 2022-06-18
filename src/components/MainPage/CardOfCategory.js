@@ -16,11 +16,14 @@ import {saleBtnCardTextAdd, saleBtnCardTextRemove} from "../../configs/stringsDa
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useGetId from "../../hooks/use-tekeId";
 import LikeWhite from "../../assets/img/LikeIconWhite.svg";
+import useToggleFavorites from "../../hooks/use-toggleFavorites";
+import LikeRed from "../../assets/img/LikeImg.svg";
 
 const CategoryCard = ({card}) => {
     const {id, images, price} = card;
     const {handleGetId} = useGetId(id);
     const {handleRemCard, handleAddCard, isItemInCart,} = useToggleBasket({card, id});
+    const {handleAddToFavorites, handleRemFromFavorites, isItemInFavorites,} = useToggleFavorites({card, id});
     return (
         <>
             <StyledLinkCard to={`/product/${id}`} onClick={handleGetId}>
@@ -31,7 +34,15 @@ const CategoryCard = ({card}) => {
                         </CardImgWrapper>
 
                         <CardIconWrapper>
-                            <img src={LikeWhite} alt="likeIcon"/>
+                            {isItemInFavorites ?
+                                <button onClick={handleRemFromFavorites}>
+                                    <img src={LikeRed} alt="likeActiveIcon"/>
+                                </button>
+                                :
+                                <button onClick={handleAddToFavorites}>
+                                    <img src={LikeWhite} alt="likeNonActiveIcon"/>
+                                </button>
+                            }
                         </CardIconWrapper>
                         <CardBtnWrapper>
                             {isItemInCart ?
