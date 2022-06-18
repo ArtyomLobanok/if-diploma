@@ -53,7 +53,10 @@ const HeaderNavigation = () => {
                         <Link to="/basket">
                             {navLinkTextBag}
                         </Link>
-                        <span>({items.length})</span>
+                        {
+                            items.length !== 0 &&
+                            <span>({items.length})</span>
+                        }
                     </li>
                     <li>
                         <LikeIcon>

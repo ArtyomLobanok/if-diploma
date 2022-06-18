@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import backgroundImage from "../../assets/img/image-placeholder.png"
+import {Link} from "react-router-dom";
+
+export const StyledLinkCard = styled(Link)`
+  text-decoration: none;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -66,3 +71,4 @@ export const LikeIcon = styled.svg`
   margin: ${props => props.margin || '0'};
   z-index: 1000;
 `
+

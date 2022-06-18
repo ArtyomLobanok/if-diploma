@@ -1,11 +1,12 @@
 import styled from "styled-components";
-
+import {LikeIcon} from "./General";
+import Like from "../../assets/img/LikeImg.svg"
 
 export const CardWrapper = styled.div`
   width: ${props => props.width || "initial"};
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
 
   &:nth-child(4),
   &:nth-child(8),
@@ -63,6 +64,13 @@ export const CardIconWrapper = styled.div`
   margin: 16px;
   cursor: pointer;
   z-index: 1;
+  &:hover {
+    img {
+      opacity: 0;
+    }
+    background: url(${Like}) no-repeat center;
+    transition: ease 0.3s;
+  }
 `
 export const CardBtnWrapper = styled.div`
   display: flex;
@@ -116,4 +124,17 @@ export const CardButton = styled.button`
     transition: 0.5s ease;
   }
 }
+`
+export const CardsButton = styled(CardButton)`
+  padding: 13px 24px;
+`
+
+export const LikeIconSale = styled(LikeIcon)`
+  position: relative;
+  width: 42px;
+  height: 38px;
+  &:hover {
+    opacity: 0;
+    transition: 0.3s ease;
+  }
 `

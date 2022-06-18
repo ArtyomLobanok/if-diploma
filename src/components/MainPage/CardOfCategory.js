@@ -1,7 +1,7 @@
 import React from "react";
 import {
     Flex,
-    LikeIcon,
+    StyledLinkCard,
 } from "../Styled-Components/General"
 import {
     FullPriceText,
@@ -10,12 +10,12 @@ import {
     CardImgWrapper,
     CardBtnWrapper,
     CardIconWrapper,
-    CardButton,
+    CardsButton,
 } from "../Styled-Components/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove} from "../../configs/stringsDataConfig";
-import {Link} from "react-router-dom";
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useGetId from "../../hooks/use-tekeId";
+import LikeWhite from "../../assets/img/LikeIconWhite.svg";
 
 const CategoryCard = ({card}) => {
     const {id, images, price} = card;
@@ -23,7 +23,7 @@ const CategoryCard = ({card}) => {
     const {handleRemCard, handleAddCard, isItemInCart,} = useToggleBasket({card, id});
     return (
         <>
-            <Link to={`/product/${id}`} onClick={handleGetId}>
+            <StyledLinkCard to={`/product/${id}`} onClick={handleGetId}>
                 <CardWrapper>
                     <CardContentWrapper>
                         <CardImgWrapper>
@@ -31,19 +31,17 @@ const CategoryCard = ({card}) => {
                         </CardImgWrapper>
 
                         <CardIconWrapper>
-                            <LikeIcon width='42px' height='38px'>
-                                <use href="#likeIcon"></use>
-                            </LikeIcon>
+                            <img src={LikeWhite} alt="likeIcon"/>
                         </CardIconWrapper>
                         <CardBtnWrapper>
                             {isItemInCart ?
-                                <CardButton onClick={handleRemCard} padding='13px 24px'>
+                                <CardsButton onClick={handleRemCard} padding='13px 24px'>
                                     {saleBtnCardTextRemove}
-                                </CardButton>
+                                </CardsButton>
                                 :
-                                <CardButton onClick={handleAddCard} padding='13px 24px'>
+                                <CardsButton onClick={handleAddCard} padding='13px 24px'>
                                     {saleBtnCardTextAdd}
-                                </CardButton>
+                                </CardsButton>
                             }
                         </CardBtnWrapper>
                     </CardContentWrapper>
@@ -51,7 +49,7 @@ const CategoryCard = ({card}) => {
                         <FullPriceText decoration='initial'>${price.value}</FullPriceText>
                     </Flex>
                 </CardWrapper>
-            </Link>
+            </StyledLinkCard>
         </>
     )
 }

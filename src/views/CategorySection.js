@@ -41,7 +41,7 @@ const CategorySection = () => {
                                     }
                                 </SectionTitleBold>
                             </SectionTitleWrapper>
-                            <Flex width='100%' wrap='wrap'>
+                            <Flex justify='center' width='100%' wrap='wrap'>
                                 {
                                     paginatedList.map(categoryCard => (
                                         <CardOfCategory
