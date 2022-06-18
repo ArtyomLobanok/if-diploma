@@ -13,7 +13,6 @@ const FavoritesPage = () => {
             <ItemHeaderWrapper>
                 <HeaderNavigation/>
             </ItemHeaderWrapper>
-            here will be favorites cards
             <FavoritesStoreBody/>
             <Footer/>
         </>

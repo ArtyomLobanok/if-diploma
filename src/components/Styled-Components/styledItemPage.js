@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {LikeIcon} from "./General";
 
 export const ItemHeaderWrapper = styled.div`
   background-color: ${props => props.color || "#FFFFFF"};
@@ -156,6 +157,10 @@ export const ItemButtonLike = styled.button`
       fill: red;
     }
   }
+`
+export const LikeIconItemPage = styled(LikeIcon)`
+  width: 24px; 
+  height: 24px;
 `
 
 export const ItemIconOpen = styled.svg`

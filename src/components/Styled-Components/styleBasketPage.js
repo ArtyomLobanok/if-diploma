@@ -174,6 +174,9 @@ export const BasketItemRemoveBtn = styled.button`
   outline: none;
   background-color: initial;
   cursor: pointer;
+  &:first-child {
+    margin-right: 20px;
+  }
 
   svg {
     fill: ${props => props.color || "#1D1D1B"};

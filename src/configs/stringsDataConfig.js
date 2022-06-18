@@ -66,6 +66,7 @@ export const FabricCompositionText = 'FABRIC COMPOSITION';
 export const SearchTitleText = 'Search results';
 export const SearchPlaceholderText = 'ENTER SEARCH TERMS';
 export const BasketStoreBodySubTitle = 'BAG';
+export const FavoritesStoreBodySubTitle = 'FAVORITES';
 export const BasketStoreBodyOneUnitText = 'item';
 export const BasketStoreBodyUnitText = 'items';
 export const BasketTotalPriceText = 'Total USD $';
@@ -74,7 +75,9 @@ export const ItemBasketTextColor = 'COLOR:';
 export const ItemBasketTextSize = 'SIZE:';
 export const ItemBasketTextQuantity = 'QUANTITY:';
 export const ItemBasketRemoveBtnText = 'REMOVE';
-export const BagIsEmptyText = 'Ваша корзина пуста! Пожалуйста вернитесь на главную страницу и добавте товары в корзину что-бы оформить\n' +
+export const BagIsEmptyText = 'Ваша корзина пуста! Пожалуйста вернитесь на страницу магазина и добавте товары в вашу корзину для дальнейшего оформления\n' +
+    '                                заказ';
+export const FavoritesIsEmptyText = 'В вашем избранном всё ещё пусто! Пожалуйста вернитесь на страницу мазазина и добавте товары в избранное что-бы они остались в вашем избранном\n' +
     '                                заказ';
 
 

@@ -2,7 +2,7 @@ import {Container, Flex, LikeIcon} from "../Styled-Components/General";
 import {
     BtnListSize, BtnListSizeActive, ButtonColor, ItemButton, ItemButtonLike,
     ItemColor, ItemFooterContent, ItemFooterWrapper, ItemIconClose, ItemIconOpen,
-    ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle
+    ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle, LikeIconItemPage
 } from "../Styled-Components/styledItemPage";
 import {
     DescriptionText,
@@ -93,29 +93,29 @@ const ProductPageBody = ({card}) => {
                     </ItemSize>
                     <Flex>
                         {isItemInCart ?
-                            <ItemButton onClick={handleRemCard} padding='13px 24px'>
+                            <ItemButton onClick={handleRemCard}>
                                 {saleBtnCardTextRemove}
                             </ItemButton>
                             :
-                            <ItemButton onClick={handleAddCard} padding='13px 24px'>
+                            <ItemButton onClick={handleAddCard}>
                                 {saleBtnCardTextAdd}
                             </ItemButton>
                         }
-                        <ItemButtonLike>
-                            {isItemInFavorites ?
-                                <LikeIcon onClick={handleRemFromFavorites} fill="#FFFFFF" width='24px' height='24px'>
+                        {isItemInFavorites ?
+                            <ItemButtonLike onClick={handleRemFromFavorites} >
+                                <LikeIconItemPage fill="red">
                                     <use href="#likeIcon"></use>
-                                </LikeIcon>
-                                :
-                                <LikeIcon onClick={handleAddToFavorites} fill="red" width='24px' height='24px'>
+                                </LikeIconItemPage>
+                            </ItemButtonLike> :
+                            <ItemButtonLike onClick={handleAddToFavorites}>
+                                <LikeIconItemPage >
                                     <use href="#likeIcon"></use>
-                                </LikeIcon>
-                            }
-
-                        </ItemButtonLike>
+                                </LikeIconItemPage>
+                            </ItemButtonLike>
+                        }
                     </Flex>
                     <ItemFooterWrapper>
-                        <Flex jystify='space-between' margin="0 0 22px 0">
+                        <Flex margin="0 0 22px 0">
                             {
                                 isActiveFirstCollapse ?
                                     <ItemIconClose onClick={handleClickFirstCollapse}>
@@ -139,7 +139,7 @@ const ProductPageBody = ({card}) => {
                         </Flex>
                     </ItemFooterWrapper>
                     <ItemFooterWrapper>
-                        <Flex jystify='space-between' margin="0 0 22px 0">
+                        <Flex margin="0 0 22px 0">
                             {
                                 isActiveSecondCollapse ?
                                     <ItemIconClose onClick={handleClickSecondCollapse}>
@@ -162,7 +162,7 @@ const ProductPageBody = ({card}) => {
                         </Flex>
                     </ItemFooterWrapper>
                     <ItemFooterWrapper>
-                        <Flex jystify='space-between' margin="0 0 22px 0">
+                        <Flex margin="0 0 22px 0">
                             {
                                 isActiveThirdCollapse ?
                                     <ItemIconClose onClick={handleClickThirdCollapse}>
