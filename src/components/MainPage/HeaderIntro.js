@@ -11,11 +11,12 @@ const HeaderIntro = () => {
     return (
         <Container>
             <HeaderWrapper>
-                 <HeaderTitle>{headerTextTitle}</HeaderTitle>
+                <HeaderTitle>{headerTextTitle}</HeaderTitle>
                 <HeaderSubTitle>{headerTextSubTitlePartOne}<br/>{headerTextSubTitlePartSecond}</HeaderSubTitle>
                 <HeaderButton>{headerTextButton}</HeaderButton>
             </HeaderWrapper>
         </Container>
+
     )
 }
 

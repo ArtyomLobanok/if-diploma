@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import backgroundImage from "../../assets/img/image-placeholder.png"
 import {Link} from "react-router-dom";
+import backgroundImageMobile from "../../assets/img/375/mobileBackground.png"
 
 export const StyledLinkCard = styled(Link)`
   text-decoration: none;
@@ -22,9 +23,17 @@ export const HeaderSection = styled.section`
   height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
+  object-fit: contain;
   min-height: 56.25rem;
   background-size: cover;
   padding: 25px 0 122px;
+  @media (max-width: 375px) {
+    height: 388px;
+    width: 375px;
+    min-height: auto;
+    background-image: url(${backgroundImageMobile});
+    padding: 12px 0;
+  }
 `
 
 const StyledFlex = styled.div`
@@ -47,6 +56,9 @@ export const Section = styled.section`
   background: ${props => props.color || "#FFFFFF"};
   padding: 120px 0;
   display: flex;
+  @media (max-width: 375px) {
+    padding: 40px 0;
+  }
 `
 export const SectionTitleWrapper = styled.div`
   color: ${props => props.color || "#000F08"};

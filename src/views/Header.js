@@ -4,6 +4,7 @@ import Svg from "../assets/svg";
 import React from "react";
 import HeaderIntro from "../components/MainPage/HeaderIntro";
 import HeaderDropdownSearch from "../components/MainPage/HeaderDropdownSearch";
+import Media from 'react-media';
 
 const Header = () => {
     return (
@@ -12,7 +13,11 @@ const Header = () => {
             <HeaderSection>
                 <Svg/>
                 <HeaderNavigation/>
+                <Media query="(min-width: 375px)" render={() =>
+                    (
                 <HeaderIntro/>
+                    )}
+                />
             </HeaderSection>
         </>
     )
