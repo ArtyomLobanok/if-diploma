@@ -68,16 +68,22 @@ export const SectionTitleWrapper = styled.div`
   font-size: 46px;
   text-decoration: none;
   @media (max-width: 376px) {
-    font-size: 22px;
+    font-size: 28px;
     margin: 0 auto 36px;
   }
 `
 export const SectionTitle = styled.h3`
   margin-right: ${props => props.marginRight || "0"};
   font-weight: 400;
+  @media (max-width: 376px) {
+    font-size: 28px;
+  }
 `
 export const SectionTitleBold = styled.h3`
   font-weight: 700;
+  @media (max-width: 376px) {
+    font-size: 28px;
+  }
 `
 
 export const LikeIcon = styled.svg`

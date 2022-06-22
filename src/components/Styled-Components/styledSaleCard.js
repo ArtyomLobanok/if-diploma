@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {LikeIcon} from "./General";
-import Like from "../../assets/img/LikeImg.svg"
 
 export const CardWrapper = styled.div`
   width: ${props => props.width || "initial"};
@@ -25,6 +24,9 @@ export const CardWrapper = styled.div`
       opacity: 0.7;
     }
   }
+  @media (max-width: 376px) {
+    margin: 0 0 16px 0;
+  }
 `
 export const CardContentWrapper = styled.div`
   position: relative;
@@ -34,7 +36,7 @@ export const CardImgWrapper = styled.div`
 
   box-shadow: rgba(0, 15, 8, 0.6);
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 
   img {
     width: ${props => props.width || "100%"};
@@ -45,12 +47,19 @@ export const CardImgWrapper = styled.div`
     transition: opacity 0.3s linear;
     object-fit: cover;
   }
+
+  @media (max-width: 376px) {
+    margin-bottom: 8px;
+  }
 `
 export const FullPriceText = styled.p`
   color: ${props => props.color || "#000F08"};
   text-decoration: ${props => props.decoration || "line-through"};
   font-size: 24px;
   margin-right: 16px;
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
 `
 export const SalePriceText = styled.p`
   color: ${props => props.color || "#D7302D"};
@@ -70,13 +79,16 @@ export const CardIconWrapper = styled.div`
     border: none;
     outline: none;
     background: initial;
-  }
-  &:hover {
     img {
-      opacity: 0;
+      width: 42px;
+      height: 38px;
     }
-    background: url(${Like}) no-repeat center;
-    transition: ease 0.5s;
+    @media (max-width: 376px) {
+      img {
+        width: 30px;
+        height: 28px;
+      }
+    }
   }
 `
 export const CardBtnWrapper = styled.div`
@@ -129,6 +141,10 @@ export const CardButton = styled.button`
     border-color: ${props => props.border || "#FFFFFF"};
     color: ${props => props.color || "#FFFFFF"};
     transition: 0.5s ease;
+  }
+  @media (max-width: 376px) {
+    padding: 5px 16px;
+    font-size: 16px;
   }
 }
 `

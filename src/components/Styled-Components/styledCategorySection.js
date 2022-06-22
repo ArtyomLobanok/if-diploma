@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const BtnCategoryWrapper = styled.div`
   display: flex;
   overflow: hidden;
-  flex-wrap: wrap;
   width: 100%;
+
+  @media (max-width: 376px) {
+    flex-wrap: wrap;
+  }
   `
 
 export const BtnCategory = styled.button`
@@ -12,7 +15,7 @@ export const BtnCategory = styled.button`
   background-color: ${props => props.background || "#EDE7F0"};
 
   display: flex;
-  width: 100%;
+  width: 16%;
   margin-right: 20px;
   border: none;
   outline: none;
@@ -74,10 +77,20 @@ export const StyledBtnShowMoreItemCategory = styled.button`
     background: ${props => props.background || "#000F08"};
     transition: ease 0.5s;
   }
+  @media (max-width: 376px) {
+    color: ${props => props.color || "#000F08"};
+    border-color: ${props => props.color || "#000F08"};
+    font-size: 12px;
+    padding: 11px 38px;
+    margin: 28px auto 0;
 `
 export const ShopCategoryNotFound = styled.h1`
     font-size: 46px;
     margin: 0 auto;
     font-weight: 700;
+  @media (max-width: 376px) {
+    font-size: 28px;
+    text-align: center;
+  }
 `
 
