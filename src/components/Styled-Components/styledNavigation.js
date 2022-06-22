@@ -9,7 +9,7 @@ export const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  @media (max-width: 375px) {
+  @media (max-width: 376px) {
     position: relative;
   }
 
@@ -114,13 +114,12 @@ export const NavButtonFavorites = styled(NavButtonSearch)`
   transform: translate3d(0, 10%, 0);
 `
 
-
 export const LogotypeIcon = styled.svg`
   display: block;
   fill: ${props => props.fill || "#FFFFFF"};
   width: ${props => props.width || '269px'};
   height: ${props => props.height || '36px'};
-  @media (max-width: 375px) {
+  @media (max-width: 376px) {
     position: absolute;
     top: 0;
     right: 35%;
@@ -136,18 +135,50 @@ export const SearchIcon = styled.svg`
   margin-right: 4px;
 `
 
+
+export const HeaderWrapper = styled.div`
+  position: absolute;
+  left: 8.75rem;
+  bottom: 122px;
+  @media (max-width: 376px) {
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+`
+
 export const HeaderTitle = styled.h1`
   color: ${props => props.color || "#FFFFFF"};
   margin-bottom: 20px;
   font-size: 50px;
   font-weight: 700;
+  @media (max-width: 376px) {
+    white-space: pre-line;
+    text-align: center;
+    font-size: 28px;
+    color: #000F08;
+  }
 `
 export const HeaderSubTitle = styled.h2`
   color: ${props => props.color || "#FFFFFF"};
   margin-bottom: 40px;
   font-size: 20px;
   font-weight: 400;
+  @media (max-width: 376px) {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 27px;
+    color: #000F08;
+  }
 `
+
+export const HeaderMobileIntroWrapper = styled.section`
+  display: block;
+  padding-top: 40px;
+`
+
 export const HeaderButton = styled.button`
   color: ${props => props.color || "#FFFFFF"};
   background-color: ${props => props.color || "initial"};
@@ -163,5 +194,15 @@ export const HeaderButton = styled.button`
     color: ${props => props.color || "#333333"};
     outline: none;
     transition: 0.5s ease;
+  }
+  @media (max-width: 376px) {
+    color: ${props => props.color || "#000F08"};
+    border-color: ${props => props.color || "#000F08"};
+    font-size: 12px;
+    padding: 11px 38px;
+    &:hover {
+      background-color: ${props => props.color || "#000F08"};
+      color: ${props => props.color || "#FFFFFF"};
+    }
   }
 `

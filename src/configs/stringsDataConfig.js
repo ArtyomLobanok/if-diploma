@@ -6,6 +6,8 @@ export const navLinkTextSignIn = 'SIGN IN';
 export const navLinkTextSignOut = 'SIGN OUT';
 export const navLinkTextBag = 'BAG';
 export const headerTextTitle = 'NEW COLLECTION';
+export const headerTextTitleForMobile = 'NEW \n' +
+    'COLLECTION';
 export const headerTextSubTitlePartOne = 'Our easiest chuck-on-and-go staples come with a serious style heritage ';
 export const headerTextSubTitlePartSecond = 'that’s liberating, sexy, comfy and supremely cool.';
 export const headerTextButton = 'SHOP NEW ARRIVALS';

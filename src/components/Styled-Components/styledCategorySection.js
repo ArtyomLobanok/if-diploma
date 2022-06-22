@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const BtnCategoryWrapper = styled.div`
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  width: 100%;
+  `
+
 export const BtnCategory = styled.button`
   color: ${props => props.color || "#000F08"};
   background-color: ${props => props.background || "#EDE7F0"};
@@ -21,6 +28,22 @@ export const BtnCategory = styled.button`
     background-color: ${props => props.background || "#E9D6F2"};
     transition: 0.5s ease;
   }
+  @media (max-width: 376px) {
+    width: 47%;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-bottom: 18px;
+    padding: 0;
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(6) {
+      margin-right: 0;
+    }
+    &:nth-child(5),
+    &:nth-child(6){
+      margin-bottom: 0;
+    }
+  }
 `
 
 export const StyledSvgCategory = styled.svg`
@@ -29,6 +52,11 @@ export const StyledSvgCategory = styled.svg`
   width: ${props => props.width || '64px'};
   height: ${props => props.height || '64px'};
   margin: 28px 12px;
+  @media (max-width: 376px) {
+    width: ${props => props.width || '24px'};
+    height: ${props => props.height || '38px'};
+    margin: 18px 15px;
+  }
 `
 
 export const StyledBtnShowMoreItemCategory = styled.button`

@@ -27,7 +27,7 @@ export const HeaderSection = styled.section`
   min-height: 56.25rem;
   background-size: cover;
   padding: 25px 0 122px;
-  @media (max-width: 375px) {
+  @media (max-width: 376px) {
     height: 388px;
     width: 375px;
     min-height: auto;
@@ -56,8 +56,9 @@ export const Section = styled.section`
   background: ${props => props.color || "#FFFFFF"};
   padding: 120px 0;
   display: flex;
-  @media (max-width: 375px) {
-    padding: 40px 0;
+  @media (max-width: 376px) {
+    padding-top: 36px;
+    padding-bottom: 0;
   }
 `
 export const SectionTitleWrapper = styled.div`
@@ -66,6 +67,10 @@ export const SectionTitleWrapper = styled.div`
   margin: 0 auto 110px;
   font-size: 46px;
   text-decoration: none;
+  @media (max-width: 376px) {
+    font-size: 22px;
+    margin: 0 auto 36px;
+  }
 `
 export const SectionTitle = styled.h3`
   margin-right: ${props => props.marginRight || "0"};

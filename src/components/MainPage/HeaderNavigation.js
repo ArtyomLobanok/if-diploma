@@ -38,7 +38,7 @@ const HeaderNavigation = () => {
     return (
         <Container>
             <Navigation>
-                <Media query={{maxWidth: 375}}>
+                <Media query={{maxWidth: 376}}>
                     {matches =>
                         matches ? (
                             <NavBurgerMenu>
@@ -60,7 +60,7 @@ const HeaderNavigation = () => {
                     </LogotypeIcon>
                 </Link>
 
-                <Media query={{maxWidth: 375}}>
+                <Media query={{maxWidth: 376}}>
                     {matches =>
                         matches ? (
                             <NavMobButtonWrapper>

@@ -13,9 +13,9 @@ const Header = () => {
             <HeaderSection>
                 <Svg/>
                 <HeaderNavigation/>
-                <Media query="(min-width: 375px)" render={() =>
+                <Media query="(min-width: 376px)" render={() =>
                     (
-                <HeaderIntro/>
+                        <HeaderIntro/>
                     )}
                 />
             </HeaderSection>

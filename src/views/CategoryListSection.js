@@ -1,6 +1,5 @@
 import {
     Container,
-    Flex,
     Section,
     SectionTitle,
     SectionTitleBold,
@@ -15,6 +14,7 @@ import {categoryListData} from "../components/MainPage/CategoryListData";
 import {catalogLoad, currentPageToShow, showSectionCategory} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 import CategoryFilteredData from "../components/MainPage/FilteredData";
+import {BtnCategoryWrapper} from "../components/Styled-Components/styledCategorySection";
 
 
 const ShopCategory = () => {
@@ -36,7 +36,7 @@ const ShopCategory = () => {
                         <SectionTitle marginRight='14px'>{sectionCategoryTitleTextPartOne}</SectionTitle>
                         <SectionTitleBold>{sectionCategoryTitleTextPartSecond}</SectionTitleBold>
                     </SectionTitleWrapper>
-                    <Flex>
+                    <BtnCategoryWrapper>
                         {
                             categoryListData.map(btnCard => (
                                 <CardOfButtonCategory handleChange={handleChange} handleShowResults={handleShowResults}
@@ -44,7 +44,7 @@ const ShopCategory = () => {
                                                       card={btnCard}/>
                             ))
                         }
-                    </Flex>
+                    </BtnCategoryWrapper>
                 </Container>
             </Section>
         </>
