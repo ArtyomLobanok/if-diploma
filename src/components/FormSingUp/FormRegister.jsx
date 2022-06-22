@@ -4,7 +4,7 @@ import {
     RegisterFormBody,
     RegisterFormTitle,
     RegisterFormTitleWrapper, StyledInputRegisterForm, StyledLinkToLogin, StyledSingUpBtn, SubscriptionWrapper
-} from "../Styled-Components/styledRegistrationPage";
+} from "../StyledComponents/styledRegistrationPage";
 import {
     AgreementTextPartFirst,
     AgreementTextPartSecond,

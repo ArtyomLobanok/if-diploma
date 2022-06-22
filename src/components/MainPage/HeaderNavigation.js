@@ -12,8 +12,8 @@ import {
     Navigation,
     NavMobButtonWrapper,
     SearchIcon
-} from "../Styled-Components/styledNavigation";
-import {Container, LikeIcon} from "../Styled-Components/General";
+} from "../StyledComponents/styledNavigation";
+import {Container, LikeIcon} from "../StyledComponents/General";
 import {Link} from "react-router-dom";
 import useAuth from "../../hooks/use-auth";
 import {useDispatch, useSelector} from 'react-redux';

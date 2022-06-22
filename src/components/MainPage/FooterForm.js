@@ -8,7 +8,7 @@ import {
     FooterFormBody,
     FooterFormHeader,
     FooterFormWrapper
-} from "../Styled-Components/styledFooterForm";
+} from "../StyledComponents/styledFooterForm";
 import FooterFormData from "./FooterFormData";
 
 const FooterForm = () => {

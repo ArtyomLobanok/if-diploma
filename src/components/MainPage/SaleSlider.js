@@ -5,7 +5,7 @@ import {
     SliderButtonPrev,
     SliderSpinner,
     SliderWrapper
-} from "../Styled-Components/styledSaleSection";
+} from "../StyledComponents/styledSaleSection";
 import CardOfSale from "./CardOfSale";
 import Slider from "react-slick";
 import {ThreeCircles} from 'react-loader-spinner'

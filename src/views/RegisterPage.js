@@ -1,5 +1,5 @@
 import SignUp from '../components/FormSingUp/SingUp'
-import { FormWrapper} from "../components/Styled-Components/styledRegistrationPage";
+import { FormWrapper} from "../components/StyledComponents/styledRegistrationPage";
 
 const RegisterPage = () => {
     return (

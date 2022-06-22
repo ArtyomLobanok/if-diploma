@@ -1,4 +1,4 @@
-import {Container} from "../components/Styled-Components/General";
+import {Container} from "../components/StyledComponents/General";
 import {goToShopInstagramText, sectionSaleTitleTextPartOne, shopInstagramText} from "../configs/stringsDataConfig";
 import LeftScreenImg from "../../src/assets/img/LeftScreenImg.png"
 import RightScreenImgFirst from "../assets/img/RightScreenImgFirst.png"
@@ -13,7 +13,7 @@ import {
     ShopInstagramLeftScreen,
     ShopInstagramRightScreen,
     ShopInstagramWrapper,
-} from "../components/Styled-Components/styledInstagramShop";
+} from "../components/StyledComponents/styledInstagramShop";
 
 
 

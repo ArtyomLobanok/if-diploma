@@ -2,7 +2,7 @@ import {
     Form, RegisterFormBody,
     RegisterFormTitle,
     RegisterFormTitleWrapper, StyledInputRegisterForm, StyledLinkToLogin, StyledSingUpBtn,
-} from "../Styled-Components/styledRegistrationPage";
+} from "../StyledComponents/styledRegistrationPage";
 import {
     LinkToRegistrationText, LoginAccText, SingUpBtnText,
 } from "../../configs/stringsDataConfig";

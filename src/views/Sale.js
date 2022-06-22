@@ -8,7 +8,7 @@ import {
     SectionTitle,
     SectionTitleWrapper,
     SectionTitleBold
-} from "../components/Styled-Components/General";
+} from "../components/StyledComponents/General";
 import SaleSlider from "../components/MainPage/SaleSlider";
 
 const Sale = () => {

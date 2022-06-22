@@ -1,5 +1,5 @@
 import React from "react";
-import {Flex, StyledLinkCard} from "../Styled-Components/General";
+import {Flex, StyledLinkCard} from "../StyledComponents/General";
 import LikeWhite from "../../assets/img/LikeIconWhite.svg"
 import LikeRed from "../../assets/img/LikeImg.svg"
 import {
@@ -12,7 +12,7 @@ import {
     CardBtnWrapper,
     CardIconWrapper,
     CardsButton,
-} from "../Styled-Components/styledSaleCard";
+} from "../StyledComponents/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove, salePercent} from "../../configs/stringsDataConfig";
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useGetId from "../../hooks/use-tekeId";

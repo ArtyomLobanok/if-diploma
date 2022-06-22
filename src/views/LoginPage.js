@@ -1,4 +1,4 @@
-import { FormWrapper} from "../components/Styled-Components/styledRegistrationPage";
+import { FormWrapper} from "../components/StyledComponents/styledRegistrationPage";
 import SingIn from "../components/FormSingUp/SingIn";
 
 const LoginPage = () => {

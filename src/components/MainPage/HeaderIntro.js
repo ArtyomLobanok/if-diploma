@@ -9,8 +9,8 @@ import {
     HeaderTitle,
     HeaderWrapper, NavBurgerBtn,
     NavBurgerMenu
-} from "../Styled-Components/styledNavigation";
-import {Container} from "../Styled-Components/General";
+} from "../StyledComponents/styledNavigation";
+import {Container} from "../StyledComponents/General";
 import Media from "react-media";
 
 

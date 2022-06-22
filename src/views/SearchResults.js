@@ -3,13 +3,13 @@ import {
     Section,
     SectionTitleBold,
     SectionTitleWrapper,
-} from "../components/Styled-Components/General";
+} from "../components/StyledComponents/General";
 import CardOfCategory from "../components/MainPage/CardOfCategory";
 import {useSelector} from "react-redux";
 import {
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
-} from "../components/Styled-Components/styledCategorySection";
+} from "../components/StyledComponents/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText, SearchTitleText} from "../configs/stringsDataConfig";
 import FilteredData from "../components/MainPage/FilteredData";
 

@@ -11,7 +11,7 @@ import {
     BasketStoreBodyPayCard,
     BasketStoreBodyPayCardWrapper,
     BasketTotalPriceValue,
-} from "../Styled-Components/styleBasketPage";
+} from "../StyledComponents/styleBasketPage";
 import {
     BagIsEmptyText,
     BasketButtonProceedToCheckoutText,
@@ -20,7 +20,7 @@ import {
     BasketStoreBodyUnitText,
     BasketTotalPriceText,
 } from "../../configs/stringsDataConfig";
-import {Container} from "../Styled-Components/General";
+import {Container} from "../StyledComponents/General";
 import BasketStoreBodyCard from "./BasketStoreBodyCard";
 import {calcTotalPrice} from "../utils";
 import BasketData from "./BasketData";

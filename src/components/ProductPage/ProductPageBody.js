@@ -1,9 +1,9 @@
-import {Container, Flex, LikeIcon} from "../Styled-Components/General";
+import {Container, Flex, LikeIcon} from "../StyledComponents/General";
 import {
     BtnListSize, BtnListSizeActive, ButtonColor, ItemButton, ItemButtonLike,
     ItemColor, ItemFooterContent, ItemFooterWrapper, ItemIconClose, ItemIconOpen,
     ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle, LikeIconItemPage
-} from "../Styled-Components/styledItemPage";
+} from "../StyledComponents/styledItemPage";
 import {
     DescriptionText,
     FabricCompositionText,

@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
-import {SearchContainer, SearchForm} from "../Styled-Components/styledHeaderModalSearch";
+import {SearchContainer, SearchForm} from "../StyledComponents/styledHeaderModalSearch";
 import {currentPageToShow, inputSearchDataLoad, inputText, showSearch, showSearchResults} from "../../redux/actions";
 import {SearchPlaceholderText} from "../../configs/stringsDataConfig";
-import {Container} from "../Styled-Components/General";
+import {Container} from "../StyledComponents/General";
 import scrollToTop from "../ScrollToTop";
 
 const HeaderDropdownSearch = () => {

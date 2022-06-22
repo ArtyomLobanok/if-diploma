@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Flex} from "../Styled-Components/General"
+import {Flex} from "../StyledComponents/General"
 import {
     FooterListTextAbout, FooterListTextCareers, FooterListTextContact, FooterListTextContactUs,
     FooterListTextCustomer, FooterListTextDelivery, FooterListTextEmail, FooterListTextFacebook,

@@ -4,7 +4,7 @@ import {
     SectionTitle,
     SectionTitleBold,
     SectionTitleWrapper
-} from "../components/Styled-Components/General";
+} from "../components/StyledComponents/General";
 import {
     sectionCategoryTitleTextPartOne,
     sectionCategoryTitleTextPartSecond,
@@ -14,7 +14,7 @@ import {categoryListData} from "../components/MainPage/CategoryListData";
 import {catalogLoad, currentPageToShow, showSectionCategory} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 import CategoryFilteredData from "../components/MainPage/FilteredData";
-import {BtnCategoryWrapper} from "../components/Styled-Components/styledCategorySection";
+import {BtnCategoryWrapper} from "../components/StyledComponents/styledCategorySection";
 
 
 const ShopCategory = () => {

@@ -7,7 +7,7 @@ import {
     BasketItemTheRestInformation,
     BasketItemTheRestInformationDropdown,
     BasketItemTheRestInformationValue, BasketItemWrapper
-} from "../Styled-Components/styleBasketPage";
+} from "../StyledComponents/styleBasketPage";
 import {
     ItemBasketRemoveBtnText,
     ItemBasketTextColor,

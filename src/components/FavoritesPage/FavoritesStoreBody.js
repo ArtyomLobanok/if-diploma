@@ -1,10 +1,10 @@
-import {Container} from "../Styled-Components/General";
+import {Container} from "../StyledComponents/General";
 import {
     BasketStoreBodyContainer,
     BasketStoreBodyHeader,
     BasketStoreBodyHeaderValueItems,
     BasketStoreBodyMain,
-} from "../Styled-Components/styleBasketPage";
+} from "../StyledComponents/styleBasketPage";
 import {
     BasketStoreBodyOneUnitText,
     BasketStoreBodyUnitText,

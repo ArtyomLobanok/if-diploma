@@ -2,7 +2,7 @@ import React from "react";
 import {
     Flex,
     StyledLinkCard,
-} from "../Styled-Components/General"
+} from "../StyledComponents/General"
 import {
     FullPriceText,
     CardWrapper,
@@ -11,7 +11,7 @@ import {
     CardBtnWrapper,
     CardIconWrapper,
     CardsButton,
-} from "../Styled-Components/styledSaleCard";
+} from "../StyledComponents/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove} from "../../configs/stringsDataConfig";
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useGetId from "../../hooks/use-tekeId";
