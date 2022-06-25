@@ -32,6 +32,7 @@ export const FooterListTextPayment = 'PAYMENT';
 export const FooterListTextReturn = 'MAKE A RETURN';
 export const FooterListTextFAQ = 'FAQ';
 export const FooterListTextInfo = 'INFO';
+export const FooterListTextCompany = 'COMPANY';
 export const FooterListTextGift = 'GIFT VOUCHERS';
 export const FooterListTextSize = 'SIZE GUIDE';
 export const FooterListTextCareers = 'CAREERS AT MODNIKKY';

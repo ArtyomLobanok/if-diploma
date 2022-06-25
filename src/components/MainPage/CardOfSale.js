@@ -6,17 +6,19 @@ import {
     FullPriceText,
     SalePercentTextWrapper,
     SalePriceText,
-    CardWrapper,
+    CardSaleWrapper,
     CardContentWrapper,
     CardImgWrapper,
     CardBtnWrapper,
-    CardIconWrapper,
-    CardsButton,
+    SaleCardIconWrapper,
+    SaleCardsButton,
 } from "../StyledComponents/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove, salePercent} from "../../configs/stringsDataConfig";
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useGetId from "../../hooks/use-tekeId";
 import useToggleFavorites from "../../hooks/use-toggleFavorites";
+
+
 
 const SaleCard = ({card}) => {
     const {id, images, price} = card;
@@ -27,12 +29,12 @@ const SaleCard = ({card}) => {
     return (
         <>
             <StyledLinkCard to={`/product/${id}`} onClick={handleGetId}>
-                <CardWrapper>
+                <CardSaleWrapper>
                     <CardContentWrapper>
                         <CardImgWrapper>
                             <img id={id} src={images[0]} alt="Pictures"/>
                         </CardImgWrapper>
-                        <CardIconWrapper>
+                        <SaleCardIconWrapper>
                             {isItemInFavorites ?
                                 <button onClick={handleRemFromFavorites}>
                                     <img src={LikeRed} alt="likeActiveIcon"/>
@@ -42,16 +44,16 @@ const SaleCard = ({card}) => {
                                     <img src={LikeWhite} alt="likeNonActiveIcon"/>
                                 </button>
                             }
-                        </CardIconWrapper>
+                        </SaleCardIconWrapper>
                         <CardBtnWrapper>
                             {isItemInCart ?
-                                <CardsButton onClick={handleRemCard}>
+                                <SaleCardsButton onClick={handleRemCard}>
                                     {saleBtnCardTextRemove}
-                                </CardsButton>
+                                </SaleCardsButton>
                                 :
-                                <CardsButton onClick={handleAddCard}>
+                                <SaleCardsButton onClick={handleAddCard}>
                                     {saleBtnCardTextAdd}
-                                </CardsButton>
+                                </SaleCardsButton>
                             }
                         </CardBtnWrapper>
                         <SalePercentTextWrapper>
@@ -62,7 +64,7 @@ const SaleCard = ({card}) => {
                         <FullPriceText>${price.value}</FullPriceText>
                         <SalePriceText>${salePrice}</SalePriceText>
                     </Flex>
-                </CardWrapper>
+                </CardSaleWrapper>
             </StyledLinkCard>
         </>
     )

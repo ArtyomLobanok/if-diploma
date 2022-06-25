@@ -8,7 +8,10 @@ import {
 import {
     LogotypeIcon,
     NavBurgerBtn,
-    NavBurgerMenu, NavButtonBasket, NavButtonFavorites, NavButtonSearch,
+    NavBurgerMenu,
+    NavButtonBasket,
+    NavButtonFavorites,
+    NavButtonSearch,
     Navigation,
     NavMobButtonWrapper,
     SearchIcon
@@ -42,7 +45,11 @@ const HeaderNavigation = () => {
                     {matches =>
                         matches ? (
                             <NavBurgerMenu>
-                                <NavBurgerBtn/>
+                                <NavBurgerBtn>
+                                    <svg>
+                                        <use href="#mobileHamburger"></use>
+                                    </svg>
+                                </NavBurgerBtn>
                             </NavBurgerMenu>
                         ) : (
                             <ul>
@@ -64,12 +71,24 @@ const HeaderNavigation = () => {
                     {matches =>
                         matches ? (
                             <NavMobButtonWrapper>
-                                <NavButtonSearch onClick={handleClickToOpenSearch}/>
+                                <NavButtonSearch onClick={handleClickToOpenSearch}>
+                                    <svg>
+                                        <use href="#mobileSearch"></use>
+                                    </svg>
+                                </NavButtonSearch>
                                 <Link to="/basket">
-                                    <NavButtonBasket/>
+                                    <NavButtonBasket>
+                                        <svg>
+                                            <use href="#mobileBasket"></use>
+                                        </svg>
+                                    </NavButtonBasket>
                                 </Link>
                                 <Link to="/favorites">
-                                    <NavButtonFavorites/>
+                                    <NavButtonFavorites>
+                                        <svg>
+                                            <use href="#mobileWishList"></use>
+                                        </svg>
+                                    </NavButtonFavorites>
                                 </Link>
                             </NavMobButtonWrapper>
                         ) : (

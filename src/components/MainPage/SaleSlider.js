@@ -46,13 +46,15 @@ const SaleSlider = () => {
     }
     const settings = {
         dots: false,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
         initialSlide: 0,
         nextArrow: <SampleNextArrow/>,
         prevArrow: <SamplePrevArrow/>,
+        adaptiveHeight: true,
+        swipe: false,
         responsive: [
             {
                 breakpoint: 1024,
@@ -75,6 +77,14 @@ const SaleSlider = () => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 375,
+                swipe: true,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
             }
         ]

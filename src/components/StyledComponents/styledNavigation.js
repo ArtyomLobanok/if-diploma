@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import hamburger from "../../assets/img/375/hamburger-menu-icon.svg"
-import search from "../../assets/img/375/search-icon.svg"
-import basket from "../../assets/img/375/shopping-cart-icon.svg"
-import wishlist from "../../assets/img/375/wishlist-icon.svg"
+
 
 export const Navigation = styled.nav`
   display: flex;
@@ -68,50 +65,46 @@ export const NavBurgerMenu = styled.div`
 `
 export const NavBurgerBtn = styled.button`
   background-color: initial;
-  background-image: url(${hamburger});
-  width: 18px;
-  height: 16px;
   border: none;
   outline: none;
   cursor: pointer;
+  svg {
+    width: 23px;
+    height: 17px;
+    fill: #FFFFFF;
+  }
 `
 
 export const NavMobButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  button {
-    margin-right: 12px;
-  }
-
-  Link {
-    margin-right: 12px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 `
 
 export const NavButtonSearch = styled.button`
   background-color: initial;
-  background-image: url(${search});
-  width: 18px;
-  height: 18px;
   border: none;
   outline: none;
   cursor: pointer;
+  margin-right: 12px;
+  padding: 0;
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    fill: #FFFFFF;
+  }
 `
 
 export const NavButtonBasket = styled(NavButtonSearch)`
-  background-image: url(${basket});
   transform: translate3d(0, 5%, 0);
 `
 
 export const NavButtonFavorites = styled(NavButtonSearch)`
-  background-image: url(${wishlist});
   transform: translate3d(0, 10%, 0);
+  margin-right: 0;
 `
 
 export const LogotypeIcon = styled.svg`
@@ -195,6 +188,7 @@ export const HeaderButton = styled.button`
     outline: none;
     transition: 0.5s ease;
   }
+
   @media (max-width: 376px) {
     color: ${props => props.color || "#000F08"};
     border-color: ${props => props.color || "#000F08"};

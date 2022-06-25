@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+
 const fadeEffect = keyframes`
   from {
     opacity: 0.1;
@@ -16,9 +17,11 @@ export const SearchContainer = styled.div`
   width: 100%;
   height: 100vh;
   animation: ${fadeEffect} 2s linear;
+  @media (max-width: 376px) {
+    max-width: 375px;
+  }
 `
 export const SearchForm = styled.form`
-  display: block;
   overflow: hidden;
   max-width: 1364px;
   width: 100%;
@@ -51,8 +54,26 @@ export const SearchForm = styled.form`
       font-size: 42px;
       font-weight: 400;
       color: #333333;
+    }
+  }
 
+  @media (max-width: 376px) {
+    max-width: 375px;
+    width: 100%;
+    svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 20px;
+    }
 
+    input {
+      max-width: 375px;
+      width: 70%;
+      font-size: 20px;
+      padding: 10px;
+      &::placeholder {
+        font-size: 20px;
+      }
     }
   }
 

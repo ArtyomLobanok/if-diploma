@@ -56,9 +56,9 @@ export const StyledSvgCategory = styled.svg`
   height: ${props => props.height || '64px'};
   margin: 28px 12px;
   @media (max-width: 376px) {
-    width: ${props => props.width || '24px'};
+    width: ${props => props.width || '38px'};
     height: ${props => props.height || '38px'};
-    margin: 18px 15px;
+    margin: 18px 8px;
   }
 `
 

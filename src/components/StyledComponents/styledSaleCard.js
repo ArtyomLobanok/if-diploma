@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {LikeIcon} from "./General";
+import {StyledLinkCard} from "./General";
 
 export const CardWrapper = styled.div`
   width: ${props => props.width || "initial"};
@@ -24,8 +24,21 @@ export const CardWrapper = styled.div`
       opacity: 0.7;
     }
   }
+
   @media (max-width: 376px) {
     margin: 0 0 16px 0;
+  }
+`
+
+export const SaleLinkCard = styled(StyledLinkCard)`
+  @media (max-width: 376px) {
+    margin-right: 0;
+  }
+`
+
+export const CardSaleWrapper = styled(CardWrapper)`
+  @media (max-width: 376px) {
+    margin-bottom: 0;
   }
 `
 export const CardContentWrapper = styled.div`
@@ -49,7 +62,13 @@ export const CardImgWrapper = styled.div`
   }
 
   @media (max-width: 376px) {
-    margin-bottom: 8px;
+    margin: 0 12px 8px 12px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
   }
 `
 export const FullPriceText = styled.p`
@@ -58,13 +77,17 @@ export const FullPriceText = styled.p`
   font-size: 24px;
   margin-right: 16px;
   @media (max-width: 376px) {
-    font-size: 16px;
+    font-size: 18px;
+    z-index: 1000;
   }
 `
 export const SalePriceText = styled.p`
   color: ${props => props.color || "#D7302D"};
   font-size: 26px;
   font-weight: 700;
+  @media (max-width: 376px) {
+    font-size: 20px;
+  }
 `
 export const CardIconWrapper = styled.div`
   position: absolute;
@@ -73,16 +96,19 @@ export const CardIconWrapper = styled.div`
   margin: 16px;
   cursor: pointer;
   z-index: 1;
-  button{
+
+  button {
     cursor: pointer;
     position: relative;
     border: none;
     outline: none;
     background: initial;
+
     img {
       width: 42px;
       height: 38px;
     }
+
     @media (max-width: 376px) {
       img {
         width: 30px;
@@ -91,6 +117,19 @@ export const CardIconWrapper = styled.div`
     }
   }
 `
+
+export const SaleCardIconWrapper = styled(CardIconWrapper)`
+  @media (max-width: 376px) {
+    margin: 6px 12px 6px 6px;
+    button {
+      img {
+        width: 24px;
+        height: 21px;
+      }
+    }
+  }
+`
+
 export const CardBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -119,6 +158,11 @@ export const SalePercentTextWrapper = styled.div`
     background-color: ${props => props.color || "#D7302D"};
     padding: 6px 10px;
   }
+
+  @media (max-width: 376px) {
+    font-size: 14px;
+    transform: translate3d(0, -32%, 0);
+  }
 `
 
 export const CardButton = styled.button`
@@ -142,6 +186,7 @@ export const CardButton = styled.button`
     color: ${props => props.color || "#FFFFFF"};
     transition: 0.5s ease;
   }
+
   @media (max-width: 376px) {
     padding: 5px 16px;
     font-size: 16px;
@@ -152,12 +197,12 @@ export const CardsButton = styled(CardButton)`
   padding: 13px 24px;
 `
 
-export const LikeIconSale = styled(LikeIcon)`
-  position: relative;
-  width: 42px;
-  height: 38px;
-  &:hover {
-    opacity: 0;
-    transition: 0.3s ease;
+export const SaleCardsButton = styled(CardButton)`
+  @media (max-width: 376px) {
+    padding: 5px;
+    font-size: 12px;
   }
 `
+
+
+

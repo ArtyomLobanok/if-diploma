@@ -5,6 +5,16 @@ export const FooterFormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 0 auto 80px;
+  @media (max-width: 376px) {
+    margin-bottom: 54px;
+    h1{
+      font-size: 16px;
+      color: #8C8C8C;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #8C8C8C;
+    }
+  }
 `
 export const FooterFormHeader = styled.div`
   margin: 0 auto 56px;
@@ -19,8 +29,18 @@ export const FooterFormHeader = styled.div`
     
   }
   p {
-    color: ${props => props.color || "#000000"};
+    color: ${props => props.color || "#000F08"};
     font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    margin-bottom: 36px;
+    h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 `
 
@@ -52,5 +72,9 @@ export const FooterFormBody = styled.form`
     outline: none;
     color: ${props => props.color || "#000F08"};
     cursor: pointer;
+  }
+  @media (max-width: 376px) {
+    width: 100%;
+    font-size: 16px;
   }
 `

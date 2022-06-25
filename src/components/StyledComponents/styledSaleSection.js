@@ -30,6 +30,10 @@ export const SliderWrapper = styled.div`
   &:nth-child(4) {
     margin-right: 0;
   }
+
+  @media (max-width: 376px) {
+    margin: 0 -12px 0 0;
+  }
 `
 
 export const SliderSpinner = styled.div`
@@ -64,6 +68,7 @@ export const SliderButton = styled.button`
   z-index: 1000;
 !important;
 
+
   &:hover {
     background: ${props => props.background || "#000F08"};
     transition: 0.5s ease;
@@ -73,13 +78,38 @@ export const SliderButton = styled.button`
     }
   }
 `
+
 export const SliderButtonNext = styled(SliderButton)`
-  transform: translate3d(-75%, -70%, 0);
+  transform: translate3d(-75%, -75%, 0);
+
+  @media (max-width: 376px) {
+    transform: translate3d(-110%, -75%, 0);
+    svg {
+      max-width: 12px;
+      max-height: 12px;
+    }
+
+    width: 28px;
+    height: 28px;
+  }
+
 `
 export const SliderButtonPrev = styled(SliderButton)`
   transform: translate3d(-25%, -70%, 0);
 
   svg {
-    transform: rotate(180deg)
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 376px) {
+    transform: translate3d(45%, -80%, 0);
+    svg {
+      max-width: 12px;
+      max-height: 12px;
+    }
+
+    width: 28px;
+    height: 28px;
   }
 `
+

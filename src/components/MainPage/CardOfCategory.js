@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Flex,
-    StyledLinkCard,
 } from "../StyledComponents/General"
 import {
     FullPriceText,
@@ -11,6 +10,7 @@ import {
     CardBtnWrapper,
     CardIconWrapper,
     CardsButton,
+    SaleLinkCard,
 } from "../StyledComponents/styledSaleCard";
 import {saleBtnCardTextAdd, saleBtnCardTextRemove} from "../../configs/stringsDataConfig";
 import useToggleBasket from "../../hooks/use-toggleBasket";
@@ -26,7 +26,7 @@ const CategoryCard = ({card}) => {
     const {handleAddToFavorites, handleRemFromFavorites, isItemInFavorites,} = useToggleFavorites({card, id});
     return (
         <>
-            <StyledLinkCard to={`/product/${id}`} onClick={handleGetId}>
+            <SaleLinkCard to={`/product/${id}`} onClick={handleGetId}>
                 <CardWrapper>
                     <CardContentWrapper>
                         <CardImgWrapper>
@@ -46,11 +46,11 @@ const CategoryCard = ({card}) => {
                         </CardIconWrapper>
                         <CardBtnWrapper>
                             {isItemInCart ?
-                                <CardsButton onClick={handleRemCard} padding='13px 24px'>
+                                <CardsButton onClick={handleRemCard}>
                                     {saleBtnCardTextRemove}
                                 </CardsButton>
                                 :
-                                <CardsButton onClick={handleAddCard} padding='13px 24px'>
+                                <CardsButton onClick={handleAddCard}>
                                     {saleBtnCardTextAdd}
                                 </CardsButton>
                             }
@@ -60,7 +60,7 @@ const CategoryCard = ({card}) => {
                         <FullPriceText decoration='initial'>${price.value}</FullPriceText>
                     </Flex>
                 </CardWrapper>
-            </StyledLinkCard>
+            </SaleLinkCard>
         </>
     )
 }
