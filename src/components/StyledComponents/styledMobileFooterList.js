@@ -1,5 +1,16 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {ItemIconOpen} from "./styledItemPage";
+
+const collapseEffect = keyframes`
+  from {
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`
 
 export const FooterCollapsesWrapper = styled.div`
   display: flex;
@@ -31,7 +42,10 @@ export const FooterCollapseList = styled.div`
   flex-direction: column;
   justify-content: start;
   font-size: 16px;
+  
   ul {
+    overflow: hidden;
+    animation: ${collapseEffect} 1s forwards;
     margin: 16px 0 0 0;
     padding-left: 0;
     display: inline-block;

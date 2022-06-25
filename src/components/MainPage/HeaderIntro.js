@@ -1,5 +1,5 @@
 import {
-    headerTextButton,
+    headerTextButton, headerTextInnerForMobile,
     headerTextSubTitlePartOne, headerTextSubTitlePartSecond,
     headerTextTitle, headerTextTitleForMobile, navLinkTextArrivals, navLinkTextCollections, navLinkTextShop,
 } from "../../configs/stringsDataConfig";
@@ -28,7 +28,7 @@ const HeaderIntro = () => {
                         )
                     }
                 </Media>
-                <HeaderSubTitle>{headerTextSubTitlePartOne}<br/>{headerTextSubTitlePartSecond}</HeaderSubTitle>
+                <HeaderSubTitle>{headerTextInnerForMobile}</HeaderSubTitle>
                 <HeaderButton>{headerTextButton}</HeaderButton>
             </HeaderWrapper>
         </Container>

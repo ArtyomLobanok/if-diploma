@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
+const collapseEffect = keyframes`
+  from {
+    transform: translateY(-150%);
+    
+  }
+  to {
+    transform: translateY(0);
+  }
+`
 
 export const Navigation = styled.nav`
   display: flex;
@@ -120,14 +129,20 @@ export const LogotypeIcon = styled.svg`
     height: 22px;
   }
 `
+
+export const LogotypeIconHamburger = styled(LogotypeIcon)`
+  position: initial;
+  width: 140px;
+`
+
 export const SearchIcon = styled.svg`
   display: block;
   fill: ${props => props.fill || "#FFFFFF"};
   width: ${props => props.width || '18px'};
   height: ${props => props.height || '18px'};
   margin-right: 4px;
+  cursor: pointer;
 `
-
 
 export const HeaderWrapper = styled.div`
   position: absolute;
@@ -159,8 +174,9 @@ export const HeaderSubTitle = styled.h2`
   margin-bottom: 40px;
   font-size: 20px;
   font-weight: 400;
+  white-space: pre-line;
   @media (max-width: 376px) {
-    font-size: 10px;
+    font-size: 16px;
     text-align: center;
     margin-bottom: 27px;
     color: #000F08;
@@ -199,4 +215,62 @@ export const HeaderButton = styled.button`
       color: ${props => props.color || "#FFFFFF"};
     }
   }
+`
+
+export const NavigationHamburgerShadowBox = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(49, 49, 49, 0.55);
+`
+
+export const NavigationHamburgerListWrapper = styled.div`
+  padding-top: 14px;
+  background: #FFFFFF;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: ${collapseEffect} 1s forwards;
+`
+export const NavigationHamburgerList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 28px;
+  li {
+    cursor: pointer;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      color: #000F08;
+      text-decoration: none;
+      
+    }
+  }
+`
+
+export const NavigationHamburgerListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 54px;
+`
+export const NavigationHamburgerClose = styled.svg`
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
 `

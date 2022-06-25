@@ -1,4 +1,5 @@
 import {
+    FavoritesStoreBodySubTitle,
     navLinkTextArrivals, navLinkTextBag,
     navLinkTextCollections,
     navLinkTextSearch,
@@ -7,12 +8,17 @@ import {
 } from "../../configs/stringsDataConfig";
 import {
     LogotypeIcon,
+    LogotypeIconHamburger,
     NavBurgerBtn,
     NavBurgerMenu,
     NavButtonBasket,
     NavButtonFavorites,
     NavButtonSearch,
-    Navigation,
+    Navigation, NavigationHamburgerClose,
+    NavigationHamburgerList,
+    NavigationHamburgerListHeader,
+    NavigationHamburgerListWrapper,
+    NavigationHamburgerShadowBox,
     NavMobButtonWrapper,
     SearchIcon
 } from "../StyledComponents/styledNavigation";
@@ -23,14 +29,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import {removeUser} from '../../redux/slices/userSlice'
 import {showSearch} from "../../redux/actions";
 import Media from 'react-media';
+import {
+    DropdownNavList,
+} from "./HeaderNavigationHamburgerList";
 
 const HeaderNavigation = () => {
     const itemsBasket = useSelector(state => state.basket.itemsInBasket);
     const itemsFavorites = useSelector(state => state.favorites.itemsInFavorites);
-
     const {isAuth} = useAuth();
     const dispatch = useDispatch();
-
+    const {isDropdown, handleClickCloseList, handleClickDropdownList} = DropdownNavList();
     const handleClickToOpenSearch = () => {
         dispatch(showSearch(true))
     }
@@ -44,13 +52,15 @@ const HeaderNavigation = () => {
                 <Media query={{maxWidth: 376}}>
                     {matches =>
                         matches ? (
-                            <NavBurgerMenu>
-                                <NavBurgerBtn>
-                                    <svg>
-                                        <use href="#mobileHamburger"></use>
-                                    </svg>
-                                </NavBurgerBtn>
-                            </NavBurgerMenu>
+                            <>
+                                <NavBurgerMenu>
+                                    <NavBurgerBtn onClick={handleClickDropdownList}>
+                                        <svg>
+                                            <use href="#mobileHamburger"></use>
+                                        </svg>
+                                    </NavBurgerBtn>
+                                </NavBurgerMenu>
+                            </>
                         ) : (
                             <ul>
                                 <li>{navLinkTextArrivals}</li>
@@ -73,20 +83,20 @@ const HeaderNavigation = () => {
                             <NavMobButtonWrapper>
                                 <NavButtonSearch onClick={handleClickToOpenSearch}>
                                     <svg>
-                                        <use href="#mobileSearch"></use>
+                                        <use href="#mobileSearch"/>
                                     </svg>
                                 </NavButtonSearch>
                                 <Link to="/basket">
                                     <NavButtonBasket>
                                         <svg>
-                                            <use href="#mobileBasket"></use>
+                                            <use href="#mobileBasket"/>
                                         </svg>
                                     </NavButtonBasket>
                                 </Link>
                                 <Link to="/favorites">
                                     <NavButtonFavorites>
                                         <svg>
-                                            <use href="#mobileWishList"></use>
+                                            <use href="#mobileWishList"/>
                                         </svg>
                                     </NavButtonFavorites>
                                 </Link>
@@ -99,9 +109,10 @@ const HeaderNavigation = () => {
                                     </SearchIcon>
                                     {navLinkTextSearch}
                                 </li>
-                                {isAuth ?
-                                    <li onClick={handleLogOut}>{navLinkTextSignOut}</li> :
-                                    <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
+                                {
+                                    isAuth ?
+                                        <li onClick={handleLogOut}>{navLinkTextSignOut}</li> :
+                                        <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
                                 }
                                 <li>
                                     <Link to="/basket">
@@ -128,7 +139,67 @@ const HeaderNavigation = () => {
                     }
                 </Media>
             </Navigation>
+            <div>
+                {
+                    isDropdown && (
+                        <NavigationHamburgerShadowBox>
+                            <NavigationHamburgerListWrapper>
+                                <Container>
+                                    <NavigationHamburgerListHeader>
 
+                                            <NavigationHamburgerClose onClick={handleClickCloseList}>
+                                                <use href="#closeSearchForm"/>
+                                            </NavigationHamburgerClose>
+
+                                            <Link to="/">
+                                                <LogotypeIconHamburger fill='#000F08'>
+                                                    <use href="#logotypeIcon"></use>
+                                                </LogotypeIconHamburger>
+                                            </Link>
+
+
+                                            <SearchIcon onClick={handleClickToOpenSearch} fill='#000F08' width='24px'
+                                                        height='24px'>
+                                                <use href="#searchIcon"></use>
+                                            </SearchIcon>
+
+                                    </NavigationHamburgerListHeader>
+                                    <NavigationHamburgerList>
+
+                                        <li>{navLinkTextArrivals}</li>
+                                        <li>{navLinkTextShop}</li>
+                                        <li>{navLinkTextCollections}</li>
+                                        <li>
+                                            <Link to="/favorites">
+                                                {FavoritesStoreBodySubTitle}
+                                            </Link>
+                                            {
+                                                itemsFavorites.length !== 0 &&
+                                                <span>({itemsFavorites.length})</span>
+                                            }
+                                        </li>
+                                        <li>
+                                            <Link to="/basket">
+                                                {navLinkTextBag}
+                                            </Link>
+                                            {
+                                                itemsBasket.length !== 0 &&
+                                                <span>({itemsBasket.length})</span>
+                                            }
+                                        </li>
+                                        {
+                                            isAuth ?
+                                                <li onClick={handleLogOut}>{navLinkTextSignOut}</li> :
+                                                <li><Link to="/Login">{navLinkTextSignIn}</Link></li>
+                                        }
+                                    </NavigationHamburgerList>
+
+                                </Container>
+                            </NavigationHamburgerListWrapper>
+                        </NavigationHamburgerShadowBox>
+                    )
+                }
+            </div>
         </Container>
     )
 }

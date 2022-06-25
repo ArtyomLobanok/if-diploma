@@ -10,6 +10,8 @@ export const headerTextTitleForMobile = 'NEW \n' +
     'COLLECTION';
 export const headerTextSubTitlePartOne = 'Our easiest chuck-on-and-go staples come with a serious style heritage ';
 export const headerTextSubTitlePartSecond = 'that’s liberating, sexy, comfy and supremely cool.';
+export const headerTextInnerForMobile = 'Our easiest chuck-on-and-go staples come\n' + 'with a serious style heritage that’s liberating,\n' + ' sexy, comfy and supremely cool.';
+
 export const headerTextButton = 'SHOP NEW ARRIVALS';
 export const sectionCategoryTitleTextPartOne = 'Shop by the ';
 export const sectionCategoryTitleTextPartSecond = 'Category';

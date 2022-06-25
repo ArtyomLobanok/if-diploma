@@ -7,6 +7,7 @@ import {
 import CardOfCategory from "../components/MainPage/CardOfCategory";
 import {useSelector} from "react-redux";
 import {
+    ItemsCategoryPaginated,
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/StyledComponents/styledCategorySection";
@@ -41,7 +42,7 @@ const CategorySection = () => {
                                     }
                                 </SectionTitleBold>
                             </SectionTitleWrapper>
-                            <Flex justify='center' width='100%' wrap='wrap'>
+                            <ItemsCategoryPaginated>
                                 {
                                     paginatedList.map(categoryCard => (
                                         <CardOfCategory
@@ -49,13 +50,12 @@ const CategorySection = () => {
                                             card={categoryCard}/>
                                     ))
                                 }
-                            </Flex>
+                            </ItemsCategoryPaginated>
                             {
                                 paginatedList.length <= lastItemIndex &&
                                 <StyledBtnShowMoreItemCategory onClick={handleAddItemsToShow}>
                                     {BtnShowMoreItemCategoryText}
                                 </StyledBtnShowMoreItemCategory>
-
                             }
                         </>
                     )
