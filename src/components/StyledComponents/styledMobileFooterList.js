@@ -39,6 +39,10 @@ export const FooterCollapseList = styled.div`
       list-style-type: none;
       margin-left: 16px;
       padding-bottom: 10px;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
