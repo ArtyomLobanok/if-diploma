@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import {LikeIcon} from "./General";
 
+export const ItemBodyWrapper = styled.div`
+  display: flex;
+  @media (max-width: 376px) {
+    flex-direction: column;
+    width: 100%;
+  }
+`
+
 export const ItemHeaderWrapper = styled.div`
   background-color: ${props => props.color || "#FFFFFF"};
   padding: 20px 0;
@@ -39,6 +47,14 @@ export const ItemImgWrapper = styled.div`
     width: 50%;
     height: 100vh;
   }
+  @media (max-width: 376px) {
+    margin-right: 0;
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 `
 export const ItemInfoWrapper = styled.div`
   display: flex;
@@ -46,6 +62,9 @@ export const ItemInfoWrapper = styled.div`
   flex-direction: column;
   font-size: 16px;
   font-weight: 300;
+  @media (max-width: 376px) {
+    width: 100%;
+  }
 `
 export const ItemTitle = styled.h3`
   color: ${props => props.color || "#000F08"};
@@ -116,6 +135,14 @@ export const BtnListSizeActive = styled(BtnListSize)`
   border: none;
   color: ${props => props.color || "#FFFFFF"};
   background-color: ${props => props.background || "#000F08"}
+`
+
+export const ItemBtnWrapper = styled.div`
+  display: flex;
+  @media (max-width: 376px) {
+    justify-content: center;
+    width: 100%;
+  }
 `
 
 export const ItemButton = styled.button`

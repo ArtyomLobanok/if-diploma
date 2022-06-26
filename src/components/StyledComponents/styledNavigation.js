@@ -10,6 +10,15 @@ const collapseEffect = keyframes`
   }
 `
 
+const fadeEffect = keyframes`
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
 export const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -225,6 +234,8 @@ export const NavigationHamburgerShadowBox = styled.div`
   height: 100vh;
   width: 100%;
   background: rgba(49, 49, 49, 0.55);
+  transition: 0.5s ease-out;
+  animation: ${fadeEffect} 1s linear;
 `
 
 export const NavigationHamburgerListWrapper = styled.div`

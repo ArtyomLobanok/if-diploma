@@ -1,5 +1,5 @@
 import {
-    Container, Flex,
+    Container,
     Section,
     SectionTitleBold,
     SectionTitleWrapper,

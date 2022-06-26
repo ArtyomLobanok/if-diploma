@@ -139,33 +139,27 @@ const HeaderNavigation = () => {
                     }
                 </Media>
             </Navigation>
-            <div>
+            <>
                 {
                     isDropdown && (
                         <NavigationHamburgerShadowBox>
                             <NavigationHamburgerListWrapper>
                                 <Container>
                                     <NavigationHamburgerListHeader>
-
                                             <NavigationHamburgerClose onClick={handleClickCloseList}>
                                                 <use href="#closeSearchForm"/>
                                             </NavigationHamburgerClose>
-
                                             <Link to="/">
                                                 <LogotypeIconHamburger fill='#000F08'>
                                                     <use href="#logotypeIcon"></use>
                                                 </LogotypeIconHamburger>
                                             </Link>
-
-
                                             <SearchIcon onClick={handleClickToOpenSearch} fill='#000F08' width='24px'
                                                         height='24px'>
                                                 <use href="#searchIcon"></use>
                                             </SearchIcon>
-
                                     </NavigationHamburgerListHeader>
                                     <NavigationHamburgerList>
-
                                         <li>{navLinkTextArrivals}</li>
                                         <li>{navLinkTextShop}</li>
                                         <li>{navLinkTextCollections}</li>
@@ -199,7 +193,7 @@ const HeaderNavigation = () => {
                         </NavigationHamburgerShadowBox>
                     )
                 }
-            </div>
+            </>
         </Container>
     )
 }

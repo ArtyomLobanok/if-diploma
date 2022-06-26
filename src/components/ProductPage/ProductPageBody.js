@@ -1,6 +1,6 @@
-import {Container, Flex, LikeIcon} from "../StyledComponents/General";
+import {Container, Flex} from "../StyledComponents/General";
 import {
-    BtnListSize, BtnListSizeActive, ButtonColor, ItemButton, ItemButtonLike,
+    BtnListSize, BtnListSizeActive, ButtonColor, ItemBodyWrapper, ItemBtnWrapper, ItemButton, ItemButtonLike,
     ItemColor, ItemFooterContent, ItemFooterWrapper, ItemIconClose, ItemIconOpen,
     ItemImgWrapper, ItemInfoWrapper, ItemPrice, ItemSize, ItemTitle, LikeIconItemPage
 } from "../StyledComponents/styledItemPage";
@@ -20,6 +20,7 @@ import ProductPageSizeData from "./ProductPageSizeData";
 import ProductPageDescriptionData from "./ProductPageDescriptionData";
 import useToggleBasket from "../../hooks/use-toggleBasket";
 import useToggleFavorites from "../../hooks/use-toggleFavorites";
+import Media from "react-media";
 
 
 const ProductPageBody = ({card}) => {
@@ -41,11 +42,22 @@ const ProductPageBody = ({card}) => {
 
     return (
         <Container>
-            <Flex>
-                <ItemImgWrapper>
-                    <img src={images[0]} alt='Pic'/>
-                    <img src={images[1]} alt='Pic'/>
-                </ItemImgWrapper>
+            <ItemBodyWrapper>
+                <Media query={{maxWidth: 376}}>
+                    {matches =>
+                        matches ? (
+                            <ItemImgWrapper>
+                                <img src={images[0]} alt='Pic'/>
+                            </ItemImgWrapper>
+                        ) : (
+                            <ItemImgWrapper>
+                                <img src={images[0]} alt='Pic'/>
+                                <img src={images[1]} alt='Pic'/>
+                            </ItemImgWrapper>
+                        )
+                    }
+                </Media>
+
                 <ItemInfoWrapper>
                     <ItemTitle>{name}</ItemTitle>
                     <ItemPrice>
@@ -91,7 +103,7 @@ const ProductPageBody = ({card}) => {
                         }
 
                     </ItemSize>
-                    <Flex>
+                    <ItemBtnWrapper>
                         {isItemInCart ?
                             <ItemButton onClick={handleRemCard}>
                                 {saleBtnCardTextRemove}
@@ -102,18 +114,18 @@ const ProductPageBody = ({card}) => {
                             </ItemButton>
                         }
                         {isItemInFavorites ?
-                            <ItemButtonLike onClick={handleRemFromFavorites} >
+                            <ItemButtonLike onClick={handleRemFromFavorites}>
                                 <LikeIconItemPage fill="red">
                                     <use href="#likeIcon"></use>
                                 </LikeIconItemPage>
                             </ItemButtonLike> :
                             <ItemButtonLike onClick={handleAddToFavorites}>
-                                <LikeIconItemPage >
+                                <LikeIconItemPage>
                                     <use href="#likeIcon"></use>
                                 </LikeIconItemPage>
                             </ItemButtonLike>
                         }
-                    </Flex>
+                    </ItemBtnWrapper>
                     <ItemFooterWrapper>
                         <Flex margin="0 0 22px 0">
                             {
@@ -185,7 +197,7 @@ const ProductPageBody = ({card}) => {
                         </Flex>
                     </ItemFooterWrapper>
                 </ItemInfoWrapper>
-            </Flex>
+            </ItemBodyWrapper>
         </Container>
     )
 }

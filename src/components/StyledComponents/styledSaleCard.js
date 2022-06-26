@@ -1,5 +1,15 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {StyledLinkCard} from "./General";
+
+const collapseEffect = keyframes`
+  from {
+    transform: translateX(-150%);
+    
+  }
+  to {
+    transform: translateX(0);
+  }
+`
 
 export const CardWrapper = styled.div`
   width: ${props => props.width || "initial"};
@@ -26,6 +36,8 @@ export const CardWrapper = styled.div`
   }
 
   @media (max-width: 376px) {
+    animation: ${collapseEffect} 0.5s forwards;
+    transition: all 0.5s ease-out;
     margin: 0 0 16px 0;
   }
 `
