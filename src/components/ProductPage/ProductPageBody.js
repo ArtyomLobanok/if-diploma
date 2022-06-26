@@ -147,7 +147,6 @@ const ProductPageBody = ({card}) => {
                                     </p>
                                 }
                             </ItemFooterContent>
-
                         </Flex>
                     </ItemFooterWrapper>
                     <ItemFooterWrapper>

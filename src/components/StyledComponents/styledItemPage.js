@@ -48,7 +48,7 @@ export const ItemImgWrapper = styled.div`
     height: 100vh;
   }
   @media (max-width: 376px) {
-    margin-right: 0;
+    margin: 16px 0 54px;
     width: 100%;
     img {
       width: 100%;
@@ -71,6 +71,11 @@ export const ItemTitle = styled.h3`
   font-size: 20px;
   font-weight: 400;
   margin: 50px 0 30px;
+  @media (max-width: 376px) {
+    width: 100%;
+    margin: 0 0 18px;
+    font-size: 16px;
+  }
 `
 export const ItemPrice = styled.div`
   color: ${props => props.color || "#000F08"};
@@ -79,11 +84,13 @@ export const ItemPrice = styled.div`
   margin-bottom: 36px;
 
   span {
+    color: ${props => props.color || "#000F08"};
+    font-size: 16px;
     margin-bottom: 10px;
   }
 
   p {
-    color: ${props => props.color || "#D8D8D8"};
+    color: ${props => props.color || "#8C8C8C"};
   }
 `
 export const ItemColor = styled.div`
@@ -92,6 +99,13 @@ export const ItemColor = styled.div`
   p {
     color: ${props => props.color || "#8C8C8C"};
     margin-bottom: 20px;
+    font-weight: 300;
+  }
+  @media (max-width: 376px) {
+    margin-bottom: 24px;
+    p{
+      margin-bottom: 10px;
+    }
   }
 `
 
@@ -114,6 +128,11 @@ export const ItemSize = styled.div`
   p {
     color: ${props => props.color || "#8C8C8C"};
     margin-bottom: 24px;
+  }
+  @media (max-width: 376px) {
+    p {
+      margin-bottom: 10px;
+    }
   }
 `
 
@@ -200,7 +219,8 @@ export const ItemIconOpen = styled.svg`
 `
 
 export const ItemIconClose = styled(ItemIconOpen)`
-  width: ${props => props.width || '9px'};
+  width: ${props => props.width || '30px'};
+  height: ${props => props.height || '18px'};
   position: relative;
   bottom: -2px;
 `
