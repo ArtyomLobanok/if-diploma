@@ -58,6 +58,7 @@ export const CreateAccText = 'CREATE ACCOUNT';
 export const LoginAccText = 'LOGIN';
 export const AgreementTextPartFirst = 'Let\'s get personal! We\'ll send you only the good stuff:';
 export const AgreementTextPartSecond = 'Exclusive early access to Sale, new arrivals and promotions. No nasties.';
+export const AgreementText = "Let's get personal! We'll send you only the good stuff: Exclusive early access to Sale, new arrivals and promotions. No nasties."
 export const SubTextAgreePartFirst = 'By signing up you agree to ';
 export const SubTextTerms = 'Terms of Service';
 export const SubTextAgreePartSecond = ' and ';
