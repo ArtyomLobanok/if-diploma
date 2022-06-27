@@ -3,13 +3,13 @@ import {HeaderSection} from "../components/StyledComponents/General"
 import Svg from "../assets/svg";
 import React from "react";
 import HeaderIntro from "../components/MainPage/HeaderIntro";
-import HeaderDropdownSearch from "../components/MainPage/HeaderDropdownSearch";
+import HeaderSearch from "../components/MainPage/HeaderSearch";
 import Media from 'react-media';
 
 const Header = () => {
     return (
         <>
-            <HeaderDropdownSearch/>
+            <HeaderSearch/>
             <HeaderSection>
                 <Svg/>
                 <HeaderNavigation/>

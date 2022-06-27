@@ -12,11 +12,12 @@ import {
 } from "../components/StyledComponents/styledCategorySection";
 import {BtnShowMoreItemCategoryText, NotFoundText, SearchTitleText} from "../configs/stringsDataConfig";
 import FilteredData from "../components/MainPage/FilteredData";
+import HeaderScrollToSearchResults from "../components/MainPage/HeaderScrolltoSearchResults";
 
 const SearchSection = () => {
+    const {ref} = HeaderScrollToSearchResults();
     const isShow = useSelector(state => state.showSearchResultsReducer);
     const searchResults = useSelector(state => state.searchDataReducer);
-
     const {
         paginatedList,
         lastItemIndex,
@@ -25,7 +26,7 @@ const SearchSection = () => {
 
     return (
         (isShow.show === true) &&
-        <Section>
+        <Section ref={ref}>
             <Container>
                 {
                     searchResults.length === 0 ? (

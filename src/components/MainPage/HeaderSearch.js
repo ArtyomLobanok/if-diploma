@@ -3,12 +3,14 @@ import {SearchContainer, SearchForm} from "../StyledComponents/styledHeaderModal
 import {currentPageToShow, inputSearchDataLoad, inputText, showSearch, showSearchResults} from "../../redux/actions";
 import {SearchPlaceholderText} from "../../configs/stringsDataConfig";
 import {Container} from "../StyledComponents/General";
-import scrollToTop from "../ScrollToTop";
+import HeaderScrollToSearchResults from "./HeaderScrolltoSearchResults";
 
-const HeaderDropdownSearch = () => {
+const HeaderSearch = () => {
     const dispatch = useDispatch();
+    const {executeScroll} = HeaderScrollToSearchResults();
     const isShowSearch = useSelector(state => state.SearchShowReducer);
     const textInput = useSelector(state => state.InputTextSearchReducer);
+
     const handleChangeInputText = (search) => {
         dispatch(inputText(search))
     }
@@ -18,13 +20,14 @@ const HeaderDropdownSearch = () => {
     };
 
     const handleSubmit = (e) => {
-        scrollToTop()
-        dispatch(inputSearchDataLoad(textInput))
-        dispatch(showSearchResults(true))
-        dispatch(currentPageToShow(1))
-        dispatch(showSearch(false))
         e.preventDefault()
-
+        if (textInput !== "") {
+            dispatch(inputSearchDataLoad(textInput))
+            dispatch(showSearchResults(true))
+            dispatch(currentPageToShow(1))
+            dispatch(showSearch(false))
+            executeScroll()
+        }
     }
 
     return (
@@ -48,4 +51,4 @@ const HeaderDropdownSearch = () => {
     )
 }
 
-export default HeaderDropdownSearch;
+export default HeaderSearch;
