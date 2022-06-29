@@ -119,3 +119,9 @@ export const ItemsCategoryPaginated = styled.div`
   }
 `
 
+export const SearchResultsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+`
+

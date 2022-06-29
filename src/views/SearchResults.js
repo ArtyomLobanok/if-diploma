@@ -7,6 +7,7 @@ import {
 import CardOfCategory from "../components/MainPage/CardOfCategory";
 import {useSelector} from "react-redux";
 import {
+    SearchResultsWrapper,
     ShopCategoryNotFound,
     StyledBtnShowMoreItemCategory
 } from "../components/StyledComponents/styledCategorySection";
@@ -45,14 +46,14 @@ const SearchSection = () => {
                                     {SearchTitleText}
                                 </SectionTitleBold>
                             </SectionTitleWrapper>
-                            <Flex width='100%' wrap='wrap'>
+                            <SearchResultsWrapper>
                                 {
                                     paginatedList.map(categoryCard => (
                                         <CardOfCategory key={categoryCard.id}
                                                         card={categoryCard}/>
                                     ))
                                 }
-                            </Flex>
+                            </SearchResultsWrapper>
                             {
                                 paginatedList.length <= lastItemIndex &&
                                 <StyledBtnShowMoreItemCategory onClick={handleAddItemsToShow}>
