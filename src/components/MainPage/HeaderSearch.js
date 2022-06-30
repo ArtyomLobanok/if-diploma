@@ -3,11 +3,10 @@ import {SearchContainer, SearchForm} from "../StyledComponents/styledHeaderModal
 import {currentPageToShow, inputSearchDataLoad, inputText, showSearch, showSearchResults} from "../../redux/actions";
 import {SearchPlaceholderText} from "../../configs/stringsDataConfig";
 import {Container} from "../StyledComponents/General";
-import HeaderScrollToSearchResults from "./HeaderScrolltoSearchResults";
 
-const HeaderSearch = () => {
+
+const HeaderSearch = ({searchResultRef}) => {
     const dispatch = useDispatch();
-    const {executeScroll} = HeaderScrollToSearchResults();
     const isShowSearch = useSelector(state => state.SearchShowReducer);
     const textInput = useSelector(state => state.InputTextSearchReducer);
 
@@ -22,11 +21,11 @@ const HeaderSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (textInput !== "") {
+            window.scrollTo(0, searchResultRef.current.offsetTop)
             dispatch(inputSearchDataLoad(textInput))
             dispatch(showSearchResults(true))
             dispatch(currentPageToShow(1))
             dispatch(showSearch(false))
-            executeScroll()
         }
     }
 

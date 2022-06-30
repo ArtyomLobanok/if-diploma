@@ -32,7 +32,8 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
-  body {
+  body, html {
+    scroll-behavior: smooth;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
   }

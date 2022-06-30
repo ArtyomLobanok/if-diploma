@@ -1,15 +1,14 @@
 import HeaderNavigation from "../components/MainPage/HeaderNavigation";
 import {HeaderSection} from "../components/StyledComponents/General"
 import Svg from "../assets/svg";
-import React from "react";
 import HeaderIntro from "../components/MainPage/HeaderIntro";
 import HeaderSearch from "../components/MainPage/HeaderSearch";
 import Media from 'react-media';
 
-const Header = () => {
+const Header = ({searchResultRef}) => {
     return (
         <>
-            <HeaderSearch/>
+            <HeaderSearch searchResultRef={searchResultRef}/>
             <HeaderSection>
                 <Svg/>
                 <HeaderNavigation/>
@@ -22,4 +21,5 @@ const Header = () => {
         </>
     )
 }
+
 export default Header;
