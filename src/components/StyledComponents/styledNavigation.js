@@ -155,7 +155,6 @@ export const SearchIcon = styled.svg`
 
 export const HeaderWrapper = styled.div`
   position: absolute;
-  left: 8.75rem;
   bottom: 122px;
   @media (max-width: 376px) {
     position: initial;
